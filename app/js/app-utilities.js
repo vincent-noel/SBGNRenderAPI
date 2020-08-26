@@ -6,7 +6,7 @@
 var jquery = $ = require('jquery');
 var chroma = require('chroma-js');
 var chise = require('chise');
-var tutorial = require('./tutorial');
+// var tutorial = require('./tutorial');
 
 var appUtilities = {};
 
@@ -48,142 +48,142 @@ appUtilities.networkIdsStack = [];
 // map of unique network id to related chise.js instance
 appUtilities.networkIdToChiseInstance = {};
 
-appUtilities.adjustUIComponents = function (_cy) {
+// appUtilities.adjustUIComponents = function (_cy) {
 
-  // if _cy param is not set use the active cy instance
-  var cy = _cy || appUtilities.getActiveCy();
+//   // if _cy param is not set use the active cy instance
+//   var cy = _cy || appUtilities.getActiveCy();
 
-  // adjust UI components in inspector map tab
+//   // adjust UI components in inspector map tab
 
-  appUtilities.colorSchemeInspectorView.render();
-  appUtilities.mapTabGeneralPanel.render();
-  appUtilities.mapTabLabelPanel.render();
-  appUtilities.mapTabRearrangementPanel.render();
-  appUtilities.experimentTabPanel.render();
-  // needing an appUndoActions instance here is something unexpected
-  // but since appUndoActions.refreshColorSchemeMenu is used below in an unfortunate way we need an instance of it
-  // that uses the active cy instance
-  var appUndoActionsFactory = require('./app-undo-actions-factory');
-  var appUndoActions = appUndoActionsFactory(appUtilities.getActiveCy());
+//   appUtilities.colorSchemeInspectorView.render();
+//   appUtilities.mapTabGeneralPanel.render();
+//   appUtilities.mapTabLabelPanel.render();
+//   appUtilities.mapTabRearrangementPanel.render();
+//   appUtilities.experimentTabPanel.render();
+//   // needing an appUndoActions instance here is something unexpected
+//   // but since appUndoActions.refreshColorSchemeMenu is used below in an unfortunate way we need an instance of it
+//   // that uses the active cy instance
+//   var appUndoActionsFactory = require('./app-undo-actions-factory');
+//   var appUndoActions = appUndoActionsFactory(appUtilities.getActiveCy());
 
-  // get current general properties for cy
-  var generalProperties = appUtilities.getScratch(cy, 'currentGeneralProperties');
+//   // get current general properties for cy
+//   var generalProperties = appUtilities.getScratch(cy, 'currentGeneralProperties');
 
-  // refresh color schema menu
-  appUndoActions.refreshColorSchemeMenu({value: generalProperties.mapColorScheme, self: appUtilities.colorSchemeInspectorView, scheme_type: generalProperties.mapColorSchemeStyle});
+//   // refresh color schema menu
+//   appUndoActions.refreshColorSchemeMenu({value: generalProperties.mapColorScheme, self: appUtilities.colorSchemeInspectorView, scheme_type: generalProperties.mapColorSchemeStyle});
 
-  // set the file content by the current file name for cy
-  var fileName = appUtilities.getScratch(cy, 'currentFileName');
-  appUtilities.setFileContent(fileName);
+//   // set the file content by the current file name for cy
+//   var fileName = appUtilities.getScratch(cy, 'currentFileName');
+//   appUtilities.setFileContent(fileName);
 
-  // reset the status of undo redo buttons
-  appUtilities.refreshUndoRedoButtonsStatus(cy);
+//   // reset the status of undo redo buttons
+//   appUtilities.refreshUndoRedoButtonsStatus(cy);
 
-  // adjust UI components related to mode properties
+//   // adjust UI components related to mode properties
 
-  // access the mode properties of cy
-  var modeProperties = appUtilities.getScratch(cy, 'modeProperties');
+//   // access the mode properties of cy
+//   var modeProperties = appUtilities.getScratch(cy, 'modeProperties');
 
-  // html values to select
-  var nodeVal = modeProperties.selectedNodeType.replace(/ /gi, '-'); // Html values includes '-' instead of ' '
-  var edgeVal = modeProperties.selectedEdgeType.replace(/ /gi, '-'); // Html values includes '-' instead of ' '
+//   // html values to select
+//   var nodeVal = modeProperties.selectedNodeType.replace(/ /gi, '-'); // Html values includes '-' instead of ' '
+//   var edgeVal = modeProperties.selectedEdgeType.replace(/ /gi, '-'); // Html values includes '-' instead of ' '
 
-  var mode = modeProperties.mode;
-  var sustainMode = modeProperties.sustainMode;
-  var nodeLang = modeProperties.selectedNodeLanguage;
-  var edgeLang = modeProperties.selectedEdgeLanguage;
+//   var mode = modeProperties.mode;
+//   var sustainMode = modeProperties.sustainMode;
+//   var nodeLang = modeProperties.selectedNodeLanguage;
+//   var edgeLang = modeProperties.selectedEdgeLanguage;
 
-  $('.node-palette img').removeClass('selected-mode');
-  $('.edge-palette img').removeClass('selected-mode');
+//   $('.node-palette img').removeClass('selected-mode');
+//   $('.edge-palette img').removeClass('selected-mode');
 
-  // Get images for node/edge palettes
-  var nodeImg = $('.node-palette img[value="'+nodeVal+'"][language="' + nodeLang + '"]');
-  var edgeImg = $('.edge-palette img[value="'+edgeVal+'"][language="' + edgeLang + '"]');
+//   // Get images for node/edge palettes
+//   var nodeImg = $('.node-palette img[value="'+nodeVal+'"][language="' + nodeLang + '"]');
+//   var edgeImg = $('.edge-palette img[value="'+edgeVal+'"][language="' + edgeLang + '"]');
 
-  // also set the icons in toolbar accordingly
-  $('#add-node-mode-icon').attr('src', nodeImg.attr('src'));
-  $('#add-node-mode-icon').attr('title', "Create a new " + nodeImg.attr('title'));
-  $('#add-edge-mode-icon').attr('src', edgeImg.attr('src'));
-  $('#add-edge-mode-icon').attr('title', "Create a new " + edgeImg.attr('title'));
+//   // also set the icons in toolbar accordingly
+//   $('#add-node-mode-icon').attr('src', nodeImg.attr('src'));
+//   $('#add-node-mode-icon').attr('title', "Create a new " + nodeImg.attr('title'));
+//   $('#add-edge-mode-icon').attr('src', edgeImg.attr('src'));
+//   $('#add-edge-mode-icon').attr('title', "Create a new " + edgeImg.attr('title'));
 
-  // unactivate all UI components
-  $('#select-mode-icon').parent().removeClass('selected-mode');
-  $('#add-edge-mode-icon').parent().removeClass('selected-mode');
-  $('#add-node-mode-icon').parent().removeClass('selected-mode');
-  $('#add-edge-mode-icon').parent().removeClass('selected-mode-sustainable');
-  $('#add-node-mode-icon').parent().removeClass('selected-mode-sustainable');
-  $('#marquee-zoom-mode-icon').parent().removeClass('selected-mode');
-  $('.node-palette img').addClass('inactive-palette-element');
-  $('.edge-palette img').addClass('inactive-palette-element');
-  $('.selected-mode-sustainable').removeClass('selected-mode-sustainable');
+//   // unactivate all UI components
+//   $('#select-mode-icon').parent().removeClass('selected-mode');
+//   $('#add-edge-mode-icon').parent().removeClass('selected-mode');
+//   $('#add-node-mode-icon').parent().removeClass('selected-mode');
+//   $('#add-edge-mode-icon').parent().removeClass('selected-mode-sustainable');
+//   $('#add-node-mode-icon').parent().removeClass('selected-mode-sustainable');
+//   $('#marquee-zoom-mode-icon').parent().removeClass('selected-mode');
+//   $('.node-palette img').addClass('inactive-palette-element');
+//   $('.edge-palette img').addClass('inactive-palette-element');
+//   $('.selected-mode-sustainable').removeClass('selected-mode-sustainable');
 
-  // Node/edge palettes should be initialized according to default nodeVal and edgeVal
-  nodeImg.addClass('selected-mode');
-  edgeImg.addClass('selected-mode');
+//   // Node/edge palettes should be initialized according to default nodeVal and edgeVal
+//   nodeImg.addClass('selected-mode');
+//   edgeImg.addClass('selected-mode');
 
-  var modeHandler = require('./app-mode-handler');
+//   var modeHandler = require('./app-mode-handler');
 
-  // adjust UI components according to the params
-  if ( mode === 'selection-mode' ) {
+//   // adjust UI components according to the params
+//   if ( mode === 'selection-mode' ) {
 
-    $('#select-mode-icon').parent().addClass('selected-mode');
+//     $('#select-mode-icon').parent().addClass('selected-mode');
 
-    modeHandler.autoEnableMenuItems(true);
-  }
-  else if ( mode === 'add-node-mode' ) {
+//     modeHandler.autoEnableMenuItems(true);
+//   }
+//   else if ( mode === 'add-node-mode' ) {
 
-    $('#add-node-mode-icon').parent().addClass('selected-mode');
-    $('.node-palette img').removeClass('inactive-palette-element');
+//     $('#add-node-mode-icon').parent().addClass('selected-mode');
+//     $('.node-palette img').removeClass('inactive-palette-element');
 
-    modeHandler.autoEnableMenuItems(false);
+//     modeHandler.autoEnableMenuItems(false);
 
-    if ( sustainMode ) {
-      $('#add-node-mode-icon').parent().addClass('selected-mode-sustainable');
-      $('.node-palette .selected-mode').addClass('selected-mode-sustainable');
-    }
+//     if ( sustainMode ) {
+//       $('#add-node-mode-icon').parent().addClass('selected-mode-sustainable');
+//       $('.node-palette .selected-mode').addClass('selected-mode-sustainable');
+//     }
 
-  }
-  else if ( mode === 'add-edge-mode' ) {
+//   }
+//   else if ( mode === 'add-edge-mode' ) {
 
-    $('#add-edge-mode-icon').parent().addClass('selected-mode');
-    $('.edge-palette img').removeClass('inactive-palette-element');
+//     $('#add-edge-mode-icon').parent().addClass('selected-mode');
+//     $('.edge-palette img').removeClass('inactive-palette-element');
 
-    modeHandler.autoEnableMenuItems(false);
+//     modeHandler.autoEnableMenuItems(false);
 
-    if ( sustainMode ) {
-      $('#add-edge-mode-icon').parent().addClass('selected-mode-sustainable');
-      $('.edge-palette .selected-mode').addClass('selected-mode-sustainable');
-    }
+//     if ( sustainMode ) {
+//       $('#add-edge-mode-icon').parent().addClass('selected-mode-sustainable');
+//       $('.edge-palette .selected-mode').addClass('selected-mode-sustainable');
+//     }
 
-  }
-  else if( mode === 'marquee-zoom-mode'){
+//   }
+//   else if( mode === 'marquee-zoom-mode'){
 
-    $('#marquee-zoom-mode-icon').parent().addClass('selected-mode');
+//     $('#marquee-zoom-mode-icon').parent().addClass('selected-mode');
 
-  }
+//   }
 
-  // adjust status of grid guide related icons in toolbar
+//   // adjust status of grid guide related icons in toolbar
 
-  // get the current status of related variables for cy
-  var toggleEnableGuidelineAndSnap = appUtilities.getScratch(cy, 'toggleEnableGuidelineAndSnap');
-  var toggleShowGridEnableSnap = appUtilities.getScratch(cy, 'toggleShowGridEnableSnap');
+//   // get the current status of related variables for cy
+//   var toggleEnableGuidelineAndSnap = appUtilities.getScratch(cy, 'toggleEnableGuidelineAndSnap');
+//   var toggleShowGridEnableSnap = appUtilities.getScratch(cy, 'toggleShowGridEnableSnap');
 
-  // adjust toggle-guidelines-snapping-icon icons accordingly
-  if (toggleEnableGuidelineAndSnap){
-    $('#toggle-guidelines-snapping-icon').addClass('toggle-mode-sustainable');
-  }
-  else{
-    $('#toggle-guidelines-snapping-icon').removeClass('toggle-mode-sustainable');
-  }
+//   // adjust toggle-guidelines-snapping-icon icons accordingly
+//   if (toggleEnableGuidelineAndSnap){
+//     $('#toggle-guidelines-snapping-icon').addClass('toggle-mode-sustainable');
+//   }
+//   else{
+//     $('#toggle-guidelines-snapping-icon').removeClass('toggle-mode-sustainable');
+//   }
 
-  // adjust oggle-grid-snapping-icon accordingly
-  if (toggleShowGridEnableSnap){
-    $('#toggle-grid-snapping-icon').addClass('toggle-mode-sustainable');
-  }
-  else{
-     $('#toggle-grid-snapping-icon').removeClass('toggle-mode-sustainable');
-  }
-};
+//   // adjust oggle-grid-snapping-icon accordingly
+//   if (toggleShowGridEnableSnap){
+//     $('#toggle-grid-snapping-icon').addClass('toggle-mode-sustainable');
+//   }
+//   else{
+//      $('#toggle-grid-snapping-icon').removeClass('toggle-mode-sustainable');
+//   }
+// };
 
 // get id of the div panel for the given network id
 appUtilities.getNetworkPanelId = function (networkId) {
@@ -634,7 +634,7 @@ appUtilities.setActiveNetwork = function (networkKey) {
   this.networkIdsStack.push(networkId);
 
   // adjust UI components for †he activated network
-  this.adjustUIComponents();
+  // this.adjustUIComponents();
 
 };
 
@@ -2513,8 +2513,8 @@ appUtilities.launchWithModelFile = function() {
     loadFromURL(url_path, chiseInstance, promptInvalidURLWarning);
   else if(uri_path != undefined)
     loadFromURI(uri_path, chiseInstance, promptInvalidURIWarning);
-  else
-    tutorial.introduction(true);
+  // else
+  //   tutorial.introduction(true);
 
   function loadFromURL(filepath, chiseInstance, promptInvalidURLWarning){
 
