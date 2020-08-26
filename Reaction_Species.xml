@@ -1,0 +1,2990 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <extension>
+            <renderInformation backgroundColor="#ffffff" id="renderInformation" programName="cd2sbgnml" programVersion="0.1" xmlns="http://www.sbml.org/sbml/level3/version1/render/version1">
+                <listOfColorDefinitions>
+                    <colorDefinition id="color_6" value="#66ff66ff"/>
+                    <colorDefinition id="color_2" value="#cccc00ff"/>
+                    <colorDefinition id="color_3" value="#ccffccff"/>
+                    <colorDefinition id="color_9" value="#ccff66ff"/>
+                    <colorDefinition id="color_12" value="#808080ff"/>
+                    <colorDefinition id="color_8" value="#f7f7f7ff"/>
+                    <colorDefinition id="color_11" value="#ffccccff"/>
+                    <colorDefinition id="color_7" value="#ffff66ff"/>
+                    <colorDefinition id="color_5" value="#cc99ffff"/>
+                    <colorDefinition id="color_14" value="#ff0000ff"/>
+                    <colorDefinition id="color_16" value="#b20000ff"/>
+                    <colorDefinition id="color_4" value="#000000ff"/>
+                    <colorDefinition id="color_13" value="#0000ffff"/>
+                    <colorDefinition id="color_10" value="#ff6666ff"/>
+                    <colorDefinition id="color_15" value="#ffc800ff"/>
+                    <colorDefinition id="color_1" value="#ffffff00"/>
+                </listOfColorDefinitions>
+                <listOfStyles>
+                    <style id="style_1.0ff66ff6612.0ff000000" idList="emtc_emtc_s134_sa5 emtc_emtc_s4802_sa9 emtc_emtc_s22_sa49 emtc_emtc_s3720_sa51 emtc_emtc_s1408_sa52">
+                        <g fill="color_6" fontSize="12.0" stroke="color_4" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_1.0ffccff6612.0ff000000" idList="emtc_emtc_s1168_sa16 emtc_emtc_s1168_sa27 emtc_emtc_s1168_sa31 emtc_emtc_s1169_sa17 emtc_emtc_s1169_sa26 emtc_emtc_s1169_sa30 emtc_emtc_s1560_sa19 emtc_emtc_s1544_sa37 emtc_emtc_s3419_sa42 emtc_emtc_s1540_sa44">
+                        <g fill="color_9" fontSize="12.0" stroke="color_4" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_13.500ffffff12.0ffcccc00" idList="c2_ca2 c3_ca3 c4_ca4">
+                        <g fill="color_1" fontSize="12.0" stroke="color_2" strokeWidth="13.5"/>
+                    </style>
+                    <style id="style_1.0ffccffcc12.0ff000000" idList="emtc_emtc_s3373_sa1 emtc_emtc_s4720_sa3 emtc_emtc_s4807_sa7 emtc_emtc_s4801_sa8 emtc_emtc_s4819_sa11 emtc_emtc_s656_sa12 emtc_emtc_s4723_sa13 emtc_emtc_s4722_sa14 emtc_emtc_s1578_sa15 emtc_emtc_s1562_sa20 emtc_emtc_s1563_sa21 s2499_sa22 s1_sa4 emtc_emtc_s1547_sa23 emtc_emtc_s3420_sa24 emtc_emtc_s1549_sa25 emtc_emtc_s1591_sa28 emtc_emtc_s3030_sa29 emtc_emtc_s1541_sa32 emtc_emtc_s1545_sa38 emtc_emtc_s1546_sa39 s2498_sa40 emtc_emtc_s1537_sa41 emtc_emtc_s1539_sa43 emtc_emtc_s1552_sa45 emtc_emtc_s1553_sa46">
+                        <g fill="color_3" fontSize="12.0" stroke="color_4" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_1.0ffff666612.0ff000000" idList="emtc_emtc_s1338_sa47 emtc_emtc_s1407_sa53">
+                        <g fill="color_10" fontSize="12.0" stroke="color_4" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_2.0fff7f7f712.0ff000000" idList="emtc_emtc_s4721_csa1 emtc_emtc_s3028_csa2 emtc_emtc_s3027_csa4 emtc_emtc_s3418_csa5 emtc_emtc_s3009_csa6 emtc_emtc_s1548_csa7 s13_csa8">
+                        <g fill="color_8" fontSize="12.0" stroke="color_4" strokeWidth="2.0"/>
+                    </style>
+                    <style id="style_1.000ffffff12.0ff808080" idList="pr_855c3ba4-dc4c-4038-b57f-27bd1136ee63 cons_0b7d1837-51fa-4c5f-bfb4-0690dbfc58a2 prod_321c78d9-35c5-4e4c-ab95-fe60212bd72c pr_9891daa6-96fb-4c5b-a4ae-0847237c014a cons_174b3b93-aa46-443e-83f1-fa0b3c2a8877 prod_f3f3af49-7b12-4414-a4f2-4b76fb005bca pr_ec3f736d-d041-4f86-832f-a7ed96e0df3c cons_95e41b2e-7281-4521-aa4b-5003beef9a71 prod_f94b3cf4-24b7-4490-a460-d50db79a7d9f pr_e07056fa-280f-4300-929b-e5fe1634238a cons_75fcdbd3-6227-4f61-a3ae-d907f5e190e3 cons_5cc2f353-1d9d-4902-9fff-085780641bd7 prod_9a17b05a-2cc3-42a7-bffc-c0d7549b028a pr_b8dba73d-a735-46ac-b483-f805f6b8b708 cons_1eca434b-eef2-485f-8f4f-74b0f4517ca4 prod_da0b3827-e8a9-4846-b92c-bf9939b08da0 pr_a5c3ced0-14ff-46e7-9f42-890a10115275 cons_2d19dc6c-5b23-432b-9904-71e3f9acb81e prod_3c2ba125-262d-45fa-b627-9b116698392b pr_7b3b08a2-2c8c-4c34-b720-5226720efee0 cons_42fb2266-3b48-4d1d-93ce-f9e16a07d9c0 prod_089dc81d-a414-4f45-b0c8-745f3c3a6642 pr_2f3a386e-74d4-4d55-82d1-802d702c97e1 cons_2d53e580-75bc-40ee-99d9-09dfd3149d32 prod_37aa726b-e8ed-4f5c-89e2-2a1d6c842644 pr_6217f277-389e-4f81-ae45-6183d8253683 cons_3fdb5b80-45ba-4185-860e-cb93e6001c7d prod_528c75fa-0b49-4e12-95dc-17437fb9b31f pr_a58e83dc-27d9-4564-a52d-96c13559251d cons_bc34fdb9-fad2-4841-b771-05c88e45b038 prod_e265e369-b678-45dd-9018-eec1755c657e pr_9890ebf3-3f20-4ebb-adcb-cb5681648096 cons_39fb99d0-9601-4b66-a4f3-a3f9654d0695 cons_ec0b2932-d654-4884-8cc8-75343fde6dcf prod_f2cac704-e2de-4018-b380-64bbfe0da92b pr_f91ce82c-00c9-4de3-b355-9624023309be cons_89e33917-27b2-405e-82cf-c3e48586036a cons_5effaca0-444a-4c8e-b07a-0db22d692864 prod_7cefa21d-c352-40bb-a8f8-713045a16afb pr_f46d402a-a5b2-4e72-9d60-312ca20eaade cons_896f1dba-dbb7-4786-930a-dc0f18f35213 cons_3b366712-f7ca-4b13-96e8-2d955faa38be prod_78c53245-32ff-456f-8330-f000479551c6 pr_3e13a291-43b0-4dde-a777-897a3f1b5c95 cons_c5827b98-d46e-4027-b344-c442756a9db6 prod_5a344637-680c-470b-a644-bac4170c5dc5 pr_a41df8f3-2b89-415d-9ffa-9ac87f31a278 cons_ecc69d5e-638e-4626-98e7-988a5c07bdc7 prod_57da5d4f-c97a-49c4-a2d5-e47464527d4c pr_f66f2752-433c-4fa7-ae61-30f3133a0823 cons_508f4df8-5ec9-4dca-85d5-dd33ab31cec7 prod_7ebff9ea-d716-4505-aa4d-3e34b88aaedd pr_ca32914e-216e-44ac-8333-02dc9cba6e25 cons_d62f0d8e-c2ec-47b3-8842-4219a388d407 prod_c4b2e037-6d78-495f-a1d5-1046dd3771b4 pr_9b84fe63-5737-4de5-a833-4ae14425db11 cons_912d8e92-d4da-49fb-8bbc-9865a5db66de prod_c6f1b226-4334-4480-9155-eca007e9db41 pr_bba97e24-4af8-40ec-9633-4426cda7b4a5 cons_23df6a24-7e66-4cf6-ab1a-87a56ee45c61 cons_4f1cf5e7-2ebc-4f04-9dde-82f2b35f4771 prod_9e68a67a-d6e2-43bb-9100-f99799f218ac pr_e489986f-f3da-485f-827c-7b0a909ac314 cons_615fa890-e021-4050-b228-51fb83dcba90 prod_b809abc9-f51c-4760-9117-74c5481ddc90">
+                        <g fill="color_1" fontSize="12.0" stroke="color_12" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_1.0ffffcccc12.0ff000000" idList="emtc_emtc_s4729_sa54 emtc_emtc_s4749_sa55">
+                        <g fill="color_11" fontSize="12.0" stroke="color_4" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_1.0ffcc99ff12.0ff000000" idList="emtc_emtc_s2929_sa2">
+                        <g fill="color_5" fontSize="12.0" stroke="color_4" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_1.0ffffff6612.0ff000000" idList="emtc_emtc_s133_sa6 emtc_emtc_s4803_sa10 emtc_emtc_s1339_sa48 emtc_emtc_s4_sa50">
+                        <g fill="color_7" fontSize="12.0" stroke="color_4" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_1.000ffffff12.0ffff0000" idList="direct_6ec52b3b-cde2-4d9c-9b10-4594b49df2db modif_3d5c6714-c8c4-4b61-b800-f4683af37e81 modif_e544f48b-4f71-463e-b295-d0ae9955012a modif_4edbb7f2-8a22-4226-88a1-ee8daf136d9f modif_3031ef2b-7791-42f2-b488-929d9b62e3a8">
+                        <g fill="color_1" fontSize="12.0" stroke="color_14" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_1.000ffffff12.0ffb20000" idList="modif_b6c94738-cf15-464e-9015-75c84a0785d9">
+                        <g fill="color_1" fontSize="12.0" stroke="color_16" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_1.000ffffff12.0ff0000ff" idList="modif_c46aa5bd-5feb-4db8-8432-f87be6fc4e8b">
+                        <g fill="color_1" fontSize="12.0" stroke="color_13" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_1.000ffffff12.0ff000000" idList="addreact_1fad4f03-7523-4ddb-b7a1-56b1a0ba1ffb addprod_2f06939d-7800-48fd-957a-797f1b9cce26 addreact_62a71706-b656-4879-aa28-fba82b234ec2 addprod_3218e769-b7c9-4751-ba6d-594c8cde0a56 addreact_a6a21c50-6c67-40e0-a484-fb2432ef065d addprod_85b347ac-ca4d-4764-8d32-7f68dc7216ef">
+                        <g fill="color_1" fontSize="12.0" stroke="color_4" strokeWidth="1.0"/>
+                    </style>
+                    <style id="style_1.000ffffff12.0ffffc800" idList="modif_547da2e4-73d9-474b-bcfd-8353879c71ac">
+                        <g fill="color_1" fontSize="12.0" stroke="color_15" strokeWidth="1.0"/>
+                    </style>
+                </listOfStyles>
+            </renderInformation>
+        </extension>
+        <glyph class="compartment" id="c2_ca2">
+            <label text="Nucleus">
+                <bbox w="40.0" h="10.0" x="1018.0" y="274.5"/>
+            </label>
+            <bbox w="565.0" h="331.0" x="867.0" y="93.0"/>
+        </glyph>
+        <glyph class="compartment" id="c3_ca3">
+            <label text="Cytosol">
+                <bbox w="40.0" h="10.0" x="501.0" y="332.5"/>
+            </label>
+            <bbox w="1403.0" h="838.0" x="53.0" y="62.0"/>
+        </glyph>
+        <glyph class="compartment" id="c4_ca4">
+            <label text="Extracellular space">
+                <bbox w="100.0" h="10.0" x="470.0" y="507.0"/>
+            </label>
+            <bbox w="1644.0" h="1152.0" x="28.0" y="25.0"/>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s3373_sa1" compartmentRef="c4_ca4">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+fibronectin 1
+HUGO:FN1, HGNC:3778, ENTREZ:2335, UNIPROT:P02751, GENECARDS:GC02M216225
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+MODULE:CELL_MATRIX_ADHESIONS
+Maps_Modules_end
+References_begin:
+PMID:2409071
+Fibronectin is located on the apical and basal cell surfaces.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="Fibronectin*"/>
+            <bbox w="72.0" h="20.0" x="777.5" y="924.719"/>
+        </glyph>
+        <glyph class="phenotype" id="emtc_emtc_s2929_sa2" compartmentRef="c4_ca4">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+CELL_MATRIX_ADHESIONS
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:CYTOSKELETON_POLARITY
+MODULE:CELL_CELL_ADHESIONS
+MODULE:CELL_MATRIX_ADHESIONS
+MODULE:ECM
+MODULE:TIGHT_JUNCTIONS
+MODULE:GAP_JUNCTIONS
+MODULE:ADHERENS_JUNCTIONS
+MODULE:DESMOSOMES
+Maps_Modules_end
+References_begin:
+PMID:19161977
+In the endoplasmic reticulum, integrin subunits find their binding partners and form heterodimers.
+Monomeric integrins never reach the cell surface.
+Integrins a1b1, a2b1, a10b1 and a11b1 bind to collagens
+PMID:12297042
+Cell adhesion to components of the ECM is important in the angiogenesis
+PMID:2153105
+PMID:2786007
+PMID:7639691
+PMID:10809728
+integrins are receptors for different ECM proteins: Collagen 1, 4; Laminin 1, 8; Fibronectin and Vitronectin
+Laminin-8 interacts with integrins.
+PMID:7522194
+PMID:16195317
+Interactions between integrins and the ECM proteins result in focal cell adhesion and cytoskeleton remodeling.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="Cell-matrix adhesions"/>
+            <bbox w="142.0" h="27.0" x="810.0" y="1117.25"/>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s4720_sa3" compartmentRef="c4_ca4">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+Fibronectin partners
+NAME:a5b1*
+ITGA5/ITGB1
+integrin, alpha 5 (fibronectin receptor, alpha polypeptide)
+HUGO:ITGA5, HGNC:6141, ENTREZ:3678, UNIPROT:P08648, GENECARDS:GC12M054789
+integrin, beta 1 (fibronectin receptor, beta polypeptide, antigen CD29 includes MDF2, MSK12)
+HUGO:ITGB1, HGNC:6153, ENTREZ:3688, UNIPROT:P05556, GENECARDS:GC10M033189
+NAME:aVb3*
+ITGAV/ITGB3
+integrin, alpha V
+"antigen identified by monoclonal antibody L230", "integrin, alpha V (vitronectin receptor, alpha polypeptide, antigen CD51)", MSK8, "vitronectin receptor", VNRA, VTNR
+HUGO:ITGAV HGNC:6150 ENTREZ:3685 UNIPROT:P06756 GENECARDS:GC02P187418
+integrin, beta 3 (platelet glycoprotein IIIa, antigen CD61)
+GP3A
+HUGO:ITGB3 HGNC:6156 ENTREZ:3690 UNIPROT:P05106 GENECARDS:GC17P045331
+integrin, alpha 2b (platelet glycoprotein IIb of IIb/IIIa complex, antigen CD41)
+GP2B, "integrin, alpha 2b (platelet glycoprotein IIb of IIb/IIIa complex, antigen CD41B)"
+HUGO:ITGA2B HGNC:6138 ENTREZ:3674 UNIPROT:P08514
+NAME:a2b1*
+ITGA2/ITGB1
+integrin, alpha 2 (CD49B, alpha 2 subunit of VLA-2 receptor)
+CD49B
+HUGO:ITGA2 HGNC:6137 ENTREZ:3673 UNIPROT:P17301
+NAME:a10b1*
+ITGA10/ITGB1
+integrin, alpha 10
+HUGO:ITGA10 HGNC:6135 ENTREZ:8515 UNIPROT:O75578
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+MODULE:CELL_MATRIX_ADHESIONS
+Maps_Modules_end
+References_begin:
+PMID:19161977
+In the endoplasmic reticulum, integrin subunits find their binding partners and form heterodimers.
+Monomeric integrins never reach the cell surface.
+PMID:19487819
+During gastrulation, type 1 EMT is associated with de novo expression of a5b1, which is a receptor for fibronectin. 
+Type 2 EMT in experimental kidney fibrosis is associated with increased a5 integrin expression.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="Fibronectin partners*"/>
+            <bbox w="135.0" h="19.0" x="948.0" y="931.25"/>
+        </glyph>
+        <glyph class="nucleic acid feature" id="emtc_emtc_s134_sa5" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+fibronectin 1
+HUGO:FN1, HGNC:3778, ENTREZ:2335, GENECARDS:GC02M216225
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="Fibronectin*"/>
+            <bbox w="86.875" h="20.0" x="918.5" y="197.188"/>
+            <glyph class="unit of information" id="_21387f84-b7e4-4669-8bc6-347a8c3e29d1">
+                <label text="RNA"/>
+                <bbox w="20.0" h="10.0" x="951.9375" y="192.188"/>
+            </glyph>
+        </glyph>
+        <glyph class="nucleic acid feature" id="emtc_emtc_s133_sa6" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+fibronectin 1
+HUGO:FN1, HGNC:3778, ENTREZ:2335, GENECARDS:GC02M216225
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="Fibronectin*"/>
+            <bbox w="69.0" h="20.5" x="1150.0" y="198.188"/>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s4807_sa7" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+protein tyrosine phosphatase type IVA, member 3
+HUGO:PTP4A3 HGNC:9636 ENTREZ:11156 UNIPROT:O75365
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+PMID:24376839
+PTP4A3 is implicated in cell adhesion and the regulation of focal adhesion components including integrin beta-1, Src, paxillin and p130Cas
+Similarly, PTP4A3 promotes cell invasion by increasing MMP2 activity and decreasing the expression of the MMP inhibitor, TIMP2. 
+PTP4A3 is also involved in EMT: PTP4A3 overexpression in colorectal carcinoma cells downregulates epithelial markers (E-cadherin, plakoglobin, and integrin beta-3) and upregulates expression of mesenchymal markers (fibronectin and snail1).
+PMID:23691193
+Src-mediated phosphorylation of PTP4A3 Is required for Rho activation, motility and invasion promoted by PTP4A3.
+http://d-scholarship.pitt.edu/18634/1/Zimmerman_ETD-2013.pdf
+c-MYC activity was able to increase Ptp4a3 gene expression in a fibroblast cell culture model. 
+Tumors from the Ptp4a3-null mice had elevated levels of both IGF1Rβ and c-MYC compared to tumors replete with PTP4A3.
+Ptp4a3-null cells displayed less migration compared to wildtype cells and loss of VEGF-induced phosphorylation of SRC protein. 
+Reduced migration and SRC activation were also observed when human endothelial cells were treated with a small molecule inhibitor of PTP4A3.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="PTP4A3"/>
+            <bbox w="54.0" h="18.0" x="662.0" y="162.75"/>
+            <glyph class="state variable" id="_733cd307-69a3-43c4-b2c2-961e97473cc7">
+                <state value="P" variable=""/>
+                <bbox w="15.0" h="10.0" x="680.98145" y="157.75"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s4801_sa8" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+protein tyrosine phosphatase type IVA, member 3
+HUGO:PTP4A3 HGNC:9636 ENTREZ:11156 UNIPROT:O75365
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+PMID:24376839
+PTP4A3 is implicated in cell adhesion and the regulation of focal adhesion components including integrin beta-1, Src, paxillin and p130Cas
+Similarly, PTP4A3 promotes cell invasion by increasing MMP2 activity and decreasing the expression of the MMP inhibitor, TIMP2. 
+PTP4A3 is also involved in EMT: PTP4A3 overexpression in colorectal carcinoma cells downregulates epithelial markers (E-cadherin, plakoglobin, and integrin beta-3) and upregulates expression of mesenchymal markers (fibronectin and snail1).
+PMID:23691193
+Src-mediated phosphorylation of PTP4A3 Is required for Rho activation, motility and invasion promoted by PTP4A3.
+http://d-scholarship.pitt.edu/18634/1/Zimmerman_ETD-2013.pdf
+c-MYC activity was able to increase Ptp4a3 gene expression in a fibroblast cell culture model. 
+Tumors from the Ptp4a3-null mice had elevated levels of both IGF1Rβ and c-MYC compared to tumors replete with PTP4A3.
+Ptp4a3-null cells displayed less migration compared to wildtype cells and loss of VEGF-induced phosphorylation of SRC protein. 
+Reduced migration and SRC activation were also observed when human endothelial cells were treated with a small molecule inhibitor of PTP4A3.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="PTP4A3"/>
+            <bbox w="54.0" h="18.0" x="783.5" y="145.75"/>
+            <glyph class="state variable" id="_e9c293dc-6cb3-41ef-8877-2ac6cf1f8438">
+                <state value="" variable=""/>
+                <bbox w="10.0" h="10.0" x="804.98145" y="140.75"/>
+            </glyph>
+        </glyph>
+        <glyph class="nucleic acid feature" id="emtc_emtc_s4802_sa9" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+protein tyrosine phosphatase type IVA, member 3
+HUGO:PTP4A3 HGNC:9636 ENTREZ:11156 UNIPROT:O75365
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+PMID:24376839
+PTP4A3 is implicated in cell adhesion and the regulation of focal adhesion components including integrin beta-1, Src, paxillin and p130Cas
+Similarly, PTP4A3 promotes cell invasion by increasing MMP2 activity and decreasing the expression of the MMP inhibitor, TIMP2. 
+PTP4A3 is also involved in EMT: PTP4A3 overexpression in colorectal carcinoma cells downregulates epithelial markers (E-cadherin, plakoglobin, and integrin beta-3) and upregulates expression of mesenchymal markers (fibronectin and snail1).
+PMID:23691193
+Src-mediated phosphorylation of PTP4A3 Is required for Rho activation, motility and invasion promoted by PTP4A3.
+http://d-scholarship.pitt.edu/18634/1/Zimmerman_ETD-2013.pdf
+c-MYC activity was able to increase Ptp4a3 gene expression in a fibroblast cell culture model. 
+Tumors from the Ptp4a3-null mice had elevated levels of both IGF1Rβ and c-MYC compared to tumors replete with PTP4A3.
+Ptp4a3-null cells displayed less migration compared to wildtype cells and loss of VEGF-induced phosphorylation of SRC protein. 
+Reduced migration and SRC activation were also observed when human endothelial cells were treated with a small molecule inhibitor of PTP4A3.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="PTP4A3"/>
+            <bbox w="76.0" h="17.0" x="944.0" y="142.25"/>
+            <glyph class="unit of information" id="_8b2f07e4-8ee3-485a-9c20-754c1164a915">
+                <label text="RNA"/>
+                <bbox w="20.0" h="10.0" x="972.0" y="137.25"/>
+            </glyph>
+        </glyph>
+        <glyph class="nucleic acid feature" id="emtc_emtc_s4803_sa10" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+protein tyrosine phosphatase type IVA, member 3
+HUGO:PTP4A3 HGNC:9636 ENTREZ:11156 UNIPROT:O75365
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+PMID:24376839
+PTP4A3 is implicated in cell adhesion and the regulation of focal adhesion components including integrin beta-1, Src, paxillin and p130Cas
+Similarly, PTP4A3 promotes cell invasion by increasing MMP2 activity and decreasing the expression of the MMP inhibitor, TIMP2. 
+PTP4A3 is also involved in EMT: PTP4A3 overexpression in colorectal carcinoma cells downregulates epithelial markers (E-cadherin, plakoglobin, and integrin beta-3) and upregulates expression of mesenchymal markers (fibronectin and snail1).
+PMID:23691193
+Src-mediated phosphorylation of PTP4A3 Is required for Rho activation, motility and invasion promoted by PTP4A3.
+http://d-scholarship.pitt.edu/18634/1/Zimmerman_ETD-2013.pdf
+c-MYC activity was able to increase Ptp4a3 gene expression in a fibroblast cell culture model. 
+Tumors from the Ptp4a3-null mice had elevated levels of both IGF1Rβ and c-MYC compared to tumors replete with PTP4A3.
+Ptp4a3-null cells displayed less migration compared to wildtype cells and loss of VEGF-induced phosphorylation of SRC protein. 
+Reduced migration and SRC activation were also observed when human endothelial cells were treated with a small molecule inhibitor of PTP4A3.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="PTP4A3"/>
+            <bbox w="53.0" h="20.0" x="1155.0" y="139.25"/>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s4819_sa11" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+c-src tyrosine kinase
+HUGO:CSK HGNC:2444 ENTREZ:1445 UNIPROT:P41240
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:CELL_CELL_ADHESIONS
+MODULE:ADHERENS_JUNCTIONS
+Maps_Modules_end
+References_begin:
+PMID:18829532
+PMID:9819392
+PTK6 and CSK both can phosphorylate ARHGAP35 (p190) at Y1105
+RasGAP actvity of RASA1 is reduced when associated with ARHGAP35 which is a specific GAP for RhoA
+ARHGAP35 is tyrosine-phosphorylated. 
+The association of ARHGAP35 (p190) with RASA1 (p120) is promoted and stabilized by phosphorylation of p190 at Y1105 by CSK or by PTK6.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="c-SRC*"/>
+            <bbox w="57.0" h="22.0" x="241.0" y="115.75"/>
+            <glyph class="state variable" id="_27a3ee0c-5cd8-4be9-8f0a-b4310c455498">
+                <state value="P" variable="Y"/>
+                <bbox w="20.0" h="10.0" x="288.0" y="111.70602"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s656_sa12" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+v-myc myelocytomatosis viral oncogene homolog (avian)
+HUGO:MYC, HGNC:7553, ENTREZ:4609, GENECARDS:GC08P128748, UNIPROT:P01106   
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:SENESCENCE
+MODULE:SENESCENCE
+Maps_Modules_end
+References_begin:
+PMID:11283614
+Myc: an ubiquitous mediator of cell growth and proliferation
+Myc can both activate and repress transcription, depending on the nature of associated factors
+TGFB downregulates Myc to cause cell cycle arrest.
+TGFB activates p15INK4B and/or p21CIP1 (inhibitor of CDKs) ==&gt; CDK inhibition by TGFB
+TGFB downregulates cdc25A (a phosphatase, activator of CDKs) ==&gt; CDK inhibition by TGFB
+PMID:2191300
+Interaction of an NF-kappa B-like factor with a site upstream of the c-myc promoter.
+PMID :28536364 
+c-myc is transcriptionally upregulated by NF-κB
+PMID:20027199
+MYC induces DNA damage throuh an increase in ROS production, innapropriate DNA synthesis and abrogation of DNA repair
+PMID:20713526
+MYC supress the activity of anti-apoptotic BCL2 and BCLXL (BCL2L1) genes
+PMID :20713526
+MYC in complex with CDK2 alone inhibit senescence through the inhibition of p16 and p21 expression as well as TERT and BMI1 expression increase. MYC in complex with CDK2 and p27KIP1 induces senescence through the expression increase of p16 and p21 as well as TERT and BMI1 expression decrease. WRN inhibit MYC induced senescence.
+PMID :17055429
+MYC stimulate P53 and ARF(CDKN2A)
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="MYC"/>
+            <bbox w="40.0" h="20.0" x="1070.0" y="107.5"/>
+            <glyph class="state variable" id="_16c0d715-146c-4cce-952f-2be7c19db8a2">
+                <state value="" variable=""/>
+                <bbox w="10.0" h="10.0" x="1065.0" y="112.48408"/>
+            </glyph>
+        </glyph>
+        <glyph class="complex" id="emtc_emtc_s4721_csa1" compartmentRef="c4_ca4">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+NAME:Fibronectin partners*:Fibronectin*
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="(Fibronectin/Fibronectin partners)"/>
+            <bbox w="193.0" h="64.0" x="789.0" y="1006.25"/>
+            <glyph class="macromolecule" id="emtc_emtc_s4723_sa13">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+Identifiers_begin:
+Identifiers_end
+References_begin:
+References_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+fibronectin 1
+HUGO:FN1, HGNC:3778, ENTREZ:2335, UNIPROT:P02751, GENECARDS:GC02M216225
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+MODULE:CELL_MATRIX_ADHESIONS
+Maps_Modules_end
+References_begin:
+PMID:2409071
+Fibronectin is located on the apical and basal cell surfaces.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="Fibronectin*"/>
+                <bbox w="72.0" h="20.0" x="855.0" y="1010.484"/>
+            </glyph>
+            <glyph class="macromolecule" id="emtc_emtc_s4722_sa14">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+Fibronectin partners
+NAME:a5b1*
+ITGA5/ITGB1
+integrin, alpha 5 (fibronectin receptor, alpha polypeptide)
+HUGO:ITGA5, HGNC:6141, ENTREZ:3678, UNIPROT:P08648, GENECARDS:GC12M054789
+integrin, beta 1 (fibronectin receptor, beta polypeptide, antigen CD29 includes MDF2, MSK12)
+HUGO:ITGB1, HGNC:6153, ENTREZ:3688, UNIPROT:P05556, GENECARDS:GC10M033189
+NAME:aVb3*
+ITGAV/ITGB3
+integrin, alpha V
+"antigen identified by monoclonal antibody L230", "integrin, alpha V (vitronectin receptor, alpha polypeptide, antigen CD51)", MSK8, "vitronectin receptor", VNRA, VTNR
+HUGO:ITGAV HGNC:6150 ENTREZ:3685 UNIPROT:P06756 GENECARDS:GC02P187418
+integrin, beta 3 (platelet glycoprotein IIIa, antigen CD61)
+GP3A
+HUGO:ITGB3 HGNC:6156 ENTREZ:3690 UNIPROT:P05106 GENECARDS:GC17P045331
+integrin, alpha 2b (platelet glycoprotein IIb of IIb/IIIa complex, antigen CD41)
+GP2B, "integrin, alpha 2b (platelet glycoprotein IIb of IIb/IIIa complex, antigen CD41B)"
+HUGO:ITGA2B HGNC:6138 ENTREZ:3674 UNIPROT:P08514
+NAME:a2b1*
+ITGA2/ITGB1
+integrin, alpha 2 (CD49B, alpha 2 subunit of VLA-2 receptor)
+CD49B
+HUGO:ITGA2 HGNC:6137 ENTREZ:3673 UNIPROT:P17301
+NAME:a10b1*
+ITGA10/ITGB1
+integrin, alpha 10
+HUGO:ITGA10 HGNC:6135 ENTREZ:8515 UNIPROT:O75578
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+MODULE:CELL_MATRIX_ADHESIONS
+Maps_Modules_end
+References_begin:
+PMID:19161977
+In the endoplasmic reticulum, integrin subunits find their binding partners and form heterodimers.
+Monomeric integrins never reach the cell surface.
+PMID:19487819
+During gastrulation, type 1 EMT is associated with de novo expression of a5b1, which is a receptor for fibronectin. 
+Type 2 EMT in experimental kidney fibrosis is associated with increased a5 integrin expression.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="Fibronectin partners*"/>
+                <bbox w="135.0" h="19.0" x="821.5" y="1030.016"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s1578_sa15" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+v-raf-1 murine leukemia viral oncogene homolog 1
+HUGO:RAF1, HGNC:9829, ENTREZ:5894 , GENECARDS:GC03M012625, UNIPROT:P04049
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Inactive RAF1 is associated in the cytoplasm with YWHAB.
+YWHAB binds to RAF1 via the Ser259 phosphorylation site.
+This interaction stabilises the inactive conformation of RAF1, in which the RAS-binding Cysteine-rich doomain (CRD) is obscured.
+RAF1 contains an additional RAS-binding domain (RBD).
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="RAF1"/>
+            <bbox w="99.0" h="42.0" x="75.0" y="339.0"/>
+            <glyph class="state variable" id="_399e8d42-c73b-468f-a77f-baee6ed77454">
+                <state value="open" variable=""/>
+                <bbox w="30.0" h="10.0" x="109.5" y="334.0"/>
+            </glyph>
+            <glyph class="state variable" id="_68be681c-c111-4b2a-8502-e17d1f7c7c4e">
+                <state value="P" variable="Y340"/>
+                <bbox w="35.0" h="10.0" x="155.96481" y="334.0"/>
+            </glyph>
+            <glyph class="state variable" id="_f469760b-a893-4cdf-82b0-f68e9cad2c92">
+                <state value="P" variable="Y341"/>
+                <bbox w="35.0" h="10.0" x="155.42844" y="376.0"/>
+            </glyph>
+            <glyph class="state variable" id="_963465c1-a366-4229-9686-0cee6b2e984a">
+                <state value="P" variable="S259"/>
+                <bbox w="35.0" h="10.0" x="57.5" y="334.09897"/>
+            </glyph>
+            <glyph class="state variable" id="_aa4a9131-667e-4ac4-b71b-3750bc9a99bb">
+                <state value="P" variable="S621"/>
+                <bbox w="35.0" h="10.0" x="57.5" y="374.89594"/>
+            </glyph>
+            <glyph class="state variable" id="_1dcf74e7-477d-4991-8dbe-ea5b01a3afa1">
+                <state value="" variable="S338"/>
+                <bbox w="30.0" h="10.0" x="60.0" y="354.96655"/>
+            </glyph>
+            <glyph class="state variable" id="_a5f2eb3e-89a7-46f1-95e3-6edc1e7d36b0">
+                <state value="" variable="S"/>
+                <bbox w="15.0" h="10.0" x="166.5" y="355.0"/>
+            </glyph>
+        </glyph>
+        <glyph class="simple chemical" id="emtc_emtc_s1168_sa16" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="40.0" h="20.0" x="153.0" y="410.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="emtc_emtc_s1168_sa27" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="40.0" h="20.0" x="621.0" y="626.5"/>
+        </glyph>
+        <glyph class="simple chemical" id="emtc_emtc_s1168_sa31" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="ATP"/>
+            <clone/>
+            <bbox w="40.0" h="20.0" x="676.0" y="764.0"/>
+        </glyph>
+        <glyph class="simple chemical" id="emtc_emtc_s1169_sa17" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="40.0" h="20.0" x="171.0" y="301.5"/>
+        </glyph>
+        <glyph class="simple chemical" id="emtc_emtc_s1169_sa26" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="40.0" h="20.0" x="620.0" y="587.5"/>
+        </glyph>
+        <glyph class="simple chemical" id="emtc_emtc_s1169_sa30" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="ADP"/>
+            <clone/>
+            <bbox w="40.0" h="20.0" x="678.0" y="723.0"/>
+        </glyph>
+        <glyph class="complex" id="emtc_emtc_s3028_csa2" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+NAME:GTP:HRAS:RAF1:YWHAB
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Activated HRAS (GTP bound forn) is associated with the plasma membrane.
+Inactive RAF1 is associated in the cytoplasm with YWHAB via S259 phosphorylation site and also binding site.
+RAF1 has a RAS-binding Cysteine-rich domain (CRD) and an additional RAS-binding domain (RBD).
+RAF1 binds activated HRAS via the RBD. This binding displaces YWHAB from Ser259 and unmasks the CRD.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="HRAS_GTP/RAF1/YWHAB"/>
+            <bbox w="129.0" h="114.0" x="207.0" y="309.0"/>
+            <glyph class="simple chemical" id="emtc_emtc_s1560_sa19">
+                <label text="GTP"/>
+                <bbox w="40.0" h="20.0" x="275.0" y="312.0"/>
+            </glyph>
+            <glyph class="macromolecule" id="emtc_emtc_s1562_sa20">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+v-raf-1 murine leukemia viral oncogene homolog 1
+HUGO:RAF1, HGNC:9829, ENTREZ:5894 , GENECARDS:GC03M012625, UNIPROT:P04049
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Inactive RAF1 is associated in the cytoplasm with YWHAB.
+YWHAB binds to RAF1 via the Ser259 phosphorylation site.
+This interaction stabilises the inactive conformation of RAF1, in which the RAS-binding Cysteine-rich doomain (CRD) is obscured.
+RAF1 contains an additional RAS-binding domain (RBD).
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="RAF1"/>
+                <bbox w="99.0" h="43.0" x="221.0" y="341.0"/>
+                <glyph class="state variable" id="_fce2dcf8-c571-4ab4-930e-7d5b37d324dc">
+                    <state value="open" variable=""/>
+                    <bbox w="30.0" h="10.0" x="255.5" y="336.0"/>
+                </glyph>
+                <glyph class="state variable" id="_447d4704-c0a8-447d-bdc3-b9016185d5f2">
+                    <state value="" variable="Y340"/>
+                    <bbox w="30.0" h="10.0" x="304.4648" y="336.0"/>
+                </glyph>
+                <glyph class="state variable" id="_8ff8c6ca-df40-4aac-974f-21c07f9e4e58">
+                    <state value="" variable="Y341"/>
+                    <bbox w="30.0" h="10.0" x="303.92844" y="379.0"/>
+                </glyph>
+                <glyph class="state variable" id="_a1a187e6-40ab-48c0-bf0f-b9de3382fa23">
+                    <state value="P" variable="S259"/>
+                    <bbox w="35.0" h="10.0" x="203.5" y="336.10132"/>
+                </glyph>
+                <glyph class="state variable" id="_5302ba5e-1081-4d9b-bebb-d3be276c1156">
+                    <state value="P" variable="S621"/>
+                    <bbox w="35.0" h="10.0" x="203.5" y="377.86963"/>
+                </glyph>
+                <glyph class="state variable" id="_d1ea75fd-92ef-44ea-8d51-fde6a84ec6a6">
+                    <state value="" variable="S338"/>
+                    <bbox w="30.0" h="10.0" x="206.0" y="357.46576"/>
+                </glyph>
+                <glyph class="state variable" id="_491e1f01-859d-40be-b0cc-b6c1bf360437">
+                    <state value="P" variable="S"/>
+                    <bbox w="20.0" h="10.0" x="310.0" y="357.5"/>
+                </glyph>
+            </glyph>
+            <glyph class="macromolecule" id="emtc_emtc_s1563_sa21">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, beta polypeptide
+HUGO:YWHAB, HGNC:12849, ENTREZ:7529, GENECARDS:GC20P043515, UNIPROT:P31946 
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+YWHAB is so-called 14-3-3 alpha/beta
+PMID:9069260
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="YWHAB"/>
+                <bbox w="60.0" h="20.0" x="244.0" y="386.0"/>
+            </glyph>
+            <glyph class="macromolecule" id="s2499_sa22">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+v-Ha-ras Harvey rat sarcoma viral oncogene homolog
+HUGO:HRAS, HGNC:5173, ENTREZ:3265, GENECARDS:GC11M000522, UNIPROT:P01112
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Activated HRAS (GTP bound forn) is associated with the plasma membrane.
+Inactive RAF1 is associated in the cytoplasm with YWHAB via S259 phosphorylation site and also binding site.
+RAF1 has a RAS-binding Cysteine-rich domain (CRD) and an additional RAS-binding domain (RBD).
+RAF1 binds activated HRAS via the RBD. This binding displaces YWHAB from Ser259 and unmasks the CRD.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="HRAS"/>
+                <bbox w="40.0" h="18.0" x="217.33333" y="313.5"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="s1_sa4" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+fibronectin 1
+HUGO:FN1, HGNC:3778, ENTREZ:2335, UNIPROT:P02751, GENECARDS:GC02M216225
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+MODULE:CELL_MATRIX_ADHESIONS
+Maps_Modules_end
+References_begin:
+PMID:2409071
+Fibronectin is located on the apical and basal cell surfaces.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="Fibronectin*"/>
+            <bbox w="72.0" h="20.0" x="770.0" y="205.219"/>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s1547_sa23" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, beta polypeptide
+HUGO:YWHAB, HGNC:12849, ENTREZ:7529, GENECARDS:GC20P043515, UNIPROT:P31946 
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+YWHAB is so-called 14-3-3 alpha/beta
+PMID:9069260
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="YWHAB"/>
+            <bbox w="60.0" h="20.0" x="419.5" y="419.5"/>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s3420_sa24" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+HRAS_GAPs*
+RAS p21 protein activator (GTPase activating protein) 1
+RASA
+HUGO:RASA1 HGNC:9871 ENTREZ:5921 UNIPROT:P20936
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:CYTOSKELETON_POLARITY
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:8537347
+PMID:10769036
+GAP activity of ARHGAP5 is abrogated by binding to RASA1 (p120GAP)
+PMID:8360177
+RASA1 is a GAP for HRAS.
+PMID:18829532
+RasGAP actvity of RASA1 is reduced when associated with ARHGAP35 which is a specific GAP for RhoA
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="HRAS_GAPs*"/>
+            <bbox w="80.0" h="16.0" x="704.5" y="401.0"/>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s1549_sa25" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+v-raf-1 murine leukemia viral oncogene homolog 1
+HUGO:RAF1, HGNC:9829, ENTREZ:5894 , GENECARDS:GC03M012625, UNIPROT:P04049
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Inactive RAF1 is associated in the cytoplasm with YWHAB.
+YWHAB binds to RAF1 via the Ser259 phosphorylation site.
+This interaction stabilises the inactive conformation of RAF1, in which the RAS-binding Cysteine-rich doomain (CRD) is obscured.
+RAF1 contains an additional RAS-binding domain (RBD).
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="RAF1"/>
+            <bbox w="102.0" h="45.0" x="618.5" y="530.0"/>
+            <glyph class="state variable" id="_b1cc05dd-42e7-4440-81fa-8690fa756c6b">
+                <state value="closed" variable=""/>
+                <bbox w="40.0" h="10.0" x="649.5" y="525.0"/>
+            </glyph>
+            <glyph class="state variable" id="_3a02b575-4269-463f-bd12-5525644bb8ae">
+                <state value="" variable="Y340"/>
+                <bbox w="30.0" h="10.0" x="704.9486" y="525.0"/>
+            </glyph>
+            <glyph class="state variable" id="_5b0227aa-c7bc-4eb7-809a-3b8dabe632ef">
+                <state value="" variable="Y341"/>
+                <bbox w="30.0" h="10.0" x="704.396" y="570.0"/>
+            </glyph>
+            <glyph class="state variable" id="_c8e96cb9-5b60-446c-a1c0-a625442951e8">
+                <state value="P" variable="S259"/>
+                <bbox w="35.0" h="10.0" x="601.0" y="525.106"/>
+            </glyph>
+            <glyph class="state variable" id="_e4943e7b-db0d-4b19-a904-9b53d49e881f">
+                <state value="P" variable="S621"/>
+                <bbox w="35.0" h="10.0" x="601.0" y="568.8171"/>
+            </glyph>
+            <glyph class="state variable" id="_5155f0c7-b1e7-47c5-8d7b-f35b80f913a7">
+                <state value="" variable="S338"/>
+                <bbox w="30.0" h="10.0" x="603.5" y="547.4642"/>
+            </glyph>
+            <glyph class="state variable" id="_b77f6641-d84e-4e24-9cff-dba14be7ac97">
+                <state value="P" variable="S"/>
+                <bbox w="20.0" h="10.0" x="710.5" y="547.5"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule multimer" id="emtc_emtc_s1591_sa28" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+mitogen-activated protein kinase 1
+HUGO:MAPK1, HGNC:6871, ENTREZ:5594, GENECARDS:GC22M022108, UNIPROT:P28482
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:8388392
+PMID:8226933
+In the cytoplasm activated MEK2 (phosphorylated) may encounter monomeric, inactive ERK2. 
+ERK2 in its inactive form is not phosphorylated on a critical Threonine (T) and a critical Tyrosine (Y).
+MEK2 phosphorylates the critical Tyr and Thr on ERK2, converting two ATP to ADP. Phosphorylation of ERK-2 activates its kinase activity.
+PMID:9604935
+Phosphorylation of ERK-1/2 promotes  its homodimerization
+PMID:18775330
+Scaffolds and ERK dimers are essential for the activation of cytoplasmic but not nuclear substrates. 
+Dimerization is critical for connecting the scaffolded ERK complex to cognate cytoplasmic substrates. 
+Contrarily, nuclear substrates associate to ERK monomers.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="ERK2*"/>
+            <bbox w="54.0" h="49.5" x="517.5" y="729.75"/>
+            <glyph class="unit of information" id="_c79caec0-b46e-43ad-82a4-cc3bde732f5a">
+                <label text="N:2"/>
+                <bbox w="20.0" h="10.0" x="534.5" y="724.75"/>
+            </glyph>
+            <glyph class="state variable" id="_7d6727b4-7ec7-4f34-93fd-585c712204e4">
+                <state value="P" variable="T"/>
+                <bbox w="20.0" h="10.0" x="507.5" y="726.6539"/>
+            </glyph>
+            <glyph class="state variable" id="_ba04686b-4ccf-4070-8476-459fc115e724">
+                <state value="P" variable="Y"/>
+                <bbox w="20.0" h="10.0" x="561.5" y="725.0719"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s3030_sa29" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+v-raf-1 murine leukemia viral oncogene homolog 1
+HUGO:RAF1, HGNC:9829, ENTREZ:5894 , GENECARDS:GC03M012625, UNIPROT:P04049
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Inactive RAF1 is associated in the cytoplasm with YWHAB.
+YWHAB binds to RAF1 via the Ser259 phosphorylation site.
+This interaction stabilises the inactive conformation of RAF1, in which the RAS-binding Cysteine-rich doomain (CRD) is obscured.
+RAF1 contains an additional RAS-binding domain (RBD).
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="RAF1"/>
+            <bbox w="103.0" h="46.0" x="617.5" y="668.0"/>
+            <glyph class="state variable" id="_b7b8dadd-a5b2-4d21-9101-c313cad40197">
+                <state value="closed" variable=""/>
+                <bbox w="40.0" h="10.0" x="649.0" y="663.0"/>
+            </glyph>
+            <glyph class="state variable" id="_f954b4f1-0cf8-4078-b0f0-a4c956bf9269">
+                <state value="" variable="Y340"/>
+                <bbox w="30.0" h="10.0" x="704.9432" y="663.0"/>
+            </glyph>
+            <glyph class="state variable" id="_048b3f44-817f-4fce-8007-e1577331be54">
+                <state value="" variable="Y341"/>
+                <bbox w="30.0" h="10.0" x="704.38513" y="709.0"/>
+            </glyph>
+            <glyph class="state variable" id="_0089e8a6-8310-48f0-9b7f-9250472c2d08">
+                <state value="" variable="S259"/>
+                <bbox w="30.0" h="10.0" x="602.5" y="663.1084"/>
+            </glyph>
+            <glyph class="state variable" id="_58962ac7-5af1-46c8-9665-c6ab33a1232a">
+                <state value="" variable="S621"/>
+                <bbox w="30.0" h="10.0" x="602.5" y="707.7908"/>
+            </glyph>
+            <glyph class="state variable" id="_f819fa60-3a37-4989-a0e4-920ca1bd6a44">
+                <state value="" variable="S338"/>
+                <bbox w="30.0" h="10.0" x="602.5" y="685.9634"/>
+            </glyph>
+            <glyph class="state variable" id="_d0d98806-3e94-4181-867b-74f9444ef2ac">
+                <state value="P" variable="S"/>
+                <bbox w="20.0" h="10.0" x="710.5" y="686.0"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s1541_sa32" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+v-raf-1 murine leukemia viral oncogene homolog 1
+HUGO:RAF1, HGNC:9829, ENTREZ:5894 , GENECARDS:GC03M012625, UNIPROT:P04049
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Inactive RAF1 is associated in the cytoplasm with YWHAB.
+YWHAB binds to RAF1 via the Ser259 phosphorylation site.
+This interaction stabilises the inactive conformation of RAF1, in which the RAS-binding Cysteine-rich doomain (CRD) is obscured.
+RAF1 contains an additional RAS-binding domain (RBD).
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="RAF1"/>
+            <bbox w="103.0" h="46.0" x="617.5" y="802.5"/>
+            <glyph class="state variable" id="_2a1a232f-4c61-4f47-8572-69c831b0ad77">
+                <state value="closed" variable=""/>
+                <bbox w="40.0" h="10.0" x="649.0" y="797.5"/>
+            </glyph>
+            <glyph class="state variable" id="_c9a0d08b-82d7-4b3e-8ab6-6627d9b99f94">
+                <state value="" variable="Y340"/>
+                <bbox w="30.0" h="10.0" x="704.9432" y="797.5"/>
+            </glyph>
+            <glyph class="state variable" id="_95bbde97-a43d-4aa3-be1d-d2b30bfe0172">
+                <state value="" variable="Y341"/>
+                <bbox w="30.0" h="10.0" x="704.38513" y="843.5"/>
+            </glyph>
+            <glyph class="state variable" id="_66d0e114-dc21-401c-a643-b628de32a91f">
+                <state value="" variable="S259"/>
+                <bbox w="30.0" h="10.0" x="602.5" y="797.6084"/>
+            </glyph>
+            <glyph class="state variable" id="_e34d900b-874a-47a6-996b-90acdf03be83">
+                <state value="" variable="S621"/>
+                <bbox w="30.0" h="10.0" x="602.5" y="842.2908"/>
+            </glyph>
+            <glyph class="state variable" id="_80df5b3b-1c15-49ad-a299-918b7be77c7e">
+                <state value="" variable="S338"/>
+                <bbox w="30.0" h="10.0" x="602.5" y="820.4634"/>
+            </glyph>
+            <glyph class="state variable" id="_0746df8b-5959-4825-87b2-f9d2952979d8">
+                <state value="" variable="S"/>
+                <bbox w="15.0" h="10.0" x="713.0" y="820.5"/>
+            </glyph>
+        </glyph>
+        <glyph class="complex" id="emtc_emtc_s3027_csa4" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+NAME:GTP:HRAS:RAF1:YWHAB
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Activated HRAS (GTP bound forn) is associated with the plasma membrane.
+Inactive RAF1 is associated in the cytoplasm with YWHAB via S259 phosphorylation site and also binding site.
+RAF1 has a RAS-binding Cysteine-rich domain (CRD) and an additional RAS-binding domain (RBD).
+RAF1 binds activated HRAS via the RBD. This binding displaces YWHAB from Ser259 and unmasks the CRD.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="HRAS_GTP/RAF1"/>
+            <bbox w="137.25" h="130.0" x="387.875" y="261.0"/>
+            <glyph class="simple chemical" id="emtc_emtc_s1544_sa37">
+                <label text="GTP"/>
+                <bbox w="40.0" h="20.0" x="465.125" y="264.0"/>
+            </glyph>
+            <glyph class="macromolecule" id="emtc_emtc_s1545_sa38">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+v-Ha-ras Harvey rat sarcoma viral oncogene homolog
+HUGO:HRAS, HGNC:5173, ENTREZ:3265, GENECARDS:GC11M000522, UNIPROT:P01112
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Activated HRAS (GTP bound forn) is associated with the plasma membrane.
+Inactive RAF1 is associated in the cytoplasm with YWHAB via S259 phosphorylation site and also binding site.
+RAF1 has a RAS-binding Cysteine-rich domain (CRD) and an additional RAS-binding domain (RBD).
+RAF1 binds activated HRAS via the RBD. This binding displaces YWHAB from Ser259 and unmasks the CRD.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="HRAS"/>
+                <bbox w="40.0" h="18.0" x="400.125" y="270.0"/>
+            </glyph>
+            <glyph class="macromolecule" id="emtc_emtc_s1546_sa39">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+v-raf-1 murine leukemia viral oncogene homolog 1
+HUGO:RAF1, HGNC:9829, ENTREZ:5894 , GENECARDS:GC03M012625, UNIPROT:P04049
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Inactive RAF1 is associated in the cytoplasm with YWHAB.
+YWHAB binds to RAF1 via the Ser259 phosphorylation site.
+This interaction stabilises the inactive conformation of RAF1, in which the RAS-binding Cysteine-rich doomain (CRD) is obscured.
+RAF1 contains an additional RAS-binding domain (RBD).
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="RAF1"/>
+                <bbox w="102.0" h="43.0" x="406.5" y="293.5"/>
+                <glyph class="state variable" id="_ebbe13c3-4a12-45f3-8b04-eca0d30df82d">
+                    <state value="closed" variable=""/>
+                    <bbox w="40.0" h="10.0" x="437.5" y="288.5"/>
+                </glyph>
+                <glyph class="state variable" id="_ba69d55c-37ac-4879-971f-85458a29ef93">
+                    <state value="" variable="Y340"/>
+                    <bbox w="30.0" h="10.0" x="492.94858" y="288.5"/>
+                </glyph>
+                <glyph class="state variable" id="_dbaffeee-2659-496b-b185-7076fcd65dc5">
+                    <state value="" variable="Y341"/>
+                    <bbox w="30.0" h="10.0" x="492.39597" y="331.5"/>
+                </glyph>
+                <glyph class="state variable" id="_2d3fb4ac-7f69-4c99-b06f-b95f35a52652">
+                    <state value="P" variable="S259"/>
+                    <bbox w="35.0" h="10.0" x="389.0" y="288.60132"/>
+                </glyph>
+                <glyph class="state variable" id="_804f28cd-5990-46fb-b707-fbd61ef5134d">
+                    <state value="P" variable="S621"/>
+                    <bbox w="35.0" h="10.0" x="389.0" y="330.36963"/>
+                </glyph>
+                <glyph class="state variable" id="_8552c221-b3f0-4344-892a-7498c124fa12">
+                    <state value="" variable="S338"/>
+                    <bbox w="30.0" h="10.0" x="391.5" y="309.96576"/>
+                </glyph>
+                <glyph class="state variable" id="_1e3f5ef4-5a68-4db8-913b-434be91ed348">
+                    <state value="P" variable="S"/>
+                    <bbox w="20.0" h="10.0" x="498.5" y="310.0"/>
+                </glyph>
+            </glyph>
+            <glyph class="macromolecule" id="s2498_sa40">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, beta polypeptide
+HUGO:YWHAB, HGNC:12849, ENTREZ:7529, GENECARDS:GC20P043515, UNIPROT:P31946 
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+YWHAB is so-called 14-3-3 alpha/beta
+PMID:9069260
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="YWHAB"/>
+                <bbox w="60.0" h="20.0" x="430.55884" y="339.61765"/>
+            </glyph>
+        </glyph>
+        <glyph class="complex" id="emtc_emtc_s3418_csa5" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+NAME:GDP:HRAS
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="HRAS_GDP"/>
+            <bbox w="67.0" h="60.0" x="711.375" y="451.75"/>
+            <glyph class="macromolecule" id="emtc_emtc_s1537_sa41">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+v-Ha-ras Harvey rat sarcoma viral oncogene homolog
+HUGO:HRAS, HGNC:5173, ENTREZ:3265, GENECARDS:GC11M000522, UNIPROT:P01112
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Activated HRAS (GTP bound forn) is associated with the plasma membrane.
+Inactive RAF1 is associated in the cytoplasm with YWHAB via S259 phosphorylation site and also binding site.
+RAF1 has a RAS-binding Cysteine-rich domain (CRD) and an additional RAS-binding domain (RBD).
+RAF1 binds activated HRAS via the RBD. This binding displaces YWHAB from Ser259 and unmasks the CRD.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="HRAS"/>
+                <bbox w="40.0" h="20.0" x="726.375" y="457.75"/>
+            </glyph>
+            <glyph class="simple chemical" id="emtc_emtc_s3419_sa42">
+                <label text="GDP"/>
+                <bbox w="35.0" h="17.0" x="730.25" y="475.5"/>
+            </glyph>
+        </glyph>
+        <glyph class="complex" id="emtc_emtc_s3009_csa6" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+NAME:GTP:HRAS
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="HRAS_GTP"/>
+            <bbox w="68.5" h="67.0" x="557.5" y="445.0"/>
+            <glyph class="macromolecule" id="emtc_emtc_s1539_sa43">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+v-Ha-ras Harvey rat sarcoma viral oncogene homolog
+HUGO:HRAS, HGNC:5173, ENTREZ:3265, GENECARDS:GC11M000522, UNIPROT:P01112
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Activated HRAS (GTP bound forn) is associated with the plasma membrane.
+Inactive RAF1 is associated in the cytoplasm with YWHAB via S259 phosphorylation site and also binding site.
+RAF1 has a RAS-binding Cysteine-rich domain (CRD) and an additional RAS-binding domain (RBD).
+RAF1 binds activated HRAS via the RBD. This binding displaces YWHAB from Ser259 and unmasks the CRD.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="HRAS"/>
+                <bbox w="40.0" h="18.0" x="568.5" y="453.0"/>
+            </glyph>
+            <glyph class="simple chemical" id="emtc_emtc_s1540_sa44">
+                <label text="GTP"/>
+                <bbox w="40.0" h="20.0" x="568.5" y="475.0"/>
+            </glyph>
+        </glyph>
+        <glyph class="complex" id="emtc_emtc_s1548_csa7" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+NAME:RAF1:YWHAB
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Inactive RAF1 is associated in the cytoplasm with YWHAB.
+YWHAB binds to RAF1 via the Ser259 phosphorylation site.
+This interaction stabilises the inactive conformation of RAF1, in which the RAS-binding Cysteine-rich doomain (CRD) is obscured.
+RAF1 contains an additional RAS-binding domain (RBD).References_end
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="RAF1/YWHAB"/>
+            <bbox w="100.5" h="94.0" x="599.0" y="290.5"/>
+            <glyph class="macromolecule" id="emtc_emtc_s1552_sa45">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, beta polypeptide
+HUGO:YWHAB, HGNC:12849, ENTREZ:7529, GENECARDS:GC20P043515, UNIPROT:P31946 
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+YWHAB is so-called 14-3-3 alpha/beta
+PMID:9069260
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="YWHAB"/>
+                <bbox w="60.0" h="20.0" x="622.5" y="292.5"/>
+            </glyph>
+            <glyph class="macromolecule" id="emtc_emtc_s1553_sa46">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+v-raf-1 murine leukemia viral oncogene homolog 1
+HUGO:RAF1, HGNC:9829, ENTREZ:5894 , GENECARDS:GC03M012625, UNIPROT:P04049
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:MITOCHONDRIA_OXIDATIVE_STRESS
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Inactive RAF1 is associated in the cytoplasm with YWHAB.
+YWHAB binds to RAF1 via the Ser259 phosphorylation site.
+This interaction stabilises the inactive conformation of RAF1, in which the RAS-binding Cysteine-rich doomain (CRD) is obscured.
+RAF1 contains an additional RAS-binding domain (RBD).
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="RAF1"/>
+                <bbox w="100.0" h="45.0" x="599.5" y="317.0"/>
+                <glyph class="state variable" id="_222de67d-e0ae-43b7-8cc0-c4bc4d04fe90">
+                    <state value="closed" variable=""/>
+                    <bbox w="40.0" h="10.0" x="629.5" y="312.0"/>
+                </glyph>
+                <glyph class="state variable" id="_f51c12a6-0fe3-432c-96fa-271b03596a2a">
+                    <state value="" variable="Y340"/>
+                    <bbox w="30.0" h="10.0" x="683.9594" y="312.0"/>
+                </glyph>
+                <glyph class="state variable" id="_ea9852fd-140e-4090-b87b-2d3055b8bb33">
+                    <state value="" variable="Y341"/>
+                    <bbox w="30.0" h="10.0" x="683.4176" y="357.0"/>
+                </glyph>
+                <glyph class="state variable" id="_65ca7e47-7d71-448e-ae15-09794a6d29fd">
+                    <state value="P" variable="S259"/>
+                    <bbox w="35.0" h="10.0" x="582.0" y="312.10605"/>
+                </glyph>
+                <glyph class="state variable" id="_b35ee5f5-dd95-4260-aa77-926f913be84d">
+                    <state value="P" variable="S621"/>
+                    <bbox w="35.0" h="10.0" x="582.0" y="355.81708"/>
+                </glyph>
+                <glyph class="state variable" id="_7a7803b0-f555-45e3-86bd-95680094779c">
+                    <state value="" variable="S338"/>
+                    <bbox w="30.0" h="10.0" x="584.5" y="334.46417"/>
+                </glyph>
+                <glyph class="state variable" id="_4a34040f-802e-4fad-8962-c7f5c94c494e">
+                    <state value="P" variable="S"/>
+                    <bbox w="20.0" h="10.0" x="689.5" y="334.5"/>
+                </glyph>
+            </glyph>
+        </glyph>
+        <glyph class="nucleic acid feature" id="emtc_emtc_s1338_sa47" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+microRNA 192
+HUGO:MIR192, HGNC:31562, ENTREZ:406967, GENECARDS:GC11M064676
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:21518799
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="MIR192"/>
+            <bbox w="80.0" h="20.0" x="1226.159" y="308.334"/>
+            <glyph class="unit of information" id="_cc366d8e-e60a-49f5-8f7c-d98e446774ed">
+                <label text="asRNA"/>
+                <bbox w="30.0" h="10.0" x="1251.159" y="303.334"/>
+            </glyph>
+        </glyph>
+        <glyph class="nucleic acid feature" id="emtc_emtc_s1339_sa48" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+microRNA 192
+HUGO:MIR192, HGNC:31562, ENTREZ:406967, GENECARDS:GC11M064676
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:21518799
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="MIR192"/>
+            <bbox w="60.0" h="20.0" x="1337.159" y="311.5"/>
+        </glyph>
+        <glyph class="nucleic acid feature" id="emtc_emtc_s22_sa49" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+zinc finger E-box binding homeobox 2
+HUGO:ZEB2, HGNC:14881, ENTREZ:9839, GENECARDS:GC02M145145
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:19839049
+Feedback loops
+PMID:225147423
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="ZEB2"/>
+            <bbox w="60.0" h="20.0" x="1272.159" y="190.5"/>
+            <glyph class="unit of information" id="_a6ef9cfe-58e5-49df-9c31-55eb894cf4ad">
+                <label text="RNA"/>
+                <bbox w="20.0" h="10.0" x="1292.159" y="185.5"/>
+            </glyph>
+        </glyph>
+        <glyph class="nucleic acid feature" id="emtc_emtc_s4_sa50" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+zinc finger E-box binding homeobox 2
+HUGO:ZEB2, HGNC:14881, ENTREZ:9839, GENECARDS:GC02M145145
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:19839049
+Feedback loops
+PMID:225147423
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="ZEB2"/>
+            <bbox w="40.0" h="20.0" x="1281.159" y="136.5"/>
+        </glyph>
+        <glyph class="nucleic acid feature" id="emtc_emtc_s3720_sa51" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+ZEB1_ZEB2*
+zinc finger E-box binding homeobox 1
+HUGO:ZEB1, HGNC:11642, ENTREZ:6935,  GENECARDS:GC10P031648
+zinc finger E-box binding homeobox 2
+HUGO:ZEB2, HGNC:14881, ENTREZ:9839, GENECARDS:GC02M145145
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:20706219
+ZEB1 and ZEB2 are targeted by all MIR200 family members.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="ZEB1_ZEB2*"/>
+            <bbox w="108.0" h="20.0" x="1300.659" y="231.666"/>
+            <glyph class="unit of information" id="_595a8237-740f-4cdd-a99c-0a2352ba9ed0">
+                <label text="RNA"/>
+                <bbox w="20.0" h="10.0" x="1344.659" y="226.666"/>
+            </glyph>
+        </glyph>
+        <glyph class="complex" id="s13_csa8" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+NAME:MIR192:ZEB2
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:21518799
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="MIR192/ZEB2"/>
+            <bbox w="93.0" h="62.0" x="1122.159" y="471.0"/>
+            <glyph class="nucleic acid feature" id="emtc_emtc_s1408_sa52">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+zinc finger E-box binding homeobox 2
+HUGO:ZEB2, HGNC:14881, ENTREZ:9839, GENECARDS:GC02M145145
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:19839049
+Feedback loops
+PMID:225147423
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="ZEB2"/>
+                <bbox w="60.0" h="20.0" x="1140.159" y="492.0"/>
+                <glyph class="unit of information" id="_53d9915b-ebf7-4fc9-9362-bf81b858c99f">
+                    <label text="RNA"/>
+                    <bbox w="20.0" h="10.0" x="1160.159" y="487.0"/>
+                </glyph>
+            </glyph>
+            <glyph class="nucleic acid feature" id="emtc_emtc_s1407_sa53">
+                <notes>
+                    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                        <head>
+                            <title/>
+</head>
+                        <body>
+Identifiers_begin:
+microRNA 192
+HUGO:MIR192, HGNC:31562, ENTREZ:406967, GENECARDS:GC11M064676
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+Maps_Modules_end
+References_begin:
+PMID:21518799
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+                </notes>
+                <label text="MIR192"/>
+                <bbox w="75.0" h="20.0" x="1126.159" y="472.0"/>
+                <glyph class="unit of information" id="_a4cd82e8-c8a6-4fd5-97e4-bd171c6f1d30">
+                    <label text="asRNA"/>
+                    <bbox w="30.0" h="10.0" x="1148.659" y="467.0"/>
+                </glyph>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s4729_sa54" compartmentRef="c4_ca4">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+matrix metallopeptidase 14 (membrane-inserted)
+HUGO:MMP14, HGNC:7160, ENTREZ:4323, UNIPROT:P50281, GENECARDS:GC14P023305 
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="MMP14*"/>
+            <bbox w="63.0" h="16.0" x="585.0" y="931.7882"/>
+            <glyph class="unit of information" id="_cc5ed862-b771-4221-b5f4-614df2b15414">
+                <label text="truncated"/>
+                <bbox w="50.0" h="10.0" x="591.5" y="926.7882"/>
+            </glyph>
+        </glyph>
+        <glyph class="macromolecule" id="emtc_emtc_s4749_sa55" compartmentRef="c4_ca4">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+
+
+----- content merged by Celldesigner to SBGN-ML translation ------
+
+
+Identifiers_begin:
+fibronectin 1
+HUGO:FN1, HGNC:3778, ENTREZ:2335, UNIPROT:P02751, GENECARDS:GC02M216225
+Identifiers_end
+Maps_Modules_begin:
+MODULE:EMT_REGULATORS
+MODULE:ECM
+MODULE:CELL_MATRIX_ADHESIONS
+Maps_Modules_end
+References_begin:
+PMID:2409071
+Fibronectin is located on the apical and basal cell surfaces.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <label text="Truncated Fibronectin*"/>
+            <bbox w="142.0" h="21.0" x="628.0" y="982.7882"/>
+            <glyph class="unit of information" id="_9b4c0d4b-9e91-416e-9390-4ec134fc7a4c">
+                <label text="truncated"/>
+                <bbox w="50.0" h="10.0" x="674.0" y="977.7882"/>
+            </glyph>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pr_855c3ba4-dc4c-4038-b57f-27bd1136ee63" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="1072.6875" y="202.8381"/>
+            <port id="pr_855c3ba4-dc4c-4038-b57f-27bd1136ee63_p1" x="1092.6875" y="207.8381"/>
+            <port id="pr_855c3ba4-dc4c-4038-b57f-27bd1136ee63_p2" x="1062.6875" y="207.8381"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pr_9891daa6-96fb-4c5b-a4ae-0847237c014a">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="875.25" y="206.39502"/>
+            <port id="pr_9891daa6-96fb-4c5b-a4ae-0847237c014a_p1" x="895.25" y="211.39502"/>
+            <port id="pr_9891daa6-96fb-4c5b-a4ae-0847237c014a_p2" x="865.25" y="211.39502"/>
+        </glyph>
+        <glyph class="process" orientation="vertical" id="pr_ec3f736d-d041-4f86-832f-a7ed96e0df3c">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="804.75" y="569.969"/>
+            <port id="pr_ec3f736d-d041-4f86-832f-a7ed96e0df3c_p1" x="809.75" y="559.969"/>
+            <port id="pr_ec3f736d-d041-4f86-832f-a7ed96e0df3c_p2" x="809.75" y="589.969"/>
+        </glyph>
+        <glyph class="process" orientation="vertical" id="pr_e07056fa-280f-4300-929b-e5fe1634238a" compartmentRef="c4_ca4">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="879.4563" y="983.5"/>
+            <port id="pr_e07056fa-280f-4300-929b-e5fe1634238a_p1" x="884.4563" y="973.5"/>
+            <port id="pr_e07056fa-280f-4300-929b-e5fe1634238a_p2" x="884.4563" y="1003.5"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pr_b8dba73d-a735-46ac-b483-f805f6b8b708" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="1082.5" y="144.95676"/>
+            <port id="pr_b8dba73d-a735-46ac-b483-f805f6b8b708_p1" x="1102.5" y="149.95676"/>
+            <port id="pr_b8dba73d-a735-46ac-b483-f805f6b8b708_p2" x="1072.5" y="149.95676"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pr_a5c3ced0-14ff-46e7-9f42-890a10115275">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="885.75" y="147.87828"/>
+            <port id="pr_a5c3ced0-14ff-46e7-9f42-890a10115275_p1" x="905.75" y="152.87828"/>
+            <port id="pr_a5c3ced0-14ff-46e7-9f42-890a10115275_p2" x="875.75" y="152.87828"/>
+        </glyph>
+        <glyph class="omitted process" orientation="horizontal" id="pr_7b3b08a2-2c8c-4c34-b720-5226720efee0" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+PMID:24376839
+PTP4A3 is implicated in cell adhesion and the regulation of focal adhesion components including integrin beta-1, Src, paxillin and p130Cas
+Similarly, PTP4A3 promotes cell invasion by increasing MMP2 activity and decreasing the expression of the MMP inhibitor, TIMP2. 
+PTP4A3 is also involved in EMT: PTP4A3 overexpression in colorectal carcinoma cells downregulates epithelial markers (E-cadherin, plakoglobin, and integrin beta-3) and upregulates expression of mesenchymal markers (fibronectin and snail1).
+PMID:23691193
+Src-mediated phosphorylation of PTP4A3 Is required for Rho activation, motility and invasion promoted by PTP4A3.
+http://d-scholarship.pitt.edu/18634/1/Zimmerman_ETD-2013.pdf
+c-MYC activity was able to increase Ptp4a3 gene expression in a fibroblast cell culture model. 
+Tumors from the Ptp4a3-null mice had elevated levels of both IGF1Rβ and c-MYC compared to tumors replete with PTP4A3.
+Ptp4a3-null cells displayed less migration compared to wildtype cells and loss of VEGF-induced phosphorylation of SRC protein. 
+Reduced migration and SRC activation were also observed when human endothelial cells were treated with a small molecule inhibitor of PTP4A3.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="744.75" y="158.25"/>
+            <port id="pr_7b3b08a2-2c8c-4c34-b720-5226720efee0_p1" x="764.75" y="163.25"/>
+            <port id="pr_7b3b08a2-2c8c-4c34-b720-5226720efee0_p2" x="734.75" y="163.25"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pr_2f3a386e-74d4-4d55-82d1-802d702c97e1" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Activated HRAS (GTP bound forn) is associated with the plasma membrane.
+Inactive RAF1 is associated in the cytoplasm with YWHAB via S259 phosphorylation site and also binding site.
+RAF1 has a RAS-binding Cysteine-rich domain (CRD) and an additional RAS-binding domain (RBD).
+RAF1 binds activated HRAS via the RBD. This binding displaces YWHAB from Ser259 and unmasks the CRD.
+YWHAB has been displaced from S259 may now bind its higher affinity S621 site.
+This stabilises an OPEN RAF1 conformation that is catalytically active.
+Active and open RAF1 binds to RAS via both CRD and RBD domains.
+An unidentified protein tyrosine kinase located in the plasma membrane phosphorylates tyrosine residues at 340 and 341.
+This Tyrosine phosphorylation serves to further stabilise the active OPEN RAF1 conformation.
+While the kinase has not been definitively identified, SRC is a plausible candidate. RAF1 interacts with SRC and co-immunoprecipates with SRC-FYN.
+PIN1, a prolyl isomerase converts pSer and pThr residues from the cis to the trans conformation, which is preferentially recognized and dephosphorylated by PPP2R1A.
+Ras and PPP2R1A cooperate to release autoinhibition and the subsequent phosphorylation of activating sites: S338, Y374 and T491
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="185.5" y="359.8"/>
+            <port id="pr_2f3a386e-74d4-4d55-82d1-802d702c97e1_p1" x="205.5" y="364.8"/>
+            <port id="pr_2f3a386e-74d4-4d55-82d1-802d702c97e1_p2" x="175.5" y="364.8"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pr_6217f277-389e-4f81-ae45-6183d8253683" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+In general, growth factor stimulation leads to the activation of receptor tyrosine kinases and to the phosphorylation of the receptor tail.
+The resultant phosphotyrosines form docking sites for adaptator proteins (e.g. GRB2 via its SH2 domain).
+The SH3 domain of adaptator (e.g. GRB2) then binds to the proline-rich motifs in the GTP exchange factor (i.e. GEF) for RAS (e.g. SOS)
+Via this process that GEF (e.g. SOS) is recruited to the membrane where it colocalizes with and activates Ras.
+PMID:17673906
+SHC1 gene has 3 corresponding protein isoforms: p66, p52 and p46
+Upon TGFB stimulation, the activated TGFBR1 recruits and directly phosphorylates SHC1 (p66 or p52)  on tyrosine and serine. 
+TGFB-induced SHC1 phosphorylation induces SHC1  (p66 or p52) association with Grb2 and Sos
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="663.6875" y="491.0"/>
+            <port id="pr_6217f277-389e-4f81-ae45-6183d8253683_p1" x="683.6875" y="496.0"/>
+            <port id="pr_6217f277-389e-4f81-ae45-6183d8253683_p2" x="653.6875" y="496.0"/>
+        </glyph>
+        <glyph class="process" orientation="vertical" id="pr_a58e83dc-27d9-4564-a52d-96c13559251d" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+Negative feedback: MAPK1/ERK2 phosphorylates RAF1 on Ser 29, 43, 289, 296, 301, 642, generating an inactive kinase.
+PIN1, a prolyl isomerase converts pSer and pThr residues from the cis to the trans conformation, which is preferentially recognized and dephosphorylated by PPP2R1A.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="664.0" y="753.25"/>
+            <port id="pr_a58e83dc-27d9-4564-a52d-96c13559251d_p1" x="669.0" y="773.25"/>
+            <port id="pr_a58e83dc-27d9-4564-a52d-96c13559251d_p2" x="669.0" y="743.25"/>
+        </glyph>
+        <glyph class="process" orientation="vertical" id="pr_9890ebf3-3f20-4ebb-adcb-cb5681648096" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="662.3037" y="404.0"/>
+            <port id="pr_9890ebf3-3f20-4ebb-adcb-cb5681648096_p1" x="667.3037" y="424.0"/>
+            <port id="pr_9890ebf3-3f20-4ebb-adcb-cb5681648096_p2" x="667.3037" y="394.0"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pr_f91ce82c-00c9-4de3-b355-9624023309be" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Activated HRAS (GTP bound forn) is associated with the plasma membrane.
+Inactive RAF1 is associated in the cytoplasm with YWHAB via S259 phosphorylation site and also binding site.
+RAF1 has a RAS-binding Cysteine-rich domain (CRD) and an additional RAS-binding domain (RBD).
+RAF1 binds activated HRAS via the RBD. This binding displaces YWHAB from Ser259 and unmasks the CRD.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="539.8125" y="325.5389"/>
+            <port id="pr_f91ce82c-00c9-4de3-b355-9624023309be_p1" x="559.8125" y="330.5389"/>
+            <port id="pr_f91ce82c-00c9-4de3-b355-9624023309be_p2" x="529.8125" y="330.5389"/>
+        </glyph>
+        <glyph class="process" orientation="vertical" id="pr_f46d402a-a5b2-4e72-9d60-312ca20eaade" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+PMID:9069260
+Activated HRAS (GTP bound forn) is associated with the plasma membrane.
+Inactive RAF1 is associated in the cytoplasm with YWHAB via S259 phosphorylation site and also binding site.
+RAF1 has a RAS-binding Cysteine-rich domain (CRD) and an additional RAS-binding domain (RBD).
+RAF1 binds activated HRAS via the RBD. This binding displaces YWHAB from Ser259 and unmasks the CRD.
+YWHAB has been displaced from S259 may now bind its higher affinity S621 site.
+This stabilises an OPEN RAF1 conformation that is catalytically active.
+Active and open RAF1 binds to RAS via both CRD and RBD domains.
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="335.25" y="358.78998"/>
+            <port id="pr_f46d402a-a5b2-4e72-9d60-312ca20eaade_p1" x="340.25" y="378.78998"/>
+            <port id="pr_f46d402a-a5b2-4e72-9d60-312ca20eaade_p2" x="340.25" y="348.78998"/>
+        </glyph>
+        <glyph class="omitted process" orientation="vertical" id="pr_3e13a291-43b0-4dde-a777-897a3f1b5c95" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="664.25085" y="616.5"/>
+            <port id="pr_3e13a291-43b0-4dde-a777-897a3f1b5c95_p1" x="669.25085" y="636.5"/>
+            <port id="pr_3e13a291-43b0-4dde-a777-897a3f1b5c95_p2" x="669.25085" y="606.5"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pr_a41df8f3-2b89-415d-9ffa-9ac87f31a278" compartmentRef="c3_ca3">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="663.6875" y="459.25"/>
+            <port id="pr_a41df8f3-2b89-415d-9ffa-9ac87f31a278_p1" x="653.6875" y="464.25"/>
+            <port id="pr_a41df8f3-2b89-415d-9ffa-9ac87f31a278_p2" x="683.6875" y="464.25"/>
+        </glyph>
+        <glyph class="process" orientation="vertical" id="pr_f66f2752-433c-4fa7-ae61-30f3133a0823" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+PMID:16831886
+PMID:18832382
+HMGA2 directly binds to the SNAIL1 promoter and acts as a transcriptional regulator of SNAIL1 expression. 
+HMGA2 cooperates with SMAD3 and SMAD4 to execute a dramatic super-induction of the SNAIL1 promoter.
+Same results were obtained with SNAI2, ZEB1, ZEB2 and TWIST1
+HMGA2 cooperates with TGFB1 signaling to represse ID2 transcriptomal expression
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="1296.659" y="168.5"/>
+            <port id="pr_f66f2752-433c-4fa7-ae61-30f3133a0823_p1" x="1301.659" y="158.5"/>
+            <port id="pr_f66f2752-433c-4fa7-ae61-30f3133a0823_p2" x="1301.659" y="188.5"/>
+        </glyph>
+        <glyph class="omitted process" orientation="horizontal" id="pr_ca32914e-216e-44ac-8333-02dc9cba6e25" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+PMID:21518799
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="1316.659" y="312.19336"/>
+            <port id="pr_ca32914e-216e-44ac-8333-02dc9cba6e25_p1" x="1336.659" y="317.19336"/>
+            <port id="pr_ca32914e-216e-44ac-8333-02dc9cba6e25_p2" x="1306.659" y="317.19336"/>
+        </glyph>
+        <glyph class="uncertain process" orientation="horizontal" id="pr_9b84fe63-5737-4de5-a833-4ae14425db11" compartmentRef="c2_ca2">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="1323.409" y="216.08301"/>
+            <port id="pr_9b84fe63-5737-4de5-a833-4ae14425db11_p1" x="1343.409" y="221.08301"/>
+            <port id="pr_9b84fe63-5737-4de5-a833-4ae14425db11_p2" x="1313.409" y="221.08301"/>
+        </glyph>
+        <glyph class="process" orientation="vertical" id="pr_bba97e24-4af8-40ec-9633-4426cda7b4a5">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+PMID:22753312
+A direct link between ZEB2 and miRNA-192 in the diabetic kidney.
+miRNA-192 expression is regulated by both the p53 and TGFb pathways
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="1196.8054" y="365.24994"/>
+            <port id="pr_bba97e24-4af8-40ec-9633-4426cda7b4a5_p1" x="1201.8054" y="355.24994"/>
+            <port id="pr_bba97e24-4af8-40ec-9633-4426cda7b4a5_p2" x="1201.8054" y="385.24994"/>
+        </glyph>
+        <glyph class="process" orientation="horizontal" id="pr_e489986f-f3da-485f-827c-7b0a909ac314" compartmentRef="c4_ca4">
+            <notes>
+                <html xmlns="http://www.w3.org/1999/xhtml" xmlns:celldesigner="http://www.sbml.org/2001/ns/celldesigner">
+                    <head>
+                        <title/>
+</head>
+                    <body>Identifiers_begin:
+Identifiers_end
+Maps_Modules_begin:
+Maps_Modules_end
+References_begin:
+References_end
+Confidence_begin:
+Confidence_end
+</body>
+</html>
+            </notes>
+            <bbox w="10.0" h="10.0" x="739.7331" y="951.2536"/>
+            <port id="pr_e489986f-f3da-485f-827c-7b0a909ac314_p1" x="759.7331" y="956.2536"/>
+            <port id="pr_e489986f-f3da-485f-827c-7b0a909ac314_p2" x="729.7331" y="956.2536"/>
+        </glyph>
+        <arc class="consumption" id="cons_0b7d1837-51fa-4c5f-bfb4-0690dbfc58a2" source="emtc_emtc_s133_sa6" target="pr_855c3ba4-dc4c-4038-b57f-27bd1136ee63_p1">
+            <start x="1150.0" y="208.24423"/>
+            <end x="1092.6875" y="207.8381"/>
+        </arc>
+        <arc class="production" id="prod_321c78d9-35c5-4e4c-ab95-fe60212bd72c" source="pr_855c3ba4-dc4c-4038-b57f-27bd1136ee63_p2" target="emtc_emtc_s134_sa5">
+            <start x="1062.6875" y="207.8381"/>
+            <end x="1005.375" y="207.43196"/>
+        </arc>
+        <arc class="modulation" id="modif_c46aa5bd-5feb-4db8-8432-f87be6fc4e8b" source="emtc_emtc_s4807_sa7" target="pr_855c3ba4-dc4c-4038-b57f-27bd1136ee63">
+            <start x="716.0" y="173.90936"/>
+            <end x="1077.7156" y="202.83818"/>
+        </arc>
+        <arc class="consumption" id="cons_174b3b93-aa46-443e-83f1-fa0b3c2a8877" source="emtc_emtc_s134_sa5" target="pr_9891daa6-96fb-4c5b-a4ae-0847237c014a_p1">
+            <start x="918.5" y="209.4251"/>
+            <end x="895.25" y="211.39502"/>
+        </arc>
+        <arc class="production" id="prod_f3f3af49-7b12-4414-a4f2-4b76fb005bca" source="pr_9891daa6-96fb-4c5b-a4ae-0847237c014a_p2" target="s1_sa4">
+            <start x="865.25" y="211.39502"/>
+            <end x="842.0" y="213.36494"/>
+        </arc>
+        <arc class="consumption" id="cons_95e41b2e-7281-4521-aa4b-5003beef9a71" source="s1_sa4" target="pr_ec3f736d-d041-4f86-832f-a7ed96e0df3c_p1">
+            <start x="806.10425" y="225.219"/>
+            <end x="809.75" y="559.969"/>
+        </arc>
+        <arc class="production" id="prod_f94b3cf4-24b7-4490-a460-d50db79a7d9f" source="pr_ec3f736d-d041-4f86-832f-a7ed96e0df3c_p2" target="emtc_emtc_s3373_sa1">
+            <start x="809.75" y="589.969"/>
+            <end x="813.39575" y="924.719"/>
+        </arc>
+        <arc class="consumption" id="cons_75fcdbd3-6227-4f61-a3ae-d907f5e190e3" source="emtc_emtc_s3373_sa1" target="pr_e07056fa-280f-4300-929b-e5fe1634238a_p1">
+            <start x="813.5" y="934.719"/>
+            <next x="884.0" y="966.75006"/>
+            <end x="884.4563" y="973.5"/>
+        </arc>
+        <arc class="consumption" id="cons_5cc2f353-1d9d-4902-9fff-085780641bd7" source="emtc_emtc_s4720_sa3" target="pr_e07056fa-280f-4300-929b-e5fe1634238a_p1">
+            <start x="1015.5" y="940.75"/>
+            <next x="884.0" y="966.75006"/>
+            <end x="884.4563" y="973.5"/>
+        </arc>
+        <arc class="production" id="prod_9a17b05a-2cc3-42a7-bffc-c0d7549b028a" source="pr_e07056fa-280f-4300-929b-e5fe1634238a_p2" target="emtc_emtc_s4721_csa1">
+            <start x="884.4563" y="1003.5"/>
+            <end x="884.8287" y="1006.25"/>
+        </arc>
+        <arc class="stimulation" id="direct_6ec52b3b-cde2-4d9c-9b10-4594b49df2db" source="emtc_emtc_s4721_csa1" target="emtc_emtc_s2929_sa2">
+            <start x="883.94324" y="1070.25"/>
+            <end x="881.65674" y="1117.25"/>
+        </arc>
+        <arc class="consumption" id="cons_1eca434b-eef2-485f-8f4f-74b0f4517ca4" source="emtc_emtc_s4803_sa10" target="pr_b8dba73d-a735-46ac-b483-f805f6b8b708_p1">
+            <start x="1155.0" y="149.44925"/>
+            <end x="1102.5" y="149.95676"/>
+        </arc>
+        <arc class="production" id="prod_da0b3827-e8a9-4846-b92c-bf9939b08da0" source="pr_b8dba73d-a735-46ac-b483-f805f6b8b708_p2" target="emtc_emtc_s4802_sa9">
+            <start x="1072.5" y="149.95676"/>
+            <end x="1020.0" y="150.46428"/>
+        </arc>
+        <arc class="stimulation" id="modif_547da2e4-73d9-474b-bcfd-8353879c71ac" source="emtc_emtc_s656_sa12" target="pr_b8dba73d-a735-46ac-b483-f805f6b8b708">
+            <start x="1089.0758" y="127.5"/>
+            <end x="1087.4624" y="144.9569"/>
+        </arc>
+        <arc class="consumption" id="cons_2d19dc6c-5b23-432b-9904-71e3f9acb81e" source="emtc_emtc_s4802_sa9" target="pr_a5c3ced0-14ff-46e7-9f42-890a10115275_p1">
+            <start x="944.0" y="151.63629"/>
+            <end x="905.75" y="152.87828"/>
+        </arc>
+        <arc class="production" id="prod_3c2ba125-262d-45fa-b627-9b116698392b" source="pr_a5c3ced0-14ff-46e7-9f42-890a10115275_p2" target="emtc_emtc_s4801_sa8">
+            <start x="875.75" y="152.87828"/>
+            <end x="837.5" y="154.12027"/>
+        </arc>
+        <arc class="consumption" id="cons_42fb2266-3b48-4d1d-93ce-f9e16a07d9c0" source="emtc_emtc_s4801_sa8" target="pr_7b3b08a2-2c8c-4c34-b720-5226720efee0_p1">
+            <start x="783.5" y="158.52777"/>
+            <end x="764.75" y="163.25"/>
+        </arc>
+        <arc class="production" id="prod_089dc81d-a414-4f45-b0c8-745f3c3a6642" source="pr_7b3b08a2-2c8c-4c34-b720-5226720efee0_p2" target="emtc_emtc_s4807_sa7">
+            <start x="734.75" y="163.25"/>
+            <end x="716.0" y="167.97223"/>
+        </arc>
+        <arc class="catalysis" id="modif_3d5c6714-c8c4-4b61-b800-f4683af37e81" source="emtc_emtc_s4819_sa11" target="pr_7b3b08a2-2c8c-4c34-b720-5226720efee0">
+            <start x="298.0" y="128.62491"/>
+            <end x="749.0572" y="158.29823"/>
+        </arc>
+        <arc class="consumption" id="cons_2d53e580-75bc-40ee-99d9-09dfd3149d32" source="emtc_emtc_s3028_csa2" target="pr_2f3a386e-74d4-4d55-82d1-802d702c97e1_p1">
+            <start x="207.0" y="366.0"/>
+            <end x="205.5" y="364.8"/>
+        </arc>
+        <arc class="production" id="prod_37aa726b-e8ed-4f5c-89e2-2a1d6c842644" source="pr_2f3a386e-74d4-4d55-82d1-802d702c97e1_p2" target="emtc_emtc_s1578_sa15">
+            <start x="175.5" y="364.8"/>
+            <end x="174.0" y="363.6"/>
+        </arc>
+        <arc class="catalysis" id="modif_b6c94738-cf15-464e-9015-75c84a0785d9" source="emtc_emtc_s4819_sa11" target="pr_2f3a386e-74d4-4d55-82d1-802d702c97e1">
+            <start x="269.5" y="137.75"/>
+            <end x="190.13733" y="369.7868"/>
+        </arc>
+        <arc class="consumption" id="addreact_1fad4f03-7523-4ddb-b7a1-56b1a0ba1ffb" source="emtc_emtc_s1168_sa16" target="pr_2f3a386e-74d4-4d55-82d1-802d702c97e1_p1">
+            <start x="173.0" y="410.0"/>
+            <end x="205.5" y="364.8"/>
+        </arc>
+        <arc class="production" id="addprod_2f06939d-7800-48fd-957a-797f1b9cce26" source="pr_2f3a386e-74d4-4d55-82d1-802d702c97e1_p2" target="emtc_emtc_s1169_sa17">
+            <start x="175.5" y="364.8"/>
+            <end x="190.28383" y="321.5"/>
+        </arc>
+        <arc class="consumption" id="cons_3fdb5b80-45ba-4185-860e-cb93e6001c7d" source="emtc_emtc_s3418_csa5" target="pr_6217f277-389e-4f81-ae45-6183d8253683_p1">
+            <start x="711.375" y="496.75"/>
+            <end x="683.6875" y="496.0"/>
+        </arc>
+        <arc class="production" id="prod_528c75fa-0b49-4e12-95dc-17437fb9b31f" source="pr_6217f277-389e-4f81-ae45-6183d8253683_p2" target="emtc_emtc_s3009_csa6">
+            <start x="653.6875" y="496.0"/>
+            <end x="626.0" y="495.25"/>
+        </arc>
+        <arc class="consumption" id="cons_bc34fdb9-fad2-4841-b771-05c88e45b038" source="emtc_emtc_s1541_sa32" target="pr_a58e83dc-27d9-4564-a52d-96c13559251d_p1">
+            <start x="669.0" y="802.5"/>
+            <end x="669.0" y="773.25"/>
+        </arc>
+        <arc class="production" id="prod_e265e369-b678-45dd-9018-eec1755c657e" source="pr_a58e83dc-27d9-4564-a52d-96c13559251d_p2" target="emtc_emtc_s3030_sa29">
+            <start x="669.0" y="743.25"/>
+            <end x="669.0" y="714.0"/>
+        </arc>
+        <arc class="catalysis" id="modif_e544f48b-4f71-463e-b295-d0ae9955012a" source="emtc_emtc_s1591_sa28" target="pr_a58e83dc-27d9-4564-a52d-96c13559251d">
+            <start x="571.5" y="755.3473"/>
+            <end x="664.0" y="758.25"/>
+        </arc>
+        <arc class="consumption" id="addreact_62a71706-b656-4879-aa28-fba82b234ec2" source="emtc_emtc_s1168_sa31" target="pr_a58e83dc-27d9-4564-a52d-96c13559251d_p1">
+            <start x="676.0" y="768.8889"/>
+            <end x="669.0" y="773.25"/>
+        </arc>
+        <arc class="production" id="addprod_3218e769-b7c9-4751-ba6d-594c8cde0a56" source="pr_a58e83dc-27d9-4564-a52d-96c13559251d_p2" target="emtc_emtc_s1169_sa30">
+            <start x="669.0" y="743.25"/>
+            <end x="680.3171" y="743.0"/>
+        </arc>
+        <arc class="consumption" id="cons_39fb99d0-9601-4b66-a4f3-a3f9654d0695" source="emtc_emtc_s1549_sa25" target="pr_9890ebf3-3f20-4ebb-adcb-cb5681648096_p1">
+            <start x="669.5" y="552.5"/>
+            <next x="674.5" y="437.5"/>
+            <end x="667.3037" y="424.0"/>
+        </arc>
+        <arc class="consumption" id="cons_ec0b2932-d654-4884-8cc8-75343fde6dcf" source="emtc_emtc_s1547_sa23" target="pr_9890ebf3-3f20-4ebb-adcb-cb5681648096_p1">
+            <start x="449.5" y="429.5"/>
+            <next x="674.5" y="437.5"/>
+            <end x="667.3037" y="424.0"/>
+        </arc>
+        <arc class="production" id="prod_f2cac704-e2de-4018-b380-64bbfe0da92b" source="pr_9890ebf3-3f20-4ebb-adcb-cb5681648096_p2" target="emtc_emtc_s1548_csa7">
+            <start x="667.3037" y="394.0"/>
+            <end x="661.1175" y="384.5"/>
+        </arc>
+        <arc class="consumption" id="cons_89e33917-27b2-405e-82cf-c3e48586036a" source="emtc_emtc_s1548_csa7" target="pr_f91ce82c-00c9-4de3-b355-9624023309be_p1">
+            <start x="649.25" y="290.5"/>
+            <next x="568.5" y="336.0"/>
+            <end x="559.8125" y="330.5389"/>
+        </arc>
+        <arc class="consumption" id="cons_5effaca0-444a-4c8e-b07a-0db22d692864" source="emtc_emtc_s3009_csa6" target="pr_f91ce82c-00c9-4de3-b355-9624023309be_p1">
+            <start x="591.75" y="478.5"/>
+            <next x="568.5" y="336.0"/>
+            <end x="559.8125" y="330.5389"/>
+        </arc>
+        <arc class="production" id="prod_7cefa21d-c352-40bb-a8f8-713045a16afb" source="pr_f91ce82c-00c9-4de3-b355-9624023309be_p2" target="emtc_emtc_s3027_csa4">
+            <start x="529.8125" y="330.5389"/>
+            <end x="525.125" y="326.0"/>
+        </arc>
+        <arc class="consumption" id="cons_896f1dba-dbb7-4786-930a-dc0f18f35213" source="emtc_emtc_s3027_csa4" target="pr_f46d402a-a5b2-4e72-9d60-312ca20eaade_p1">
+            <start x="387.875" y="326.0"/>
+            <next x="348.5" y="359.5"/>
+            <end x="340.25" y="378.78998"/>
+        </arc>
+        <arc class="consumption" id="cons_3b366712-f7ca-4b13-96e8-2d955faa38be" source="emtc_emtc_s1547_sa23" target="pr_f46d402a-a5b2-4e72-9d60-312ca20eaade_p1">
+            <start x="449.5" y="429.5"/>
+            <next x="348.5" y="359.5"/>
+            <end x="340.25" y="378.78998"/>
+        </arc>
+        <arc class="production" id="prod_78c53245-32ff-456f-8330-f000479551c6" source="pr_f46d402a-a5b2-4e72-9d60-312ca20eaade_p2" target="emtc_emtc_s3028_csa2">
+            <start x="340.25" y="348.78998"/>
+            <end x="336.0" y="366.0"/>
+        </arc>
+        <arc class="consumption" id="cons_c5827b98-d46e-4027-b344-c442756a9db6" source="emtc_emtc_s3030_sa29" target="pr_3e13a291-43b0-4dde-a777-897a3f1b5c95_p1">
+            <start x="669.083" y="668.0"/>
+            <end x="669.25085" y="636.5"/>
+        </arc>
+        <arc class="production" id="prod_5a344637-680c-470b-a644-bac4170c5dc5" source="pr_3e13a291-43b0-4dde-a777-897a3f1b5c95_p2" target="emtc_emtc_s1549_sa25">
+            <start x="669.25085" y="606.5"/>
+            <end x="669.41876" y="575.0"/>
+        </arc>
+        <arc class="consumption" id="addreact_a6a21c50-6c67-40e0-a484-fb2432ef065d" source="emtc_emtc_s1168_sa27" target="pr_3e13a291-43b0-4dde-a777-897a3f1b5c95_p1">
+            <start x="661.0" y="632.45996"/>
+            <end x="669.25085" y="636.5"/>
+        </arc>
+        <arc class="production" id="addprod_85b347ac-ca4d-4764-8d32-7f68dc7216ef" source="pr_3e13a291-43b0-4dde-a777-897a3f1b5c95_p2" target="emtc_emtc_s1169_sa26">
+            <start x="669.25085" y="606.5"/>
+            <end x="659.9214" y="607.5"/>
+        </arc>
+        <arc class="consumption" id="cons_ecc69d5e-638e-4626-98e7-988a5c07bdc7" source="emtc_emtc_s3009_csa6" target="pr_a41df8f3-2b89-415d-9ffa-9ac87f31a278_p1">
+            <start x="626.0" y="461.75"/>
+            <end x="653.6875" y="464.25"/>
+        </arc>
+        <arc class="production" id="prod_57da5d4f-c97a-49c4-a2d5-e47464527d4c" source="pr_a41df8f3-2b89-415d-9ffa-9ac87f31a278_p2" target="emtc_emtc_s3418_csa5">
+            <start x="683.6875" y="464.25"/>
+            <end x="711.375" y="466.75"/>
+        </arc>
+        <arc class="catalysis" id="modif_4edbb7f2-8a22-4226-88a1-ee8daf136d9f" source="emtc_emtc_s3420_sa24" target="pr_a41df8f3-2b89-415d-9ffa-9ac87f31a278">
+            <start x="732.47894" y="417.0"/>
+            <end x="668.9798" y="459.25854"/>
+        </arc>
+        <arc class="consumption" id="cons_508f4df8-5ec9-4dca-85d5-dd33ab31cec7" source="emtc_emtc_s4_sa50" target="pr_f66f2752-433c-4fa7-ae61-30f3133a0823_p1">
+            <start x="1301.3442" y="156.5"/>
+            <end x="1301.659" y="158.5"/>
+        </arc>
+        <arc class="production" id="prod_7ebff9ea-d716-4505-aa4d-3e34b88aaedd" source="pr_f66f2752-433c-4fa7-ae61-30f3133a0823_p2" target="emtc_emtc_s22_sa49">
+            <start x="1301.659" y="188.5"/>
+            <end x="1301.9739" y="190.5"/>
+        </arc>
+        <arc class="consumption" id="cons_d62f0d8e-c2ec-47b3-8842-4219a388d407" source="emtc_emtc_s1339_sa48" target="pr_ca32914e-216e-44ac-8333-02dc9cba6e25_p1">
+            <start x="1337.159" y="316.5"/>
+            <end x="1336.659" y="317.19336"/>
+        </arc>
+        <arc class="production" id="prod_c4b2e037-6d78-495f-a1d5-1046dd3771b4" source="pr_ca32914e-216e-44ac-8333-02dc9cba6e25_p2" target="emtc_emtc_s1338_sa47">
+            <start x="1306.659" y="317.19336"/>
+            <end x="1306.159" y="317.8867"/>
+        </arc>
+        <arc class="consumption" id="cons_912d8e92-d4da-49fb-8bbc-9865a5db66de" source="emtc_emtc_s3720_sa51" target="pr_9b84fe63-5737-4de5-a833-4ae14425db11_p1">
+            <start x="1341.9058" y="231.666"/>
+            <end x="1343.409" y="221.08301"/>
+        </arc>
+        <arc class="production" id="prod_c6f1b226-4334-4480-9155-eca007e9db41" source="pr_9b84fe63-5737-4de5-a833-4ae14425db11_p2" target="emtc_emtc_s22_sa49">
+            <start x="1313.409" y="221.08301"/>
+            <end x="1314.9124" y="210.5"/>
+        </arc>
+        <arc class="consumption" id="cons_23df6a24-7e66-4cf6-ab1a-87a56ee45c61" source="emtc_emtc_s22_sa49" target="pr_bba97e24-4af8-40ec-9633-4426cda7b4a5_p1">
+            <start x="1302.159" y="200.5"/>
+            <next x="1228.159" y="265.4999"/>
+            <end x="1201.8054" y="355.24994"/>
+        </arc>
+        <arc class="consumption" id="cons_4f1cf5e7-2ebc-4f04-9dde-82f2b35f4771" source="emtc_emtc_s1338_sa47" target="pr_bba97e24-4af8-40ec-9633-4426cda7b4a5_p1">
+            <start x="1266.159" y="318.334"/>
+            <next x="1228.159" y="265.4999"/>
+            <end x="1201.8054" y="355.24994"/>
+        </arc>
+        <arc class="production" id="prod_9e68a67a-d6e2-43bb-9100-f99799f218ac" source="pr_bba97e24-4af8-40ec-9633-4426cda7b4a5_p2" target="s13_csa8">
+            <start x="1201.8054" y="385.24994"/>
+            <end x="1176.4583" y="471.0"/>
+        </arc>
+        <arc class="consumption" id="cons_615fa890-e021-4050-b228-51fb83dcba90" source="emtc_emtc_s3373_sa1" target="pr_e489986f-f3da-485f-827c-7b0a909ac314_p1">
+            <start x="777.5" y="929.719"/>
+            <end x="759.7331" y="956.2536"/>
+        </arc>
+        <arc class="production" id="prod_b809abc9-f51c-4760-9117-74c5481ddc90" source="pr_e489986f-f3da-485f-827c-7b0a909ac314_p2" target="emtc_emtc_s4749_sa55">
+            <start x="729.7331" y="956.2536"/>
+            <end x="711.9662" y="982.7882"/>
+        </arc>
+        <arc class="catalysis" id="modif_3031ef2b-7791-42f2-b488-929d9b62e3a8" source="emtc_emtc_s4729_sa54" target="pr_e489986f-f3da-485f-827c-7b0a909ac314">
+            <start x="648.0" y="942.9561"/>
+            <end x="741.5864" y="952.3679"/>
+        </arc>
+    </map>
+</sbgn>
+
