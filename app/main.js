@@ -58,6 +58,8 @@ libs.tippy = tippy;
 
 $(document).ready(function () {
 
+  document.sbgnReady = false;
+
   // Register chise with libs
   chise.register(libs);
 

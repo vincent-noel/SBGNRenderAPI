@@ -9,7 +9,7 @@ module.exports = function() {
 
     // get chise instance for cy
     var chiseInstance = appUtilities.getChiseInstance(cy);
-  
+    document.sbgnReady = true;
     // var currentLayoutProperties = appUtilities.getScratch(cy, 'currentLayoutProperties');
 
     // var preferences;
