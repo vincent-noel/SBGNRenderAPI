@@ -1,0 +1,15 @@
+#docker-compose.yml
+version: '3.4'
+services:
+
+  newt-converter:
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile
+
+    image: newt-converter
+    container_name: newt-converter
+    restart: always
+        
+    ports: 
+      - "8081:80"

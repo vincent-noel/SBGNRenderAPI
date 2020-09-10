@@ -2,6 +2,21 @@
 
 This application is a stripped down version of [Newt](https://github.com/iVis-at-Bilkent/newt), which perform a simple SBGN-ML rendering as a PNG image.
 
+## Use with docker and docker-compose
+
+```
+git clone https://github.com/vincent-noel/newt.git
+cd newt
+docker-compose up -d
+```
+
+Then, open a web browser and navigate to 
+```
+http://localhost?url=\<the url of the sbgn-ml file\>
+```
+
+After rendering, the file will start downloading.
+
 ## Installation
 In order to deploy and run a local instance of the tool, please follow the steps below (we recommend the use of LTS version 12.16.1 of node.js):
 
