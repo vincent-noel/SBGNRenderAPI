@@ -2510,13 +2510,13 @@ appUtilities.launchWithModelFile = function() {
   var promptInvalidURLWarning = this.promptInvalidURLWarning;
 
   if(url_path != undefined)
-    loadFromURL(url_path, chiseInstance, promptInvalidURLWarning);
+    loadFromURL(url_path, chiseInstance);
   else if(uri_path != undefined)
     loadFromURI(uri_path, chiseInstance, promptInvalidURIWarning);
   // else
   //   tutorial.introduction(true);
 
-  function loadFromURL(filepath, chiseInstance, promptInvalidURLWarning){
+  function loadFromURL(filepath, chiseInstance){
 
     var loadCallbackSBGNMLValidity = function (text) {
       $.ajax({
@@ -2538,11 +2538,11 @@ appUtilities.launchWithModelFile = function() {
     }
 
     var loadCallbackInvalidityWarning  = function () {
-      promptInvalidURLWarning.render();
+      document.sbgnInvalid = true;
     }
 
     if(filepath == undefined){
-      loadCallbackInvalidityWarning();
+      document.sbgnError = true;
       return;
     }
 
@@ -2574,11 +2574,12 @@ appUtilities.launchWithModelFile = function() {
           chiseInstance.loadNwtFile(fileToLoad, loadCallbackSBGNMLValidity, loadCallbackInvalidityWarning);
         }
         else {
-          loadCallbackInvalidityWarning();
+          document.sbgnNotFound = true;
         }
       },
       error: function(xhr, options, err){
-        loadCallbackInvalidityWarning();
+        // Here the error would be that our utilities api is not working ?
+        document.sbgnError = true;
       }
     });
 
