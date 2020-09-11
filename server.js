@@ -38,6 +38,12 @@ function requestHandler(req, res){
 app.get('/utilities/:fn', requestHandler);
 app.post('/utilities/:fn', requestHandler);
 
+function statusHandler(req, res) {
+	res.status(200);
+	res.send(JSON.stringify({'status': true}));
+}
+app.get('/status', statusHandler);
+
 server.listen(port, function(){
   console.log('server listening on port: %d', port);
 });
