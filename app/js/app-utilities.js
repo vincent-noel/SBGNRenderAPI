@@ -2491,6 +2491,7 @@ appUtilities.launchWithModelFile = function() {
 
   var paramObj = getQueryParameters();
   var url_path = paramObj.url;
+  document.sbgnBg = paramObj.bg;
 
   var chiseInstance = appUtilities.getActiveChiseInstance();
   var cyInstance = chiseInstance.getCy();

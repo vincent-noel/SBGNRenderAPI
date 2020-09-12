@@ -27,7 +27,7 @@ module.exports = function() {
     
     
     
-    chiseInstance.saveAsPng("truc.png"); // the default filename is 'network.png'
+    chiseInstance.saveAsPng("truc.png", document.sbgnBg); // the default filename is 'network.png'
 
   });
 
