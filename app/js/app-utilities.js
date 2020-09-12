@@ -2492,13 +2492,12 @@ appUtilities.launchWithModelFile = function() {
   var paramObj = getQueryParameters();
   var url_path = paramObj.url;
   document.sbgnBg = paramObj.bg;
-
   var chiseInstance = appUtilities.getActiveChiseInstance();
   var cyInstance = chiseInstance.getCy();
 
   // attach url params to the object to be used on sbgnvizLoadFileEnd event
   // it will be cleared immediately after usage
-  if(url_path || uri_path) {
+  if(url_path) {
     appUtilities.setScratch(cyInstance, 'urlParams', paramObj);
   }
   else {
@@ -2527,55 +2526,6 @@ appUtilities.launchWithModelFile = function() {
     else
       fileExtension = 'txt';
 
-    console.log(filepath);
-    
-    // We can validate here is we want to
-    function executeValidate(sbgnml) {
-      var xsdString;
-      try {
-        xsdString = fs.readFileSync('./app/resources/libsbgn-0.3.xsd', {encoding: 'utf8'});// function (err, data) {
-      }
-      catch (err) {
-        return ["Error: Failed to read xsd file " + err];
-      }
-  
-      var xsdDoc;
-      try {
-        xsdDoc = libxmljs.parseXml(xsdString);
-      }
-      catch (err) {
-        return ["Error: libxmljs failed to parse xsd " + err];
-      }
-  
-      var xmlDoc;
-      try {
-        xmlDoc = libxmljs.parseXml(sbgnml);
-      }
-      catch (err) {
-        return ["Error: libxmljs failed to parse xml " + err];
-      }
-  
-      if (!xmlDoc.validate(xsdDoc)) {
-        var errors = xmlDoc.validationErrors;
-        var errorList = [];
-        for(var i=0; i < errors.length; i++) {
-           // I can't understand the structure of this object. It's a mix of object with string in the middle....
-          var error = errors[i];
-          var message = error.toString(); // get the string message part
-          var newErrorObj = {}; // get the object properties
-          newErrorObj.message = message;
-          for(var key in error) {
-            newErrorObj[key] = error[key];
-          }
-          errorList.push(newErrorObj);
-        }
-        return errorList;
-      }
-      else {
-        return [];
-      }
-    }
-    
     $.ajax({
       type: 'get',
       url:filepath,
@@ -2587,11 +2537,11 @@ appUtilities.launchWithModelFile = function() {
             type: 'text/' + fileExtension,
             lastModified: Date.now()
           });
-
+          
           chiseInstance.loadNwtFile(fileToLoad, function truc(){}, function chose(){});
       },
       error: function(xhr, options, err){
-            document.sbgnError = true;
+            document.sbgnNotFound = true;
       }
     });
     
