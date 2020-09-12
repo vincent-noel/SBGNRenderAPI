@@ -1,5 +1,3 @@
-from api.RendererClient import RendererClient
+from sbgnrender import renderSBGN
 
-client = RendererClient()
-client.render("Reaction_Species.xml", "machin.png")
-client.close()
+renderSBGN("Reaction_Species.xml", "machin.png")

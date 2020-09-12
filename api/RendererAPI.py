@@ -1,5 +1,5 @@
-from flask import Flask, json, request, redirect, url_for, flash, jsonify, send_from_directory, send_file
-from RendererClient import RendererClient
+from flask import Flask, request, send_file
+from RendererClient import renderSBGN
 import os, tempfile, io
 
 UPLOAD_FOLDER = '/var/sbgn-rest-renderer/static'
@@ -25,11 +25,9 @@ def render():
             filename = file.filename
             file.save(os.path.join(folder, filename))
       
-            client = RendererClient()
-            client.render(os.path.join("static", os.path.basename(folder), filename), os.path.join(folder, "output.png"))
+            renderSBGN(os.path.join("static", os.path.basename(folder), filename), os.path.join(folder, "output.png"))
       
             binary = io.BytesIO(open(os.path.join(folder, "output.png"), 'rb').read())
-            client.close()
       
             return send_file(binary, attachment_filename='output.png', mimetype='image/png')
         
