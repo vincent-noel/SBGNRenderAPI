@@ -7,18 +7,12 @@ import os, sys, tempfile, time, requests, json, shutil
 
 class RendererClient:
     
-    def __init__(self, server="localhost", port=80):
+    def __init__(self):
         
-        self.server = server
-        self.port = port
         self.driver = None
         self.directory = tempfile.mkdtemp()
         
-        self._create_driver()
-        if not self.check_status():
-            self.close()
-            raise ConnectionError("The rendering server %s:%d could not be reached" % (self.server, self.port))
-            
+        self._create_driver()    
         
     def _create_driver(self):
         
@@ -26,8 +20,10 @@ class RendererClient:
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--window-size=1920x1080")
         chrome_options.add_argument("--disable-notifications")
-        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--no-sandbox') # Allow root to run
         chrome_options.add_argument('--verbose')
+        chrome_options.add_argument("--allow-file-access-from-files") 
+        chrome_options.add_argument("--disabled-web-security")
         chrome_options.add_experimental_option("prefs", {
                 "download.default_directory": ".",
                 "download.prompt_for_download": False,
@@ -44,20 +40,13 @@ class RendererClient:
         self.driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
         params = {'cmd':'Page.setDownloadBehavior', 'params': {'behavior': 'allow', 'downloadPath': self.directory}}
         self.driver.execute("send_command", params)
-
-    def check_status(self):
-        try:
-            res = requests.get("http://%s:%d/status" % (self.server, self.port)).json()
-            return res['status']
-
-        except requests.exceptions.ConnectionError as e:
-            return False
             
     def render(self, url, output_filename):
                 
         # get request to target the site selenium is active on
-        print("Rendering : http://%s:%d/?url=%s" % (self.server, self.port, url))
-        self.driver.get("http://%s:%d/?url=%s" % (self.server, self.port, url))
+        full_url = "file://%s/index.html?url=%s&bg=#fff" % (os.path.dirname(os.path.dirname(__file__)), url)
+        print("Rendering : %s" % full_url)
+        self.driver.get(full_url)
         
         wait = WebDriverWait(self.driver, 60*60*2) # Two hours max should be more than enough
         
@@ -67,31 +56,27 @@ class RendererClient:
             def __call__(self, driver):
                 res = driver.execute_script("return {0};".format(self.variable))
                 return res
-        # print("Started waiting...")
-        wait.until(js_variable_evals_to_true("document.sbgnReady || document.sbgnInvalid || document.sbgnNotFound || document.sbgnError"))
-        
-        # print("Returned from wait")
+
+        wait.until(js_variable_evals_to_true("document.sbgnReady || document.sbgnNotFound || document.sbgnError"))
         
         if self.driver.execute_script(" return document.sbgnReady") is True:
             
             while not os.path.exists(os.path.join(self.directory, "truc.png")):
-                # print("Downloading...")
                 time.sleep(1)
 
             shutil.move(os.path.join(self.directory, "truc.png"), output_filename)
         
         else: 
-            if self.driver.execute_script(" return document.sbgnInvalid") is True:
-                print("Failed, invalid SBGN")
-            elif self.driver.execute_script(" return document.sbgnNotFound") is True:
+            if self.driver.execute_script(" return document.sbgnNotFound") is True:
                 print("Failed, SBGN not found")
+
             elif self.driver.execute_script(" return document.sbgnError") is True:
                 print("Failed, something went wrong")
+
             else:
                 print("Failed, and I can't say why")
-        
+
     def close(self):
-        # print("Removing directory %s" % self.directory)
         os.rmdir(self.directory) 
         
         

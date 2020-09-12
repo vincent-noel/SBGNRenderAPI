@@ -5,12 +5,8 @@ import os, tempfile, io
 UPLOAD_FOLDER = '/var/sbgn-rest-renderer/static'
 ALLOWED_EXTENSIONS = {'xml'}
 
-api = Flask(__name__, static_url_path='', static_folder=UPLOAD_FOLDER)
+api = Flask(__name__)
 api.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-    
-@api.route('/', methods=['GET'])
-def home():
-    return send_file('index.html')
 
 @api.route('/render', methods=['POST'])
 def render():
@@ -29,17 +25,14 @@ def render():
             filename = file.filename
             file.save(os.path.join(folder, filename))
       
-            url = "http://localhost/%s" % os.path.join(os.path.basename(folder), filename)
             client = RendererClient()
-            client.render(url, os.path.join(folder, "output.png"))
+            client.render(os.path.join("static", os.path.basename(folder), filename), os.path.join(folder, "output.png"))
       
             binary = io.BytesIO(open(os.path.join(folder, "output.png"), 'rb').read())
             client.close()
       
             return send_file(binary, attachment_filename='output.png', mimetype='image/png')
         
-        
-
     else:
         raise Exception("DISALLOWED_FILE_TYPE")
     

@@ -16,7 +16,7 @@ RUN mkdir /var/sbgn-rest-renderer
 COPY app /var/sbgn-rest-renderer/app
 COPY api /var/sbgn-rest-renderer/api
 # COPY node_modules /var/sbgn-rest-renderer/node_nodules
-COPY package.json LICENSE.md server.js templatelibsbgn.xslt scripts/apache_config.sh /var/sbgn-rest-renderer/
+COPY package.json LICENSE.md server.js index.html templatelibsbgn.xslt scripts/apache_config.sh /var/sbgn-rest-renderer/
 
 WORKDIR /var/sbgn-rest-renderer
 RUN npm install \
@@ -35,5 +35,5 @@ RUN mkdir static \
 EXPOSE 80
 
 # CMD bash -c "service apache2 start && service apache2 reload & npm run watch-server"
-CMD apachectl -D FOREGROUND
-# CMD bash -c "tail -f /dev/null"
+# CMD apachectl -D FOREGROUND
+CMD bash -c "tail -f /dev/null"
