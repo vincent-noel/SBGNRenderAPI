@@ -7,7 +7,7 @@ import os, sys, tempfile, time, requests, json, shutil
 
 class RendererClient:
     
-    def __init__(self, server="localhost", port=8081):
+    def __init__(self, server="localhost", port=80):
         
         self.server = server
         self.port = port
@@ -67,15 +67,15 @@ class RendererClient:
             def __call__(self, driver):
                 res = driver.execute_script("return {0};".format(self.variable))
                 return res
-        print("Started waiting...")
+        # print("Started waiting...")
         wait.until(js_variable_evals_to_true("document.sbgnReady || document.sbgnInvalid || document.sbgnNotFound || document.sbgnError"))
         
-        print("Returned from wait")
+        # print("Returned from wait")
         
         if self.driver.execute_script(" return document.sbgnReady") is True:
             
             while not os.path.exists(os.path.join(self.directory, "truc.png")):
-                print("Downloading...")
+                # print("Downloading...")
                 time.sleep(1)
 
             shutil.move(os.path.join(self.directory, "truc.png"), output_filename)
@@ -91,7 +91,7 @@ class RendererClient:
                 print("Failed, and I can't say why")
         
     def close(self):
-        
+        # print("Removing directory %s" % self.directory)
         os.rmdir(self.directory) 
         
         

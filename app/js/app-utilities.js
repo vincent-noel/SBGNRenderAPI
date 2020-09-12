@@ -6,7 +6,6 @@
 var jquery = $ = require('jquery');
 var chroma = require('chroma-js');
 var chise = require('chise');
-// var tutorial = require('./tutorial');
 
 var appUtilities = {};
 
@@ -2492,7 +2491,6 @@ appUtilities.launchWithModelFile = function() {
 
   var paramObj = getQueryParameters();
   var url_path = paramObj.url;
-  var uri_path = paramObj.uri;
 
   var chiseInstance = appUtilities.getActiveChiseInstance();
   var cyInstance = chiseInstance.getCy();
@@ -2506,40 +2504,10 @@ appUtilities.launchWithModelFile = function() {
     appUtilities.setScratch(cyInstance, 'urlParams', undefined);
   }
 
-  var promptInvalidURIWarning = this.promptInvalidURIWarning;
-  var promptInvalidURLWarning = this.promptInvalidURLWarning;
-
   if(url_path != undefined)
     loadFromURL(url_path, chiseInstance);
-  else if(uri_path != undefined)
-    loadFromURI(uri_path, chiseInstance, promptInvalidURIWarning);
-  // else
-  //   tutorial.introduction(true);
 
   function loadFromURL(filepath, chiseInstance){
-
-    var loadCallbackSBGNMLValidity = function (text) {
-      $.ajax({
-        type: 'post',
-        url: "/utilities/validateSBGNML",
-        data: {sbgnml: text},
-        success: function(data){
-          if(data.length == 0) {
-            console.log("Xsd validation OK");
-          }
-          else {
-            console.error("Xsd validation failed. Errors:", data);
-          }
-        },
-        error: function(req, status, err) {
-          console.error("Error during file validation", status, err);
-        }
-      });
-    }
-
-    var loadCallbackInvalidityWarning  = function () {
-      document.sbgnInvalid = true;
-    }
 
     if(filepath == undefined){
       document.sbgnError = true;
@@ -2558,69 +2526,76 @@ appUtilities.launchWithModelFile = function() {
     else
       fileExtension = 'txt';
 
+    console.log(filepath);
+    
+    // We can validate here is we want to
+    function executeValidate(sbgnml) {
+      var xsdString;
+      try {
+        xsdString = fs.readFileSync('./app/resources/libsbgn-0.3.xsd', {encoding: 'utf8'});// function (err, data) {
+      }
+      catch (err) {
+        return ["Error: Failed to read xsd file " + err];
+      }
+  
+      var xsdDoc;
+      try {
+        xsdDoc = libxmljs.parseXml(xsdString);
+      }
+      catch (err) {
+        return ["Error: libxmljs failed to parse xsd " + err];
+      }
+  
+      var xmlDoc;
+      try {
+        xmlDoc = libxmljs.parseXml(sbgnml);
+      }
+      catch (err) {
+        return ["Error: libxmljs failed to parse xml " + err];
+      }
+  
+      if (!xmlDoc.validate(xsdDoc)) {
+        var errors = xmlDoc.validationErrors;
+        var errorList = [];
+        for(var i=0; i < errors.length; i++) {
+           // I can't understand the structure of this object. It's a mix of object with string in the middle....
+          var error = errors[i];
+          var message = error.toString(); // get the string message part
+          var newErrorObj = {}; // get the object properties
+          newErrorObj.message = message;
+          for(var key in error) {
+            newErrorObj[key] = error[key];
+          }
+          errorList.push(newErrorObj);
+        }
+        return errorList;
+      }
+      else {
+        return [];
+      }
+    }
+    
     $.ajax({
       type: 'get',
-      url: "/utilities/testURL",
-      data: {url: filepath},
-      success: function(data){
-        // here we can get 404 as well, for example, so there are still error cases to handle
-        if (!data.error && data.response.statusCode == 200 && data.response.body) {
-          $(document).trigger('sbgnvizLoadFromURL', [filename, cyInstance]);
-          var fileToLoad = new File([data.response.body], filename, {
+      url:filepath,
+      dataType: "text",
+      
+      success: function(data) {
+        $(document).trigger('sbgnvizLoadFromURL', [filename, cyInstance]);
+          var fileToLoad = new File([data], filename, {
             type: 'text/' + fileExtension,
             lastModified: Date.now()
           });
 
-          chiseInstance.loadNwtFile(fileToLoad, loadCallbackSBGNMLValidity, loadCallbackInvalidityWarning);
-        }
-        else {
-          document.sbgnNotFound = true;
-        }
+          chiseInstance.loadNwtFile(fileToLoad, function truc(){}, function chose(){});
       },
       error: function(xhr, options, err){
-        // Here the error would be that our utilities api is not working ?
-        document.sbgnError = true;
+            document.sbgnError = true;
       }
     });
-
+    
   }
 
-  function loadFromURI(uri, chiseInstance, promptInvalidURIWarning){
-
-    var queryURL = "http://www.pathwaycommons.org/pc2/get?uri="
-          + uri + "&format=SBGN";
-
-    var filename = uri + '.nwt';
-    var cyInstance = chiseInstance.getCy();
-
-    chiseInstance.startSpinner('paths-byURI-spinner');
-
-    var currentLayoutProperties = appUtilities.getScratch(cyInstance, 'currentLayoutProperties');
-
-    $.ajax({
-      type: 'get',
-      url: "/utilities/testURL",
-      data: {url: queryURL},
-      success: function(data){
-        // here we can get 404 as well, for example, so there are still error cases to handle
-        if (data.response.statusCode == 200 && data.response.body) {
-          var xml = $.parseXML(data.response.body);
-          $(document).trigger('sbgnvizLoadFile', [filename, cyInstance]);
-          $(document).trigger('sbgnvizLoadFromURI', [filename, cyInstance]);          
-          chiseInstance.updateGraph(chiseInstance.convertSbgnmlToJson(xml), undefined, currentLayoutProperties);
-          chiseInstance.endSpinner('paths-byURI-spinner');
-          $(document).trigger('sbgnvizLoadFileEnd', [filename,  cyInstance]);
-        }
-        else {
-          chiseInstance.endSpinner('paths-byURI-spinner');
-          promptInvalidURIWarning.render();
-        }
-      },
-      error: function(xhr, options, err){
-        chiseInstance.endSpinner('paths-byURI-spinner');
-        promptInvalidURIWarning.render();      }
-    });
-  }
 
   // returns an object that contains name-value pairs of query parameters
   function getQueryParameters(url) {
