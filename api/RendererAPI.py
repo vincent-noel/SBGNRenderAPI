@@ -25,7 +25,17 @@ def render():
             filename = file.filename
             file.save(os.path.join(folder, filename))
       
-            renderSBGN(os.path.join("static", os.path.basename(folder), filename), os.path.join(folder, "output.png"))
+            renderSBGN(
+                os.path.join("static", os.path.basename(folder), filename), 
+                os.path.join(folder, "output.png"),
+                format = request.values.get("format"),
+                scale = request.values.get("scale"),
+                bg = request.values.get("bg"),
+                max_width = request.values.get("max_width"),
+                max_height = request.values.get("max_height"),
+                quality = request.values.get("quality"),
+                layout = request.values.get("layout")
+            )
       
             binary = io.BytesIO(open(os.path.join(folder, "output.png"), 'rb').read())
       
