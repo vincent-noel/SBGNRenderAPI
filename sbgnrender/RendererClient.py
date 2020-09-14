@@ -2,6 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+
 import os, sys, tempfile, time, requests, json, shutil
 
 def _create_driver(directory):
@@ -21,29 +24,49 @@ def _create_driver(directory):
             "safebrowsing_for_trusted_sources_enabled": False,
             "safebrowsing.enabled": False
     })
-    # chrome_options.add_argument('--disable-gpu')
-    #chrome_options.add_argument('--disable-software-rasterizer')
-
-    # initialize driver object and change the <path_to_chrome_driver> depending on your directory where your chromedriver should be
-    driver = webdriver.Chrome(options=chrome_options)        
+    
+    # enable browser logging
+    d = DesiredCapabilities.CHROME
+    d['goog:loggingPrefs'] = { 'browser':'ALL' }
+    
+    driver = webdriver.Chrome(options=chrome_options, desired_capabilities=d)        
 
     driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
     params = {'cmd':'Page.setDownloadBehavior', 'params': {'behavior': 'allow', 'downloadPath': directory}}
     driver.execute("send_command", params)
     return driver
     
+def _print_console(logs):
+    for log in logs:
+        print(" ".join(log['message'].split(" ")[2:]))
         
-def renderSBGN(url, output_filename):
+def renderSBGN(url, output_filename, format=None, scale=None, bg=None, max_width=None, max_height=None, quality=None, layout=None, verbose=False):
         
     with tempfile.TemporaryDirectory() as directory:
     #  self.directory = tempfile.mkdtemp()
         driver = _create_driver(directory)
             
         # get request to target the site selenium is active on
-        full_url = "file://%s/index.html?url=%s&bg=#fff" % (os.path.dirname(os.path.dirname(__file__)), url)
-        print("Rendering : %s" % full_url)
+        full_url = "file://%s/index.html?url=%s%s%s%s%s%s%s%s" % (
+            os.path.dirname(os.path.dirname(__file__)), 
+            url,
+            ("&format=%s" % format) if format is not None else "",
+            ("&scale=%s" % scale) if scale is not None else "",
+            ("&bg=%s" % bg) if bg is not None else "",
+            ("&max_width=%s" % max_width) if max_width is not None else "",
+            ("&max_height=%s" % max_height) if max_height is not None else "",
+            ("&quality=%s" % quality) if quality is not None else "",
+            ("&layout=%s" % layout) if layout is not None else ""
+        )
+        
+        if verbose:
+            print("Rendering : %s" % full_url)    
+        
         driver.get(full_url)
         
+        if verbose:
+            _print_console(driver.get_log('browser'))
+
         wait = WebDriverWait(driver, 60*60*2) # Two hours max should be more than enough
         
         class js_variable_evals_to_true(object):
@@ -51,16 +74,23 @@ def renderSBGN(url, output_filename):
                 self.variable = variable
             def __call__(self, driver):
                 res = driver.execute_script("return {0};".format(self.variable))
+                
+                if verbose:
+                    _print_console(driver.get_log('browser'))
+                    
                 return res
 
         wait.until(js_variable_evals_to_true("document.sbgnReady || document.sbgnNotFound || document.sbgnError"))
         
+        if verbose:
+            _print_console(driver.get_log('browser'))
+
         if driver.execute_script(" return document.sbgnReady") is True:
             
-            while not os.path.exists(os.path.join(directory, "truc.png")):
+            while not os.path.exists(os.path.join(directory, "network.%s" % (format if format is not None else "png"))):
                 time.sleep(1)
-
-            shutil.move(os.path.join(directory, "truc.png"), output_filename)
+         
+            shutil.move(os.path.join(directory, "network.%s" % (format if format is not None else "png")), output_filename)
         
         else: 
             if driver.execute_script(" return document.sbgnNotFound") is True:
