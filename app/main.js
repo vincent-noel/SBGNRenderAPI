@@ -10,7 +10,7 @@ require('jquery-expander')($);
 require('bootstrap');
 
 var appUtilities = require('./js/app-utilities');
-var appMenu = require('./js/app-menu');
+// var appMenu = require('./js/app-menu');
 
 // Get cy extension instances
 var cyPanzoom = require('cytoscape-panzoom');
@@ -55,6 +55,84 @@ libs.cytoscape = cytoscape;
 libs.sbgnviz = sbgnviz;
 libs.tippy = tippy;
 
+function registerRenderingEvents() {
+  
+  console.log('init the sbgnviz template/page');
+
+  $(document).on('sbgnvizLoadFileEnd sbgnvizLoadSampleEnd', function(event, filename, cy) {
+
+    // get chise instance for cy
+    var chiseInstance = appUtilities.getChiseInstance(cy);
+    var cyInstance = chiseInstance.getCy();
+    
+    var urlParams = appUtilities.getScratch(cyInstance, 'urlParams');
+    
+    var layout = urlParams.layout;
+    
+    if (layout == undefined) {
+      
+      document.sbgnReady = true;
+
+      var format = urlParams.format;
+      var bg = urlParams.bg;
+      var scale = urlParams.scale;
+      var maxWidth = urlParams.max_width;
+      var maxHeight = urlParams.max_height;
+      var quality = urlParams.quality;
+      
+      if (format == "svg") {
+        chiseInstance.saveAsSvg("network.svg", scale=scale, bg=bg);
+        
+      } else if (format == "jpg") {
+        chiseInstance.saveAsJpg("network.jpg", scale=scale, bg=bg, maxWidth=maxWidth, maxHeight=maxHeight, quality=quality);
+        
+      } else {
+        chiseInstance.saveAsPng("network.png", scale=scale, bg=bg, maxWidth=maxWidth, maxHeight=maxHeight); // the default filename is 'network.png'
+          
+      }  
+    } else {
+      // Layout... todo
+      var currentLayoutProperties = appUtilities.getScratch(cy, 'currentLayoutProperties');
+
+      var preferences;
+      // if preferences param is not set use an empty map not to override any layout option
+      if (preferences === undefined) {
+        preferences = {};
+      }
+      var options = $.extend({}, currentLayoutProperties, preferences);
+      
+      chiseInstance.performLayout(options);
+    }
+
+  });
+
+  $(document).on('layoutstop', function(event, cy) {
+    
+    var chiseInstance = appUtilities.getChiseInstance(cy);
+    var cyInstance = chiseInstance.getCy();
+    
+    var urlParams = appUtilities.getScratch(cyInstance, 'urlParams');
+
+    var format = urlParams.format;
+    var bg = urlParams.bg;
+    var scale = urlParams.scale;
+    var maxWidth = urlParams.max_width;
+    var maxHeight = urlParams.max_height;
+    var quality = urlParams.quality;
+    document.sbgnReady = true;
+ 
+    if (format == "svg") {
+      chiseInstance.saveAsSvg("network.svg", scale=scale, bg=bg);
+      
+    } else if (format == "jpg") {
+      chiseInstance.saveAsJpg("network.jpg", scale=scale, bg=bg, maxWidth=maxWidth, maxHeight=maxHeight, quality=quality);
+      
+    } else {
+      chiseInstance.saveAsPng("network.png", scale=scale, bg=bg, maxWidth=maxWidth, maxHeight=maxHeight); // the default filename is 'network.png'
+        
+    }  
+  });		  
+};
 
 $(document).ready(function () {
 
@@ -64,7 +142,7 @@ $(document).ready(function () {
   // Register chise with libs
   chise.register(libs);
 
-  appMenu();
+  registerRenderingEvents();
 
   // create a new network and access the related chise.js instance
   appUtilities.createNewNetwork();
