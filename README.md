@@ -2,6 +2,8 @@
 
 This application is a simple REST API to render SBGN-ML files.
 
+You can test it at [https://vincent-noel.github.io/SBGNRenderAPI/](https://vincent-noel.github.io/SBGNRenderAPI/)
+
 It is based a stripped down version of [Newt](https://github.com/iVis-at-Bilkent/newt), which is executed from Selenium using chromedriver. It comes with a simple python library which implements this wrapper and can be used independently of the API.
 
 ## Run with docker and docker-compose
