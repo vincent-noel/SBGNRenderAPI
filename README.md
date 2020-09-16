@@ -88,7 +88,14 @@ python3 api/RendererAPI.py
 This API is build with Flask and uses a python library. 
 To install it
 ```
+sudo apt install chromium-chromedriver
+curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - 
+sudo apt-get install nodejs 
+
 git clone https://github.com/vincent-noel/newt.git
+cd newt
+npm install
+cd ..
 pip3 install newt/
 ``` 
 
