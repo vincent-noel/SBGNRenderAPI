@@ -1,21 +1,61 @@
-# A simple SBGN-ML renderer
+# A simple SBGN-ML renderering API
 
-This application is a stripped down version of [Newt](https://github.com/iVis-at-Bilkent/newt), which perform a simple SBGN-ML rendering as a PNG image.
+This application is a simple REST API to render SBGN-ML files.
 
-## Use with docker and docker-compose
+It is based a stripped down version of [Newt](https://github.com/iVis-at-Bilkent/newt), which is executed from Selenium using chromedriver. It comes with a simple python library which implements this wrapper and can be used independently of the API.
+
+## Run with docker and docker-compose
 
 ```
 git clone https://github.com/vincent-noel/newt.git
 cd newt
-docker-compose up -d
+sudo docker-compose up -d
 ```
 
-Then, open a web browser and navigate to 
+## Using the API
+
+Endpoint : http://localhost:8082/render
+
+Method : POST
+
+Files: 
+  - file : the sbgn-ml file to render
+  
+Parameters: 
+  
+  - format : image format (svg|png|jpg) (optional, default=png)
+  - scale : scaling value (optional, default 3 for jpg/png, 1 for svg)
+  - max_width : maximum width (optional, default depends on scale)
+  - max_height : maximum height (optional, default depends on scale)
+  - quality : JPG quality (optional, default 1, only for jpg)
+  
+Returns: 
+  - rendered image
+
+Example using python
 ```
-http://localhost?url=\<the url of the sbgn-ml file\>
+import requests
+
+files = {'file': open('sbgnml.xml','rb')}
+values = {
+    'format': 'png',
+    'bg': '#fff',
+    'scale': 1,
+    'max_width': 5000,
+    'max_height': 5000,
+}
+api_url = "http://localhost:8082/render"
+
+r = requests.post(api_url, files=files, data=values)
+with open('network.png', 'wb') as f:
+    f.write(r.content)
+
 ```
 
-After rendering, the file will start downloading.
+A public rendering API is available at 
+```
+http://sbgnrender.vincent.science/render
+```
 
 ## Installation
 In order to deploy and run a local instance of the tool, please follow the steps below (we recommend the use of LTS version 12.16.1 of node.js):
@@ -23,17 +63,15 @@ In order to deploy and run a local instance of the tool, please follow the steps
 - Installation
 ```
 git clone https://github.com/vincent-noel/newt.git
-cd newt
+cd newt/sbgnrender
 npm install  
 ```
 
-- Running the server (Windows)
+- Running the server
 ```
-npm run debug-build 
-```
-- Running the server (MacOS/Linux)
-```
-sudo npm run debug-build
+cd ..
+python3 api/RendererAPI.py
+
 ```
 
 Then, open a web browser and navigate to 
@@ -43,64 +81,51 @@ http://localhost?url=\<the url of the sbgn-ml file\>
 After rendering, the file will start downloading.
 Please note that the default port is 80 but you might have to run this application in another port such as 8080 in some platforms by setting 'port' environment variable.
 
-## Using python script
+# Python library
+This API is build with Flask and uses a python library. 
+To install it
+```
+git clone https://github.com/vincent-noel/newt.git
+pip3 install newt/
+``` 
 
-A simple python script allow you to use this library. 
-
-- Installation
+This library depends on ChromeDriver, which can be installed on ubuntu/debian systems with 
 ```
 sudo apt install chromium-chromedriver
-sudo pip install selenium
 ```
 
-- Running the script 
+On Ubuntu 19.x and later, chromium installation is using snap package manager, which causes a problem while writing and accessing temporary files. The current workaround is to change chromium temporary directory permissions with : 
 ```
-python script.py <url sbgn-ml input file> <png output file>
+sudo chmod 711 /tmp/snap.chromium
+```
+
+After installing the library, usage is the following : 
+```
+from sbgnrender import renderSBGN
+
+renderSBGN(
+    input_file,  // Path as a string
+    output_file, // Path as a string
+    format,      // Format as a string : svg, png, jpg
+    scale,       // Scale of the network (default 1 for svg, 3 for jpg/png)
+    bg,          // Background color as HTML String (ex #fff for white), None for transparent (available for png/svg),
+    max_width,   // Maximum width in pixels
+    min_width,   // Minimum width in pixels
+    quality,     // Quality (available for jpg)
+    verbose      // True | False
+)
 ```
 
 ## Software
 
 This application is distributed under [GNU Lesser General Public License](http://www.gnu.org/licenses/lgpl.html).
 
-## Credits
+## Copyright
 
-Icons made by [Freepik](http://www.freepik.com), 
-[Daniel Bruce](http://www.flaticon.com/authors/daniel-bruce), 
-[TutsPlus](http://www.flaticon.com/authors/tutsplus),
-[Robin Kylander](http://www.flaticon.com/authors/robin-kylander),
-[Catalin Fertu](http://www.flaticon.com/authors/catalin-fertu),
-[Yannick](http://www.flaticon.com/authors/yannick),
-[Icon Works](http://www.flaticon.com/authors/icon-works),
-[Flaticon](http://www.flaticon.com) and licensed with 
-[Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+A Simple SBGN Rendering API, Copyright (C) 2020 Institut Curie, 26 rue d'Ulm, Paris, France
 
-Third-party libraries:
-[Cytoscape.js](https://github.com/cytoscape/cytoscape.js),
-[a-color-picker](https://www.npmjs.com/package/a-color-picker),
-[Backbone](https://github.com/jashkenas/backbone),
-[Bootstrap](https://github.com/twbs/bootstrap),
-[FileSaver.js](https://github.com/eligrey/FileSaver.js),
-[jQuery](https://github.com/jquery/jquery),
-[jquery-expander](https://github.com/kswedberg/jquery-expander),
-[Konva](https://github.com/konvajs/konva),
-[Libxmljs](https://github.com/libxmljs/libxmljs),
-[lodash](https://github.com/lodash/lodash),
-[underscore](https://github.com/jashkenas/underscore),
-[express](https://github.com/expressjs/express),
-[browserify](https://github.com/browserify/browserify),
-[nodemon](https://github.com/remy/nodemon),
-[Parallel Shell](https://github.com/darkguy2008/parallelshell),
-[Tippyjs](https://github.com/atomiks/tippyjs),
-[nodemailer](https://nodemailer.com/about/),
-[body-parser](https://github.com/expressjs/body-parser),
-[multer](https://github.com/expressjs/multer) licensed with [MIT](https://opensource.org/licenses/MIT);
-[Mousetrap](https://github.com/ccampbell/mousetrap),
-[Request](https://github.com/request/request) licensed with [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0),
-[Intro.js](https://github.com/usablica/intro.js) licensed with [GNU AGPL](https://www.gnu.org/licenses/agpl-3.0.en.html), and
-[chroma-js](https://github.com/gka/chroma.js) licensed with [this](https://github.com/gka/chroma.js/blob/master/LICENSE).
+A Simple SBGN Rendering API is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
-We refer the user to [GeneCards](https://www.genecards.org/) for detailed properties of genes. Similarly, we pull properties of simple chemicals from [ChEBI](https://www.ebi.ac.uk/chebi/). CellDesigner conversion is performed through [this library](https://github.com/royludo/cd2sbgnml ) and [its associated service](https://github.com/iVis-at-Bilkent/cd2sbgnml-webservice). Finally, SBML conversion is due to [this Minerva service](https://minerva-dev.lcsb.uni.lu/minerva/api/convert/).
+A Simple SBGN Rendering API is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 
-[Hasan Balci](https://github.com/hasanbalci), [Nasim Saleh](https://github.com/nasimsaleh), [Merve Kilicarslan](https://github.com/mervekilicarslan5), [Rumeysa Ozaydin](https://github.com/rumeysaozaydin), and [Ugur Dogrusoz](https://github.com/ugurdogrusoz) of [i-Vis at Bilkent University](http://www.cs.bilkent.edu.tr/~ivis), and [Metin Can Siper](https://github.com/metincansiper), [Ozgun Babur](https://github.com/ozgunbabur), and [Emek Demir](https://github.com/emekdemir) of the Demir Lab at [OHSU](http://www.ohsu.edu/)
-
-[Ilkin Safarli](https://github.com/kinimesi), [Ahmet Candiroglu](https://github.com/ahmetcandiroglu), [Kaan Sancak](https://github.com/kaansancak), [Ludovic Roy](https://github.com/royludo), [Leonard Dervishi](https://github.com/leonarddrv), [Istemi Bahceci](https://github.com/istemi-bahceci), [Alper Karacelik](https://github.com/alperkaracelik), [Alexander Mazein](https://github.com/amazein)
+You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
