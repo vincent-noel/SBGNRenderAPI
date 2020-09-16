@@ -9,7 +9,7 @@ RUN apt-get update -qq && apt install -y --no-install-recommends \
     && apt-get install -y --no-install-recommends nodejs \
     && apt-get clean -y
 
-RUN pip3 install flask selenium setuptools wheel
+RUN pip3 install flask flask-cors selenium setuptools wheel
 
 WORKDIR /var/
 RUN mkdir /var/sbgn-rest-renderer

@@ -1,5 +1,6 @@
 from flask import Flask, request, send_file
 from sbgnrender.RendererClient import renderSBGN
+from flask_cors import CORS
 
 import os, tempfile, io
 
@@ -8,6 +9,7 @@ ALLOWED_EXTENSIONS = {'xml'}
 
 api = Flask(__name__)
 api.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+CORS(api, resources={r"/*": {"origins": "*"}})
 
 # A method to access stored pngs (add store option in API, returns an id to access later)
 # @api.route('/store')
