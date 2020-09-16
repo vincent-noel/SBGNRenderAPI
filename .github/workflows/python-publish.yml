@@ -30,6 +30,6 @@ jobs:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        cd sbgnrender; npm install; cd ..
+        cd sbgnrender; npm install; npm run build-bundle-js; cd ..
         python setup.py sdist bdist_wheel
         twine upload dist/*
