@@ -85,7 +85,10 @@ python3 api/RendererAPI.py
 
 ```
 
-# Python library
+# SBGNRender Python library
+![Upload Python Package](https://github.com/vincent-noel/SBGNRenderAPI/workflows/Upload%20Python%20Package/badge.svg)
+[![PyPI version](https://badge.fury.io/py/sbgnrender.svg)](https://badge.fury.io/py/sbgnrender)
+
 This API comes with a python package which is the one running newt. 
 To install it, the simplest way is via PyPI :
 ```
