@@ -72,6 +72,7 @@ cd newt/sbgnrender
 
 # Building JS bundle
 npm install 
+npm run build-bundle-js
 
 # Installing python library
 cd .. 
@@ -95,6 +96,7 @@ sudo apt-get install nodejs
 git clone https://github.com/vincent-noel/newt.git
 cd newt
 npm install
+npm run build-bundle-js
 cd ..
 pip3 install newt/
 ``` 
