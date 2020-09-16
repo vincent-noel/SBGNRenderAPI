@@ -16,26 +16,19 @@
             async function renderSBGN() {     
                 
                 let data = new FormData();
-                // console.log(document.querySelector("#map-network").files[0]);
                 data.append('scale', 1);
                 data.append('file', document.querySelector("#map-network").files[0]);
-                console.log(data);
+
                 document.querySelector("#creating_status").style.visibility = "visible";
                 // send fetch along with cookies
-                let response = await fetch('http://sbgnrender.vincent.science/render', {
+                let response = await fetch('https://sbgnrender.vincent.science/render', {
                     method: 'POST',
                     mode: 'cors',
-                    credentials: 'same-origin',
-                    // headers: {
-                        // "Content-Type": "application/json"
-                        // 'Content-Type': 'multipart/form-data'
-                    // },
+                    // credentials: '',
                     body: data
                 })
                 .then(response => response.blob())
                 .then(images => {
-                    // Then create a local URL for that image and print it 
-                    // outside = qq
                     document.querySelector("#creating_status").style.visibility = "hidden";
                     document.querySelector("#map-image").src = URL.createObjectURL(images);
                 });
