@@ -13,14 +13,15 @@ RUN pip3 install flask selenium requests
 
 WORKDIR /var/
 RUN mkdir /var/sbgn-rest-renderer
-COPY app /var/sbgn-rest-renderer/app
+# COPY app /var/sbgn-rest-renderer/app
 COPY api /var/sbgn-rest-renderer/api
 COPY sbgnrender /var/sbgn-rest-renderer/sbgnrender
 # COPY node_modules /var/sbgn-rest-renderer/node_nodules
-COPY package.json LICENSE.md index.html templatelibsbgn.xslt scripts/apache_config.sh /var/sbgn-rest-renderer/
+COPY LICENSE.md templatelibsbgn.xslt scripts/apache_config.sh /var/sbgn-rest-renderer/
 
 WORKDIR /var/sbgn-rest-renderer
-RUN npm install \
+RUN cd sbgnrender \
+   && npm install \
    && npm run build-bundle-js
    
 
@@ -35,5 +36,5 @@ RUN mkdir static \
 
 EXPOSE 80
 
-CMD apachectl -D FOREGROUND
-# CMD bash -c "tail -f /dev/null"
+# CMD apachectl -D FOREGROUND
+CMD bash -c "service apache2 start & tail -f /dev/null"

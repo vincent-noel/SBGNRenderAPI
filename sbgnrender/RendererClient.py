@@ -18,7 +18,7 @@ def _create_driver(directory):
     chrome_options.add_argument("--allow-file-access-from-files") 
     chrome_options.add_argument("--disabled-web-security")
     chrome_options.add_experimental_option("prefs", {
-            "download.default_directory": ".",
+            "download.default_directory": directory,
             "download.prompt_for_download": False,
             "download.directory_upgrade": True,
             "safebrowsing_for_trusted_sources_enabled": False,
@@ -48,8 +48,8 @@ def renderSBGN(url, output_filename, format=None, scale=None, bg=None, max_width
             
         # get request to target the site selenium is active on
         full_url = "file://%s/index.html?url=%s%s%s%s%s%s%s%s" % (
-            os.path.dirname(os.path.dirname(__file__)), 
-            url,
+            os.path.dirname(__file__), 
+            os.path.join(os.getcwd(), url),
             ("&format=%s" % format) if format is not None else "",
             ("&scale=%s" % scale) if scale is not None else "",
             ("&bg=%s" % bg) if bg is not None else "",
@@ -76,6 +76,7 @@ def renderSBGN(url, output_filename, format=None, scale=None, bg=None, max_width
                 res = driver.execute_script("return {0};".format(self.variable))
                 
                 if verbose:
+                    print("Driver returned : %s" % res)
                     _print_console(driver.get_log('browser'))
                     
                 return res
@@ -87,11 +88,22 @@ def renderSBGN(url, output_filename, format=None, scale=None, bg=None, max_width
 
         if driver.execute_script(" return document.sbgnReady") is True:
             
-            while not os.path.exists(os.path.join(directory, "network.%s" % (format if format is not None else "png"))):
+            # Here we have a problem getting the file on ubuntu where chromedriver is installed via snap
+            # In that case, /tmp is remaped to /tmp/snap.chromium/, and I'm not sure how to get the true location. 
+            # So I'm trying both
+            network_filename = "network.%s" % (format if format is not None else "png")
+            while (
+                not os.path.exists(os.path.join(directory, network_filename)) 
+                and not os.path.exists(os.path.join("/tmp/snap.chromium/tmp", os.path.basename(directory), network_filename))
+            ):
+                if verbose:
+                    print("Downloading ...")
                 time.sleep(1)
          
-            shutil.move(os.path.join(directory, "network.%s" % (format if format is not None else "png")), output_filename)
-        
+            if os.path.exists(os.path.join(directory, network_filename)):
+                shutil.move(os.path.join(directory, network_filename), output_filename)
+            elif os.path.exists(os.path.join("/tmp/snap.chromium/tmp", os.path.basename(directory), network_filename)):
+                shutil.move(os.path.join("/tmp/snap.chromium/tmp", os.path.basename(directory), network_filename), output_filename)
         else: 
             if driver.execute_script(" return document.sbgnNotFound") is True:
                 print("Failed, SBGN not found")

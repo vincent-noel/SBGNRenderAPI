@@ -1,8 +1,8 @@
 /nbproject/*
 
-node_modules/
+sbgnrender/node_modules/
 
-app/bundle.js
+sbgnrender/app/bundle.js
 
 __pycache__
-.pyc
+*.pyc
