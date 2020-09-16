@@ -58,28 +58,31 @@ http://sbgnrender.vincent.science/render
 ```
 
 ## Installation
-In order to deploy and run a local instance of the tool, please follow the steps below (we recommend the use of LTS version 12.16.1 of node.js):
 
-- Installation
+- Installation (Ubuntu/Debian)
 ```
+# Installing dependencies
+sudo apt install git python3-pip chromium-driver
+curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - 
+sudo apt-get install nodejs 
+
+# Downloading this tool
 git clone https://github.com/vincent-noel/newt.git
 cd newt/sbgnrender
-npm install  
+
+# Building JS bundle
+npm install 
+
+# Installing python library
+cd .. 
+pip3 install .
 ```
 
 - Running the server
 ```
-cd ..
 python3 api/RendererAPI.py
 
 ```
-
-Then, open a web browser and navigate to 
-```
-http://localhost?url=\<the url of the sbgn-ml file\>
-```
-After rendering, the file will start downloading.
-Please note that the default port is 80 but you might have to run this application in another port such as 8080 in some platforms by setting 'port' environment variable.
 
 # Python library
 This API is build with Flask and uses a python library. 

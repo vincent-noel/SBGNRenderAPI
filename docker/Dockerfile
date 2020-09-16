@@ -9,7 +9,7 @@ RUN apt-get update -qq && apt install -y --no-install-recommends \
     && apt-get install -y --no-install-recommends nodejs \
     && apt-get clean -y
 
-RUN pip3 install flask selenium requests
+RUN pip3 install flask selenium setuptools wheel
 
 WORKDIR /var/
 RUN mkdir /var/sbgn-rest-renderer
@@ -17,13 +17,14 @@ RUN mkdir /var/sbgn-rest-renderer
 COPY api /var/sbgn-rest-renderer/api
 COPY sbgnrender /var/sbgn-rest-renderer/sbgnrender
 # COPY node_modules /var/sbgn-rest-renderer/node_nodules
-COPY LICENSE.md templatelibsbgn.xslt scripts/apache_config.sh /var/sbgn-rest-renderer/
+COPY LICENSE.md templatelibsbgn.xslt scripts/apache_config.sh setup.py /var/sbgn-rest-renderer/
 
 WORKDIR /var/sbgn-rest-renderer
 RUN cd sbgnrender \
    && npm install \
    && npm run build-bundle-js
    
+RUN pip3 install .
 
 RUN a2enmod wsgi \
    && /bin/sh apache_config.sh \

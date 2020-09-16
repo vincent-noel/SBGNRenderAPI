@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
-import os, sys, tempfile, time, requests, json, shutil
+import os, sys, tempfile, time, json, shutil
 
 def _create_driver(directory):
     

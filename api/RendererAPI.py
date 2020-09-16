@@ -1,5 +1,5 @@
 from flask import Flask, request, send_file
-from RendererClient import renderSBGN
+from sbgnrender.RendererClient import renderSBGN
 
 import os, tempfile, io
 
@@ -35,7 +35,7 @@ def render():
             file.save(os.path.join(folder, filename))
       
             renderSBGN(
-                os.path.join("static", os.path.basename(folder), filename), 
+                os.path.join(api.config['UPLOAD_FOLDER'], os.path.basename(folder), filename), 
                 os.path.join(folder, "output.png"),
                 format = request.values.get("format"),
                 scale = request.values.get("scale"),
@@ -54,4 +54,4 @@ def render():
         raise Exception("DISALLOWED_FILE_TYPE")
     
 if __name__ == '__main__':
-    api.run(host="0.0.0.0")
+    api.run(host="0.0.0.0", port=8082)
