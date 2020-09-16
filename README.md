@@ -76,7 +76,7 @@ npm run build-bundle-js
 
 # Installing python library
 cd .. 
-pip3 install .
+sudo pip3 install .
 ```
 
 - Running the server
@@ -86,20 +86,11 @@ python3 api/RendererAPI.py
 ```
 
 # Python library
-This API is build with Flask and uses a python library. 
-To install it
+This API comes with a python package which is the one running newt. 
+To install it, the simplest way is via PyPI :
 ```
-sudo apt install chromium-chromedriver
-curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - 
-sudo apt-get install nodejs 
-
-git clone https://github.com/vincent-noel/newt.git
-cd newt
-npm install
-npm run build-bundle-js
-cd ..
-pip3 install newt/
-``` 
+sudo pip3 install sbgnrender
+```
 
 This library depends on ChromeDriver, which can be installed on ubuntu/debian systems with 
 ```
@@ -127,6 +118,21 @@ renderSBGN(
     verbose      // True | False
 )
 ```
+
+While installing via Pypi is advised, if you want to install it from this repository you can do the following: 
+
+```
+sudo apt install chromium-chromedriver
+curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - 
+sudo apt-get install nodejs 
+
+git clone https://github.com/vincent-noel/newt.git
+cd newt/sbgnrender
+npm install
+npm run build-bundle-js
+cd ..
+sudo pip3 install .
+``` 
 
 ## Software
 
