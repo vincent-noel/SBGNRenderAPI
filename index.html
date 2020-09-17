@@ -27,7 +27,7 @@
                 <tr>
                   <td>Format:</td>
                   <td>
-                    <div class="dropdown" id="file-format-dropdown" >
+                    <div class="dropdown float-right" id="file-format-dropdown" >
                       <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         PNG
                       </button>
@@ -68,10 +68,11 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
         <script type="text/javascript">
-            // var outside = undefined;
+            
             var file_format = "png";
+            
             async function renderSBGN() {     
-              try{
+
                 document.querySelector("#map-image").src = "";
                 $('#error_alert').removeClass("show");
                 let data = new FormData();
@@ -92,26 +93,25 @@
                     // credentials: '',
                     body: data
                 })
-                
-                .then(response => response.blob())
-        
+                .then(response => {
+                  if (response.status == 200) {
+                    return response.blob()
+                    
+                  } else if (response.status == 400) {
+                    response.json().then((data) => {
+                      document.querySelector("#creating_status").style.visibility = "hidden";
+                      document.querySelector("#error_message").innerHTML = data['error'];
+                      $('#error_alert').addClass("show");
+                    });
+                    throw new Error("Empty error");
+                  } else  {
+                    throw new Error("API Endpoint is not available");
+                  } 
+                })
                 .then(images => {
                     document.querySelector("#creating_status").style.visibility = "hidden";
                     document.querySelector("#map-image").src = URL.createObjectURL(images);
-                })
-                .catch(error => {
-                  console.error('Error:', error);
-                  
-                  document.querySelector("#error_message").innerHTML = "Could not render the image";
-                  $('#error_alert').addClass("show");
-                })
-              }
-              catch (error) {
-                console.error('Error:', error);
-                
-                document.querySelector("#error_message").innerHTML = "Could not render the image";
-                $('#error_alert').addClass("show");
-              }
+                });
             }
             
             $( document ).ready(function() {
@@ -127,17 +127,27 @@
             });
             
             window.addEventListener("unhandledrejection", event => {
-                document.querySelector("#error_message").innerHTML = "Could not contact the rendering server";
+              console.error("Error rejected : ");
+                document.querySelector("#error_message").innerHTML = "Could not contact the rendering server (Rejected promise)";
                   $('#error_alert').addClass("show");
               event.preventDefault();
             }, false);
               document.querySelector("#map-create-button").addEventListener('click', async function() {
+              try{
+
                 if(document.querySelector("#input_network").files.length == 0) {
                     throw new Error('No network file selected');
                     
                 } else {
                   await renderSBGN();
                 }
+              }
+              catch (error) {
+                document.querySelector("#creating_status").style.visibility = "hidden";
+                document.querySelector("#error_message").innerHTML = error.message;
+                $('#error_alert').addClass("show");
+          
+              }
             });
           </script>
     </body>
