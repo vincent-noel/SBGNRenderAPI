@@ -5,35 +5,6 @@
         <title>A simple SBGN-ML rendering API</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-        <!-- JS, Popper.js, and jQuery -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-        <script type="text/javascript">
-            // var outside = undefined;
-            async function renderSBGN() {     
-                
-                let data = new FormData();
-                data.append('scale', 1);
-                data.append('file', document.querySelector("#map-network").files[0]);
-
-                document.querySelector("#creating_status").style.visibility = "visible";
-                // send fetch along with cookies
-                let response = await fetch('https://sbgnrender.vincent.science/render', {
-                    method: 'POST',
-                    mode: 'cors',
-                    // credentials: '',
-                    body: data
-                })
-                .then(response => response.blob())
-                .then(images => {
-                    document.querySelector("#creating_status").style.visibility = "hidden";
-                    document.querySelector("#map-image").src = URL.createObjectURL(images);
-                });
-            }
-        </script>
     </head>
 
     <body style="margin-top: 50px; margin-bottom: 50px">
@@ -45,26 +16,128 @@
                 <tr>
                   <td>Network file:</td>
                   <td><input type="file" id="map-network" /></td>  
+                </tr>
+                <tr>
+                  <td>Format:</td>
+                  <td>
+                    <div class="dropdown" id="file-format-dropdown" >
+                      <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        PNG
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">PNG</a>
+                        <a class="dropdown-item" href="#">SVG</a>
+                        <a class="dropdown-item" href="#">JPG</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              
+                <tr>
                   <td>
                     <div class="float-right">
                         <div class="spinner-border mr-3" role="status" style="visibility:hidden" id="creating_status">
                         <span class="sr-only">Creating the map...</span>
                         </div>
-                        <button class="btn btn-primary float-right" id="map-create-button">Create map</button>
+                        <button class="btn btn-primary float-right" id="map-create-button">Render</button>
                     </div>
                   </td>
                 </tr>
               </tbody>
             </table>
+            <div class="alert alert-danger alert-dismissible fade" id="error_alert" role="alert">
+              <strong>Error : </strong><span id="error_message"></span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             <img id="map-image" style="width: 100%">
-          </div>
-          <script type="text/javascript">
-               document.querySelector("#map-create-button").addEventListener('click', async function() {
+        </div>
+        
+        <!-- JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            // var outside = undefined;
+            var file_format = "png";
+            async function renderSBGN() {     
+                try{$('#error_alert').removeClass("show");
+                let data = new FormData();
+                
+                if (file_format !== "png") {
+                  data.append('format', file_format);
+                }
+                
+                data.append('scale', 1);
+                data.append('file', document.querySelector("#map-network").files[0]);
+
+                document.querySelector("#creating_status").style.visibility = "visible";
+                
+                // send fetch along with cookies
+                let response = await fetch('http://sbgnrender.vincent.science/render', {
+                    method: 'POST',
+                    mode: 'cors',
+                    // credentials: '',
+                    body: data
+                })
+                
+                .then(response => response.blob())
+        
+                .then(images => {
+                    document.querySelector("#creating_status").style.visibility = "hidden";
+                    document.querySelector("#map-image").src = URL.createObjectURL(images);
+                })
+                .catch(error => {
+                  console.error('Error:', error);
+                  
+                  document.querySelector("#error_message").innerHTML = "Could not render the image";
+                  $('#error_alert').addClass("show");
+                  // return
+                })
+                // .catch(error => {
+                //   console.error('Error:', error);
+                  
+                //   document.querySelector("#error_message").innerHTML = error.toString();
+                //   $('#error_alert').addClass("show");
+                // });
+                }
+                catch (error) {
+                  console.error('Error:', error);
+                  
+                  document.querySelector("#error_message").innerHTML = "Could not render the image";
+                  $('#error_alert').addClass("show");
+                }
+              
+            }
+            
+            $( document ).ready(function() {
+              $('.dropdown').each(function (key, dropdown) {
+                var $dropdown = $(dropdown);
+                $dropdown.find('.dropdown-menu a').on('click', function () {
+                    file_format = $(this).text().toLowerCase();
+                    $dropdown.find('button').text($(this).text()).append(' <span class="caret"></span>');
+                });
+              });
+            });
+
+            
+            window.addEventListener("unhandledrejection", event => {
+              /* You might start here by adding code to examine the
+                promise specified by event.promise and the reason in
+                event.reason */
+                console.log("Could not perform the request")
+                document.querySelector("#error_message").innerHTML = "Could not contact the rendering server";
+                  $('#error_alert').addClass("show");
+              event.preventDefault();
+            }, false);
+              document.querySelector("#map-create-button").addEventListener('click', async function() {
                 if(document.querySelector("#map-network").files.length == 0) {
                     throw new Error('No network file selected');
                     
                 } else {
-                   await renderSBGN();
+                  await renderSBGN();
                 }
             });
           </script>
