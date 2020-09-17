@@ -1,8 +1,0 @@
-/nbproject/*
-
-sbgnrender/node_modules/
-
-sbgnrender/app/bundle.js
-
-__pycache__
-*.pyc
