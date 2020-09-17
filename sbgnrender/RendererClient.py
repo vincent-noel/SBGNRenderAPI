@@ -89,7 +89,7 @@ def renderSBGN(url, output_filename, format=None, scale=None, bg=None, max_width
                     res = driver.execute_script("return {0};".format(self.variable))
                 except Exception as e:
                     if verbose:
-                        print("Driver timeout : %s" % res)
+                        print("Driver timeout : %s" % e)
                     return False
                             
                 if verbose:
