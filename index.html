@@ -64,45 +64,47 @@
             // var outside = undefined;
             var file_format = "png";
             async function renderSBGN() {     
-                try{$('#error_alert').removeClass("show");
-                let data = new FormData();
-                
-                if (file_format !== "png") {
-                  data.append('format', file_format);
-                }
-                
-                data.append('scale', 1);
-                data.append('file', document.querySelector("#map-network").files[0]);
+                try{
+                  document.querySelector("#map-image").src = "";
+                  $('#error_alert').removeClass("show");
+                  let data = new FormData();
+                  
+                  if (file_format !== "png") {
+                    data.append('format', file_format);
+                  }
+                  
+                  data.append('scale', 1);
+                  data.append('file', document.querySelector("#map-network").files[0]);
 
-                document.querySelector("#creating_status").style.visibility = "visible";
-                
-                // send fetch along with cookies
-                let response = await fetch('https://sbgnrender.vincent.science/render', {
-                    method: 'POST',
-                    mode: 'cors',
-                    // credentials: '',
-                    body: data
-                })
-                
-                .then(response => response.blob())
-        
-                .then(images => {
-                    document.querySelector("#creating_status").style.visibility = "hidden";
-                    document.querySelector("#map-image").src = URL.createObjectURL(images);
-                })
-                .catch(error => {
-                  console.error('Error:', error);
+                  document.querySelector("#creating_status").style.visibility = "visible";
                   
-                  document.querySelector("#error_message").innerHTML = "Could not render the image";
-                  $('#error_alert').addClass("show");
-                  // return
-                })
-                // .catch(error => {
-                //   console.error('Error:', error);
+                  // send fetch along with cookies
+                  let response = await fetch('https://sbgnrender.vincent.science/render', {
+                      method: 'POST',
+                      mode: 'cors',
+                      // credentials: '',
+                      body: data
+                  })
                   
-                //   document.querySelector("#error_message").innerHTML = error.toString();
-                //   $('#error_alert').addClass("show");
-                // });
+                  .then(response => response.blob())
+          
+                  .then(images => {
+                      document.querySelector("#creating_status").style.visibility = "hidden";
+                      document.querySelector("#map-image").src = URL.createObjectURL(images);
+                  })
+                  .catch(error => {
+                    console.error('Error:', error);
+                    
+                    document.querySelector("#error_message").innerHTML = "Could not render the image";
+                    $('#error_alert').addClass("show");
+                    // return
+                  })
+                  // .catch(error => {
+                  //   console.error('Error:', error);
+                    
+                  //   document.querySelector("#error_message").innerHTML = error.toString();
+                  //   $('#error_alert').addClass("show");
+                  // });
                 }
                 catch (error) {
                   console.error('Error:', error);
