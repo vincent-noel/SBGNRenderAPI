@@ -34,6 +34,7 @@
                 </tr>
               
                 <tr>
+                  <td></td>
                   <td>
                     <div class="float-right">
                         <div class="spinner-border mr-3" role="status" style="visibility:hidden" id="creating_status">
@@ -76,7 +77,7 @@
                 document.querySelector("#creating_status").style.visibility = "visible";
                 
                 // send fetch along with cookies
-                let response = await fetch('http://sbgnrender.vincent.science/render', {
+                let response = await fetch('https://sbgnrender.vincent.science/render', {
                     method: 'POST',
                     mode: 'cors',
                     // credentials: '',
