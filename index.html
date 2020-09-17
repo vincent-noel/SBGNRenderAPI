@@ -15,7 +15,14 @@
               <tbody>
                 <tr>
                   <td>Network file:</td>
-                  <td><input type="file" id="map-network" /></td>  
+                  <td>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="input_network">
+                        <label class="custom-file-label" for="input_network" id="input_network_label">Choose file</label>
+                      </div>
+                    </div>
+                  </td>  
                 </tr>
                 <tr>
                   <td>Format:</td>
@@ -64,55 +71,47 @@
             // var outside = undefined;
             var file_format = "png";
             async function renderSBGN() {     
-                try{
-                  document.querySelector("#map-image").src = "";
-                  $('#error_alert').removeClass("show");
-                  let data = new FormData();
-                  
-                  if (file_format !== "png") {
-                    data.append('format', file_format);
-                  }
-                  
-                  data.append('scale', 1);
-                  data.append('file', document.querySelector("#map-network").files[0]);
-
-                  document.querySelector("#creating_status").style.visibility = "visible";
-                  
-                  // send fetch along with cookies
-                  let response = await fetch('https://sbgnrender.vincent.science/render', {
-                      method: 'POST',
-                      mode: 'cors',
-                      // credentials: '',
-                      body: data
-                  })
-                  
-                  .then(response => response.blob())
-          
-                  .then(images => {
-                      document.querySelector("#creating_status").style.visibility = "hidden";
-                      document.querySelector("#map-image").src = URL.createObjectURL(images);
-                  })
-                  .catch(error => {
-                    console.error('Error:', error);
-                    
-                    document.querySelector("#error_message").innerHTML = "Could not render the image";
-                    $('#error_alert').addClass("show");
-                    // return
-                  })
-                  // .catch(error => {
-                  //   console.error('Error:', error);
-                    
-                  //   document.querySelector("#error_message").innerHTML = error.toString();
-                  //   $('#error_alert').addClass("show");
-                  // });
+              try{
+                document.querySelector("#map-image").src = "";
+                $('#error_alert').removeClass("show");
+                let data = new FormData();
+                
+                if (file_format !== "png") {
+                  data.append('format', file_format);
                 }
-                catch (error) {
+                
+                data.append('scale', 1);
+                data.append('file', document.querySelector("#input_network").files[0]);
+
+                document.querySelector("#creating_status").style.visibility = "visible";
+                
+                // send fetch along with cookies
+                let response = await fetch('https://sbgnrender.vincent.science/render', {
+                    method: 'POST',
+                    mode: 'cors',
+                    // credentials: '',
+                    body: data
+                })
+                
+                .then(response => response.blob())
+        
+                .then(images => {
+                    document.querySelector("#creating_status").style.visibility = "hidden";
+                    document.querySelector("#map-image").src = URL.createObjectURL(images);
+                })
+                .catch(error => {
                   console.error('Error:', error);
                   
                   document.querySelector("#error_message").innerHTML = "Could not render the image";
                   $('#error_alert').addClass("show");
-                }
-              
+                })
+              }
+              catch (error) {
+                console.error('Error:', error);
+                
+                document.querySelector("#error_message").innerHTML = "Could not render the image";
+                $('#error_alert').addClass("show");
+              }
             }
             
             $( document ).ready(function() {
@@ -123,20 +122,17 @@
                     $dropdown.find('button').text($(this).text()).append(' <span class="caret"></span>');
                 });
               });
-            });
+              $("#input_network").on('change', (e) => {$("#input_network_label")[0].innerHTML = e.target.value.split(/(\\|\/)/g).pop()})
 
+            });
             
             window.addEventListener("unhandledrejection", event => {
-              /* You might start here by adding code to examine the
-                promise specified by event.promise and the reason in
-                event.reason */
-                console.log("Could not perform the request")
                 document.querySelector("#error_message").innerHTML = "Could not contact the rendering server";
                   $('#error_alert').addClass("show");
               event.preventDefault();
             }, false);
               document.querySelector("#map-create-button").addEventListener('click', async function() {
-                if(document.querySelector("#map-network").files.length == 0) {
+                if(document.querySelector("#input_network").files.length == 0) {
                     throw new Error('No network file selected');
                     
                 } else {
