@@ -1,10 +1,10 @@
 from flask import Flask, request, send_file
-from sbgnrender.RendererClient import renderSBGN
+from sbgnrender.RendererClient import renderSBGN, SBGNNotParsedException, SBGNNotFoundException, SBGNRenderException
 from flask_cors import CORS
 
 import os, tempfile, io
 
-UPLOAD_FOLDER = '/var/sbgn-rest-renderer/static'
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static')
 ALLOWED_EXTENSIONS = {'xml', 'sbgnml'}
 
 api = Flask(__name__)
@@ -37,24 +37,31 @@ def render():
             file.save(os.path.join(folder, filename))
             
             extension = request.values.get("format") if request.values.get("format") is not None else "png"
-            renderSBGN(
-                os.path.join(api.config['UPLOAD_FOLDER'], os.path.basename(folder), filename), 
-                os.path.join(folder, "output.%s" % extension),
-                format = request.values.get("format"),
-                scale = request.values.get("scale"),
-                bg = request.values.get("bg"),
-                max_width = request.values.get("max_width"),
-                max_height = request.values.get("max_height"),
-                quality = request.values.get("quality"),
-                layout = request.values.get("layout")
-            )
-      
+            try :
+                renderSBGN(
+                    os.path.join(api.config['UPLOAD_FOLDER'], os.path.basename(folder), filename), 
+                    os.path.join(folder, "output.%s" % extension),
+                    format = request.values.get("format"),
+                    scale = request.values.get("scale"),
+                    bg = request.values.get("bg"),
+                    max_width = request.values.get("max_width"),
+                    max_height = request.values.get("max_height"),
+                    quality = request.values.get("quality"),
+                    layout = request.values.get("layout")
+                )
+            except SBGNNotParsedException as e:
+                return {'error': 'could not parse SBGN file'}, 400
+            except SBGNNotFoundException as e:
+                return {'error': 'could not find SBGN file'}, 400
+            except SBGNRenderException as e:
+                return {'error': 'unknown error'}, 400
+                
             binary = io.BytesIO(open(os.path.join(folder, "output.%s" % extension), 'rb').read())
       
             return send_file(binary, attachment_filename=('output.%s' % extension), mimetype=('image/%s' % ("svg+xml" if extension == "svg" else extension)))
         
     else:
-        raise Exception("DISALLOWED_FILE_TYPE")
+        return {'error': 'file type is not allowed'}, 400
     
 if __name__ == '__main__':
     api.run(host="0.0.0.0", port=8082)
