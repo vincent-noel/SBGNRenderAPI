@@ -6,7 +6,7 @@ files += [os.path.join("/".join(dp.split("/")[1:]), f) for dp, dn, filenames in 
 files += [os.path.join("/".join(dp.split("/")[1:]), f) for dp, dn, filenames in os.walk("sbgnrender/node_modules/cytoscape-panzoom/") for f in filenames]
 
 setup(name='sbgnrender',
-    version="1.0.0a2",
+    version="1.0.0a3",
     author="Vincent Noël",
     author_email="contact@vincent-noel.fr",
     description="A SBGN rendering library",

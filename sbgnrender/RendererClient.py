@@ -73,8 +73,12 @@ def renderSBGN(url, output_filename, format=None, scale=None, bg=None, max_width
             def __init__(self, variable):
                 self.variable = variable
             def __call__(self, driver):
-                res = driver.execute_script("return {0};".format(self.variable))
-                
+                try:
+                    res = driver.execute_script("return {0};".format(self.variable))
+                except Exception as e:
+                    print("Driver timeout : %s" % res)
+                    return False
+                            
                 if verbose:
                     print("Driver returned : %s" % res)
                     _print_console(driver.get_log('browser'))
