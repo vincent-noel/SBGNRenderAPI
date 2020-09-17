@@ -5,7 +5,7 @@ from flask_cors import CORS
 import os, tempfile, io
 
 UPLOAD_FOLDER = '/var/sbgn-rest-renderer/static'
-ALLOWED_EXTENSIONS = {'xml'}
+ALLOWED_EXTENSIONS = {'xml', 'sbgnml'}
 
 api = Flask(__name__)
 api.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -35,10 +35,11 @@ def render():
         with tempfile.TemporaryDirectory(dir=api.config['UPLOAD_FOLDER']) as folder:
             filename = file.filename
             file.save(os.path.join(folder, filename))
-      
+            
+            extension = request.values.get("format") if request.values.get("format") is not None else "png"
             renderSBGN(
                 os.path.join(api.config['UPLOAD_FOLDER'], os.path.basename(folder), filename), 
-                os.path.join(folder, "output.png"),
+                os.path.join(folder, "output.%s" % extension),
                 format = request.values.get("format"),
                 scale = request.values.get("scale"),
                 bg = request.values.get("bg"),
@@ -48,9 +49,9 @@ def render():
                 layout = request.values.get("layout")
             )
       
-            binary = io.BytesIO(open(os.path.join(folder, "output.png"), 'rb').read())
+            binary = io.BytesIO(open(os.path.join(folder, "output.%s" % extension), 'rb').read())
       
-            return send_file(binary, attachment_filename='output.png', mimetype='image/png')
+            return send_file(binary, attachment_filename=('output.%s' % extension), mimetype=('image/%s' % ("svg+xml" if extension == "svg" else extension)))
         
     else:
         raise Exception("DISALLOWED_FILE_TYPE")
