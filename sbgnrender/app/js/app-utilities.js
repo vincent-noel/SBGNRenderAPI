@@ -2510,7 +2510,7 @@ appUtilities.launchWithModelFile = function() {
   function loadFromURL(filepath, chiseInstance){
 
     if(filepath == undefined){
-      document.sbgnError = true;
+      document.sbgnNotProvided = true;
       return;
     }
 
@@ -2538,7 +2538,8 @@ appUtilities.launchWithModelFile = function() {
             lastModified: Date.now()
           });
           
-          chiseInstance.loadNwtFile(fileToLoad, function truc(){}, function chose(){});
+          chiseInstance.loadNwtFile(fileToLoad, function pre_treatment(){}, function error(){ document.sbgnNotParsed = true});
+          
       },
       error: function(xhr, options, err){
             document.sbgnNotFound = true;

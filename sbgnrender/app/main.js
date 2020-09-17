@@ -138,7 +138,9 @@ $(document).ready(function () {
 
   document.sbgnReady = false;
   document.sbgnNotFound = false;
-  document.sbgnError = false;
+  document.sbgnNotProvided = false;
+  document.sbgnNotParsed = false;
+  
   // Register chise with libs
   chise.register(libs);
 
