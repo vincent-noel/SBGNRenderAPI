@@ -4,6 +4,18 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+class SBGNRenderException(Exception):
+    pass
+
+class SBGNNotFoundException(SBGNRenderException):
+    pass
+
+class SBGNNotParsedException(SBGNRenderException):
+    pass
+
+class SBGNNotProvidedException(SBGNRenderException):
+    pass
+
 
 import os, sys, tempfile, time, json, shutil
 
@@ -76,7 +88,8 @@ def renderSBGN(url, output_filename, format=None, scale=None, bg=None, max_width
                 try:
                     res = driver.execute_script("return {0};".format(self.variable))
                 except Exception as e:
-                    print("Driver timeout : %s" % res)
+                    if verbose:
+                        print("Driver timeout : %s" % res)
                     return False
                             
                 if verbose:
@@ -85,7 +98,7 @@ def renderSBGN(url, output_filename, format=None, scale=None, bg=None, max_width
                     
                 return res
 
-        wait.until(js_variable_evals_to_true("document.sbgnReady || document.sbgnNotFound || document.sbgnError"))
+        wait.until(js_variable_evals_to_true("document.sbgnReady || document.sbgnNotFound || document.sbgnNotProvided || document.sbgnNotParsed"))
         
         if verbose:
             _print_console(driver.get_log('browser'))
@@ -110,13 +123,16 @@ def renderSBGN(url, output_filename, format=None, scale=None, bg=None, max_width
                 shutil.move(os.path.join("/tmp/snap.chromium/tmp", os.path.basename(directory), network_filename), output_filename)
         else: 
             if driver.execute_script(" return document.sbgnNotFound") is True:
-                print("Failed, SBGN not found")
+                raise SBGNNotFoundException()
 
-            elif driver.execute_script(" return document.sbgnError") is True:
-                print("Failed, something went wrong")
+            elif driver.execute_script(" return document.sbgnNotProvided") is True:
+                raise SBGNNotProvidedException()
+
+            elif driver.execute_script(" return document.sbgnNotParsed") is True:
+                raise SBGNNotParsedException()
 
             else:
-                print("Failed, and I can't say why")
+                raise SBGNRenderException()
 
     
     
