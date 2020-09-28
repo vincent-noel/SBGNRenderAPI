@@ -69,7 +69,9 @@
 
         <script type="text/javascript">
             
-            var file_format = "png";
+            var file_format = "png"; // default file format
+            var default_async = "True"; // default request type
+            
             
             async function renderSBGN() {     
 
@@ -82,36 +84,113 @@
                 }
                 
                 data.append('scale', 1);
+                data.append('async', default_async);
                 data.append('file', document.querySelector("#input_network").files[0]);
 
                 document.querySelector("#creating_status").style.visibility = "visible";
-                
-                // send fetch along with cookies
-                let response = await fetch('https://sbgnrender.vincent.science/render', {
-                    method: 'POST',
-                    mode: 'cors',
-                    // credentials: '',
-                    body: data
-                })
-                .then(response => {
-                  if (response.status == 200) {
-                    return response.blob()
-                    
-                  } else if (response.status == 400) {
-                    response.json().then((data) => {
+                if (default_async !== "True") {                
+                  // send fetch along with cookies
+                  let response = await fetch('https://sbgnrender.vincent.science/render', {
+                      method: 'POST',
+                      mode: 'cors',
+                      // credentials: '',
+                      body: data
+                  })
+                  .then(response => {
+                    if (response.status == 200) {
+                      return response.blob()
+                      
+                    } else if (response.status == 400) {
+                      response.json().then((data) => {
+                        document.querySelector("#creating_status").style.visibility = "hidden";
+                        document.querySelector("#error_message").innerHTML = data['error'];
+                        $('#error_alert').addClass("show");
+                      });
+                      throw new Error("Empty error");
+                    } else  {
+                      throw new Error("API Endpoint is not available");
+                    } 
+                  })
+                  .then(images => {
                       document.querySelector("#creating_status").style.visibility = "hidden";
-                      document.querySelector("#error_message").innerHTML = data['error'];
-                      $('#error_alert').addClass("show");
+                      document.querySelector("#map-image").src = URL.createObjectURL(images);
+                  });
+                }
+                else {
+                  let rendering_id;
+                  let response = await fetch('https://sbgnrender.vincent.science/render', {
+                      method: 'POST',
+                      mode: 'cors',
+                      // credentials: '',
+                      body: data
+                  })
+                  .then(response => {
+                    if (response.status == 200) {
+                      return response.json()
+                      
+                    } else if (response.status == 400) {
+                      // response.json().then((data) => {
+                      //   document.querySelector("#creating_status").style.visibility = "hidden";
+                      //   document.querySelector("#error_message").innerHTML = data['error'];
+                      //   $('#error_alert').addClass("show");
+                      // });
+                      throw new Error("Empty error");
+                    } else  {
+                      throw new Error("API Endpoint is not available");
+                    } 
+                  })
+                  .then(json_data => {
+                    console.log("json data");
+                      rendering_id = json_data['id'];
+                  });
+                  
+                  let rendering_status;
+                  while (rendering_status != 'ready') {
+                    response = await fetch('https://sbgnrender.vincent.science/status/' + rendering_id, {
+                      method: 'GET',
+                      mode: 'cors',
+                    })
+                    .then(response => {
+                      if (response.status == 200) {
+                        return response.json();
+                      } else {
+                        throw new Error("Could not get status");
+                      }
+                    }
+                    ).then(json_status => {
+                      rendering_status = json_status['status']
+                      
                     });
-                    throw new Error("Empty error");
-                  } else  {
-                    throw new Error("API Endpoint is not available");
-                  } 
-                })
-                .then(images => {
-                    document.querySelector("#creating_status").style.visibility = "hidden";
-                    document.querySelector("#map-image").src = URL.createObjectURL(images);
-                });
+                    if (rendering_status !== 'ready') {
+                      await new Promise(resolve => setTimeout(resolve, 1000));
+                    }
+                  }
+                  
+                  response = await fetch('https://sbgnrender.vincent.science/rendered/' + rendering_id , {
+                      method: 'GET',
+                      mode: 'cors',
+                  })
+                  .then(response => {
+                    if (response.status == 200) {
+                      return response.blob()
+                      
+                    } else if (response.status == 400) {
+                      response.json().then((data) => {
+                        document.querySelector("#creating_status").style.visibility = "hidden";
+                        document.querySelector("#error_message").innerHTML = data['error'];
+                        $('#error_alert').addClass("show");
+                      });
+                      throw new Error("Empty error");
+                    } else  {
+                      throw new Error("API Endpoint is not available");
+                    } 
+                  })
+                  .then(images => {
+                      document.querySelector("#creating_status").style.visibility = "hidden";
+                      document.querySelector("#map-image").src = URL.createObjectURL(images);
+                  });
+                
+                }
             }
             
             $( document ).ready(function() {
@@ -132,7 +211,9 @@
                   $('#error_alert').addClass("show");
               event.preventDefault();
             }, false);
-              document.querySelector("#map-create-button").addEventListener('click', async function() {
+            
+            // Event triggered when launching a rendering
+            document.querySelector("#map-create-button").addEventListener('click', async function() {
               try{
 
                 if(document.querySelector("#input_network").files.length == 0) {
