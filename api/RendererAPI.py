@@ -80,7 +80,7 @@ def rendered(path):
     if not os.path.exists(folder):
         return {'error': 'no_path'}, 400
     outputs = [file for file in os.listdir(folder) if file.startswith("output.")]
-    print(outputs)
+
     if len(outputs) == 1:
             
         binary = io.BytesIO(open(os.path.join(folder, outputs[0]), 'rb').read())
@@ -94,9 +94,8 @@ def rendered(path):
         
 @api.route('/render', methods=['POST'])
 def render():
-    print(request.values.get("async"))
-    if request.values.get("async") == "True":
-        print("Running ASYNC")
+
+    if request.values.get("async") is not None and request.values.get("async").lower() == "true":
         
         if 'file' not in request.files:
             raise Exception("NO FILES")
@@ -120,11 +119,11 @@ def render():
                 request.values.get("quality"), request.values.get("layout")
             ) 
             thread.start()
-            print(" Thread returned")
+            # print(" Thread returned")
             return {'id': os.path.basename(folder)}, 200
   
     else:
-        print("RUNNING SYNC")
+        # print("SYNC rendering")
         # binary = _render(request)
         # extension = request.values.get("format") if request.values.get("format") is not None else "png"
     
