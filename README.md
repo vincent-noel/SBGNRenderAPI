@@ -1,10 +1,10 @@
 # A simple SBGN-ML renderering API
 
-This application is a simple REST API to render SBGN-ML files.
+This application is a simple REST API to render SBGN-ML files. Both synchronous and asynchronous requests are available.
 
 You can test it at [https://vincent-noel.github.io/SBGNRenderAPI/](https://vincent-noel.github.io/SBGNRenderAPI/)
 
-It is based a stripped down version of [Newt](https://github.com/iVis-at-Bilkent/newt), which is executed from Selenium using chromedriver. It comes with a simple python library which implements this wrapper and can be used independently of the API.
+It is based on [Newt](https://github.com/iVis-at-Bilkent/newt), which is executed from Selenium using Chromedriver. It comes with a simple python library which implements this wrapper and can be used independently of the API.
 
 ## Run with docker and docker-compose
 
@@ -16,6 +16,17 @@ sudo docker-compose up -d
 
 ## Using the API
 
+When running via docker, the api is available at
+```
+http://localhost:8082/render
+```
+
+A public rendering API is available at 
+```
+https://sbgnrender.vincent.science/render
+```
+
+#### Rendering
 Endpoint : http://localhost:8082/render
 
 Method : POST
@@ -30,11 +41,13 @@ Parameters:
   - max_width : maximum width (optional, default depends on scale)
   - max_height : maximum height (optional, default depends on scale)
   - quality : JPG quality (optional, default 1, only for jpg)
+  - async (true|false) (optional, default=false)
   
 Returns: 
-  - rendered image
+  - if async = false, rendered image
+  - if async = true, a json object with the identifier of the rendering
 
-Example using python
+#### Example of synchronous request using python
 ```
 import requests
 
@@ -54,9 +67,57 @@ with open('network.png', 'wb') as f:
 
 ```
 
-A public rendering API is available at 
+#### Getting status of rendering for asynchronous request
+
+Endpoint : http://localhost:8082/status/\<id\>
+
+Method : GET
+
+Parameter:
+  - id : the identifier of the rendering
+  
+Returns: 
+  - a json object with the rendering status
+
+#### Getting renderer image for asynchronous request
+
+Endpoint : http://localhost:8082/rendered/\<id\>
+
+Method : GET
+
+Parameter:
+  - id : the identifier of the rendering
+  
+Returns: 
+  - renderer image
+
+
+
+
+#### Example of asynchronous request using python
 ```
-http://sbgnrender.vincent.science/render
+import requests, time
+
+# Launching the rendering as asynchronous, and getting the id to check its status/requesting the renderer image
+files = {'file': open('sbgnml.xml','rb')}
+values = {'async': True}
+
+r = requests.post("http://localhost:8082/render", files=files, data=values)
+rendering_id = r.json()['id']
+
+# Checking it's status to see if it's rendered
+finished = False
+while not finished:
+    r = requests.get("http://localhost:8082/status/%s" % rendering_id)
+    status = r.json()['status']
+    finished = (status == 'ready')
+    time.sleep(1)
+    
+# Then requesting the renderered image
+r = requests.get("http://localhost:8082/rendered/%s" % rendering_id)
+with open('network_async.png', 'wb') as f:
+    f.write(r.content)
+
 ```
 
 ## Installation
