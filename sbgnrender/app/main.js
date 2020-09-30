@@ -69,7 +69,7 @@ function registerRenderingEvents() {
     
     var layout = urlParams.layout;
     
-    if (layout == undefined) {
+    if (layout == undefined || layout.toLowerCase() !== "true") {
       
       document.sbgnReady = true;
 
@@ -93,6 +93,7 @@ function registerRenderingEvents() {
     } else {
       // Layout... todo
       var currentLayoutProperties = appUtilities.getScratch(cy, 'currentLayoutProperties');
+      document.performLayout = true;
 
       var preferences;
       // if preferences param is not set use an empty map not to override any layout option
@@ -105,33 +106,7 @@ function registerRenderingEvents() {
     }
 
   });
-
-  $(document).on('layoutstop', function(event, cy) {
-    
-    var chiseInstance = appUtilities.getChiseInstance(cy);
-    var cyInstance = chiseInstance.getCy();
-    
-    var urlParams = appUtilities.getScratch(cyInstance, 'urlParams');
-
-    var format = urlParams.format;
-    var bg = urlParams.bg;
-    var scale = urlParams.scale;
-    var maxWidth = urlParams.max_width;
-    var maxHeight = urlParams.max_height;
-    var quality = urlParams.quality;
-    document.sbgnReady = true;
- 
-    if (format == "svg") {
-      chiseInstance.saveAsSvg("network.svg", scale=scale, bg=bg);
-      
-    } else if (format == "jpg") {
-      chiseInstance.saveAsJpg("network.jpg", scale=scale, bg=bg, maxWidth=maxWidth, maxHeight=maxHeight, quality=quality);
-      
-    } else {
-      chiseInstance.saveAsPng("network.png", scale=scale, bg=bg, maxWidth=maxWidth, maxHeight=maxHeight); // the default filename is 'network.png'
-        
-    }  
-  });		  
+  
 };
 
 $(document).ready(function () {

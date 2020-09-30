@@ -470,6 +470,35 @@ module.exports = function (chiseInstance) {
       }); */
 
       cy.nodes("[?onLayout]").forEach(function(node){node.removeData("onLayout"); });
+      
+      
+  
+if (document.performLayout !== undefined) {    
+  var chiseInstance = appUtilities.getChiseInstance(cy);
+  var cyInstance = chiseInstance.getCy();
+  var urlParams = appUtilities.getScratch(cyInstance, 'urlParams');
+
+  console.log(" layout finished")
+
+    var format = urlParams.format;
+    var bg = urlParams.bg;
+    var scale = urlParams.scale;
+    var maxWidth = urlParams.max_width;
+    var maxHeight = urlParams.max_height;
+    var quality = urlParams.quality;
+    document.sbgnReady = true;
+ 
+    if (format == "svg") {
+      chiseInstance.saveAsSvg("network.svg", scale=scale, bg=bg);
+      
+    } else if (format == "jpg") {
+      chiseInstance.saveAsJpg("network.jpg", scale=scale, bg=bg, maxWidth=maxWidth, maxHeight=maxHeight, quality=quality);
+      
+    } else {
+      chiseInstance.saveAsPng("network.png", scale=scale, bg=bg, maxWidth=maxWidth, maxHeight=maxHeight); // the default filename is 'network.png'
+        
+    } 
+  }
     });
 
     // if the position of compound changes by repositioning its children

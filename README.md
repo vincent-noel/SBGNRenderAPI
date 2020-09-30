@@ -41,6 +41,7 @@ Parameters:
   - max_width : maximum width (optional, default depends on scale)
   - max_height : maximum height (optional, default depends on scale)
   - quality : JPG quality (optional, default 1, only for jpg)
+  - layout : true|false (optional, default false)
   - async (true|false) (optional, default=false)
   
 Returns: 
@@ -181,6 +182,7 @@ renderSBGN(
     max_width,   // Maximum width in pixels
     min_width,   // Minimum width in pixels
     quality,     // Quality (available for jpg)
+    layout,      // Perform automatic layout
     verbose      // True | False
 )
 ```

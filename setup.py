@@ -6,7 +6,7 @@ files += [os.path.join("/".join(dp.split("/")[1:]), f) for dp, dn, filenames in 
 files += [os.path.join("/".join(dp.split("/")[1:]), f) for dp, dn, filenames in os.walk("sbgnrender/node_modules/cytoscape-panzoom/") for f in filenames]
 
 setup(name='sbgnrender',
-    version="1.0.0a5",
+    version="1.0.0a6",
     author="Vincent Noël",
     author_email="contact@vincent-noel.fr",
     description="A SBGN rendering library",
@@ -31,7 +31,8 @@ renderSBGN(
     bg,          // Background color as HTML String (ex #fff for white), None for transparent (available for png/svg),
     max_width,   // Maximum width in pixels
     min_width,   // Minimum width in pixels
-    quality,     // Quality (available for jpg)
+    quality,     // Quality (available for jpg),
+    layout,      // Perform automatic layout
     verbose      // True | False
 )
 ```
