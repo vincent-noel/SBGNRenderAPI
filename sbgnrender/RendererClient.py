@@ -121,17 +121,22 @@ def renderSBGN(url, output_filename, format=None, scale=None, bg=None, max_width
                 shutil.move(os.path.join(directory, network_filename), output_filename)
             elif os.path.exists(os.path.join("/tmp/snap.chromium/tmp", os.path.basename(directory), network_filename)):
                 shutil.move(os.path.join("/tmp/snap.chromium/tmp", os.path.basename(directory), network_filename), output_filename)
+            driver.quit()
         else: 
             if driver.execute_script(" return document.sbgnNotFound") is True:
+                driver.quit()
                 raise SBGNNotFoundException()
 
             elif driver.execute_script(" return document.sbgnNotProvided") is True:
+                driver.quit()
                 raise SBGNNotProvidedException()
 
             elif driver.execute_script(" return document.sbgnNotParsed") is True:
+                driver.quit()
                 raise SBGNNotParsedException()
 
             else:
+                driver.quit()
                 raise SBGNRenderException()
 
     
