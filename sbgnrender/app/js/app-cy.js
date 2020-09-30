@@ -490,6 +490,23 @@ module.exports = function (chiseInstance) {
       }
     });
 
+    // update background image style when data changes
+    cy.on('data', 'node', function(event) {
+      var node = event.target;
+
+      if(!node || !node.isNode())
+        return;
+
+      var keys = ['background-image', 'background-fit', 'background-image-opacity',
+        'background-position-x', 'background-position-y', 'background-height', 'background-width'];
+
+      var opt = {};
+      keys.forEach(function(key){
+        opt[key] = node.data(key);
+      });
+
+      node.style(opt);
+    });
   }
 
 };
