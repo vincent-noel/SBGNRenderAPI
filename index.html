@@ -5,11 +5,12 @@
         <title>A simple SBGN-ML rendering API</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     </head>
 
     <body style="margin-top: 50px; margin-bottom: 50px">
         <div class="container">
-            <h1>Render a SBGN-ML file</h1>
+            <h1>Render an SBGN-ML file</h1>
             <br/>
             <table class="table">
               <tbody>
@@ -39,7 +40,30 @@
                     </div>
                   </td>
                 </tr>
-              
+                <tr>
+                  <td>Automatic layout:</td>
+                  <td>
+                    <div class="float-right" >
+                      <input type="checkbox" data-toggle="toggle" id="layout">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Background color:</td>
+                  <td>
+                    <div class="float-right" >
+                    <input type="checkbox" data-toggle="toggle" id="bg">                
+                    </div>
+                    <div class="float-right mr-2" >
+
+                      <input type="color" id="bgcolorpicker" value="#ffffff" style="visibility: hidden;width:70px; height:38px; padding: 0px" disabled>
+                      </div>
+  
+                  </td>
+                </tr>
+                
+                
+
                 <tr>
                   <td></td>
                   <td>
@@ -66,6 +90,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
         <script type="text/javascript">
             
@@ -85,6 +110,10 @@
                 
                 data.append('scale', 1);
                 data.append('async', default_async);
+                data.append('layout', document.querySelector("#layout").checked)
+                if (document.querySelector("#bg").checked) {
+                  data.append('bg', document.querySelector("#bgcolorpicker").value)
+                }
                 data.append('file', document.querySelector("#input_network").files[0]);
 
                 document.querySelector("#creating_status").style.visibility = "visible";
@@ -203,6 +232,13 @@
               });
               $("#input_network").on('change', (e) => {$("#input_network_label")[0].innerHTML = e.target.value.split(/(\\|\/)/g).pop()})
 
+            });
+            
+            $(function() {
+              $('#bg').change(function(e) {
+                document.querySelector('#bgcolorpicker').style.visibility = e.target.checked ? "visible" : "hidden";
+                document.querySelector('#bgcolorpicker').disabled = !e.target.checked;
+              })
             });
             
             window.addEventListener("unhandledrejection", event => {
