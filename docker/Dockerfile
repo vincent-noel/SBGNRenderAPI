@@ -21,6 +21,7 @@ COPY LICENSE.md templatelibsbgn.xslt scripts/apache_config.sh setup.py /var/sbgn
 
 WORKDIR /var/sbgn-rest-renderer
 RUN cd sbgnrender \
+   && rm -fr node_modules/* app/bundle.js package-lock.json \
    && npm install \
    && npm run build-bundle-js
    
