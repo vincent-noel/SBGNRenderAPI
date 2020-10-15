@@ -30,10 +30,7 @@ def _render(folder, filename, format, scale, bg, max_width, max_height, quality,
             quality = quality,
             layout = layout
         )
-        
-        print("Thread done")
-        # return os.path.basename(folder)
-        
+           
     except SBGNNotParsedException as e:
         with open(os.path.join(folder, "error"), 'w+') as error_file:
             error_file.write("could not parse SBGN file")
@@ -95,85 +92,65 @@ def rendered(path):
 @api.route('/render', methods=['POST'])
 def render():
 
+    # check if the post request has the file part
+    if 'file' not in request.files:
+        raise Exception("NO FILES")
+    file = request.files['file']
+        
+    if not file:
+        return {'error': 'file type is not allowed'}, 400
+
+    # if user does not select file, browser also
+    # submit an empty part without filename
+    if file.filename == '':
+        raise Exception("EMPTY FILE")
+            
     if request.values.get("async") is not None and request.values.get("async").lower() == "true":
         
-        if 'file' not in request.files:
-            raise Exception("NO FILES")
-        file = request.files['file']
-        
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            raise Exception("EMPTY FILE")
-            
-        if file:
-            folder = tempfile.mkdtemp(dir=api.config['UPLOAD_FOLDER'])
-            filename = file.filename
-            file.save(os.path.join(folder, filename))
-            print(os.path.join(folder, filename))
-            print(os.path.exists(os.path.join(folder, filename)))
-            thread = RenderingThread(
-                folder, filename, request.values.get("format"), 
-                request.values.get("scale"), request.values.get("bg"), 
-                request.values.get("max_width"), request.values.get("max_height"), 
-                request.values.get("quality"), request.values.get("layout")
-            ) 
-            thread.start()
-            # print(" Thread returned")
-            return {'id': os.path.basename(folder)}, 200
+        folder = tempfile.mkdtemp(dir=api.config['UPLOAD_FOLDER'])
+        filename = file.filename
+        file.save(os.path.join(folder, filename))
+        thread = RenderingThread(
+            folder, filename, request.values.get("format"), 
+            request.values.get("scale"), request.values.get("bg"), 
+            request.values.get("max_width"), request.values.get("max_height"), 
+            request.values.get("quality"), request.values.get("layout"), 
+            verbose=True
+        ) 
+        thread.start()
+        return {'id': os.path.basename(folder)}, 200
   
     else:
-        # print("SYNC rendering")
-        # binary = _render(request)
-        # extension = request.values.get("format") if request.values.get("format") is not None else "png"
-    
-        # mimetype = ('image/%s' % ("svg+xml" if extension == "svg" else extension))
-        # # if shutil.rmtree(folder)
-    
-        
-        # return send_file(binary, attachment_filename=('output.%s' % extension), mimetype=mimetype)
-        
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            raise Exception("NO FILES")
-        file = request.files['file']
-        
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            raise Exception("EMPTY FILE")
+             
+        with tempfile.TemporaryDirectory(dir=api.config['UPLOAD_FOLDER']) as folder:
+            filename = file.filename
+            file.save(os.path.join(folder, filename))
             
-        if file:
-            with tempfile.TemporaryDirectory(dir=api.config['UPLOAD_FOLDER']) as folder:
-                filename = file.filename
-                file.save(os.path.join(folder, filename))
+            extension = request.values.get("format") if request.values.get("format") is not None else "png"
+            try :
+                renderSBGN(
+                    os.path.join(api.config['UPLOAD_FOLDER'], os.path.basename(folder), filename), 
+                    os.path.join(folder, "output.%s" % extension),
+                    format = request.values.get("format"),
+                    scale = request.values.get("scale"),
+                    bg = request.values.get("bg"),
+                    max_width = request.values.get("max_width"),
+                    max_height = request.values.get("max_height"),
+                    quality = request.values.get("quality"),
+                    layout = request.values.get("layout"),
+                    verbose=True
+                )
+            except SBGNNotParsedException as e:
+                return {'error': 'could not parse SBGN file'}, 400
+            except SBGNNotFoundException as e:
+                return {'error': 'could not find SBGN file'}, 400
+            except SBGNRenderException as e:
+                return {'error': 'unknown error'}, 400
                 
-                extension = request.values.get("format") if request.values.get("format") is not None else "png"
-                try :
-                    renderSBGN(
-                        os.path.join(api.config['UPLOAD_FOLDER'], os.path.basename(folder), filename), 
-                        os.path.join(folder, "output.%s" % extension),
-                        format = request.values.get("format"),
-                        scale = request.values.get("scale"),
-                        bg = request.values.get("bg"),
-                        max_width = request.values.get("max_width"),
-                        max_height = request.values.get("max_height"),
-                        quality = request.values.get("quality"),
-                        layout = request.values.get("layout")
-                    )
-                except SBGNNotParsedException as e:
-                    return {'error': 'could not parse SBGN file'}, 400
-                except SBGNNotFoundException as e:
-                    return {'error': 'could not find SBGN file'}, 400
-                except SBGNRenderException as e:
-                    return {'error': 'unknown error'}, 400
-                    
-                binary = io.BytesIO(open(os.path.join(folder, "output.%s" % extension), 'rb').read())
+            binary = io.BytesIO(open(os.path.join(folder, "output.%s" % extension), 'rb').read())
+    
+            return send_file(binary, attachment_filename=('output.%s' % extension), mimetype=('image/%s' % ("svg+xml" if extension == "svg" else extension)))
         
-                return send_file(binary, attachment_filename=('output.%s' % extension), mimetype=('image/%s' % ("svg+xml" if extension == "svg" else extension)))
-            
-        else:
-            return {'error': 'file type is not allowed'}, 400
     
 if __name__ == '__main__':
     api.run(host="0.0.0.0", port=8082)
