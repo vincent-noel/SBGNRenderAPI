@@ -9,6 +9,22 @@ r = requests.post("http://localhost:8082/render", files=files, data=values)
 with open('network.png', 'wb') as f:
     f.write(r.content)
 
+# Synchronous request example
+
+files = {'file': open('examples/transforming_growth_factor_beta_signaling.nwt','rb')}
+values = {}
+
+r = requests.post("http://localhost:8082/render", files=files, data=values)
+with open('newt-test.png', 'wb') as f:
+    f.write(r.content)
+
+files = {'file': open('examples/transforming_growth_factor_beta_signaling.nwt','rb')}
+values = {'layout': True}
+
+r = requests.post("http://localhost:8082/render", files=files, data=values)
+with open('newt-test-with-layout.png', 'wb') as f:
+    f.write(r.content)
+
 # Asynchronous request example
 
 # Launching the rendering as asynchronous, and getting the id to check its status/requesting the renderer image
@@ -48,11 +64,13 @@ with open('network_async.png', 'wb') as f:
 
 # files = {'file': open('Reaction_Species.xml','rb')}
 # values = {
-#     'format': 'svg'
+#     'format': 'svg',
+#     'bg': '#00f'
+ 
 # }
 
 # r = requests.post("http://localhost:8082/render", files=files, data=values)
-# with open('network.svg', 'wb') as f:
+# with open('network_with_bg.svg', 'wb') as f:
 #     f.write(r.content)
 
 # files = {'file': open('Reaction_Species.xml','rb')}

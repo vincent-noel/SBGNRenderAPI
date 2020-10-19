@@ -1,4 +1,5 @@
 # A simple SBGN-ML renderering API
+![Test API](https://github.com/vincent-noel/SBGNRenderAPI/workflows/Test%20API/badge.svg) 
 
 This application is a simple REST API to render SBGN-ML files. Both synchronous and asynchronous requests are available.
 
