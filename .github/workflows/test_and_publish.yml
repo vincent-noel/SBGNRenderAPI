@@ -28,7 +28,7 @@ jobs:
         docker-compose up -d
     - name: Run test
       run: |
-        python -m unittest test.test_size
+        python -m unittest test
   
   deploy_python_lib:  
     needs: test

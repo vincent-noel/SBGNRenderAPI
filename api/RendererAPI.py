@@ -15,7 +15,7 @@ CORS(api, resources={r"/*": {"origins": "*"}})
 # def home():
 #     return send_file('index.html')
 
-def _render(folder, filename, format, scale, bg, max_width, max_height, quality, layout):
+def _render(folder, filename, format, scale, bg, max_width, max_height, quality, layout, verbose=False):
     
     extension = format if format is not None else "png"
     try :
@@ -28,7 +28,8 @@ def _render(folder, filename, format, scale, bg, max_width, max_height, quality,
             max_width = max_width,
             max_height = max_height,
             quality = quality,
-            layout = layout
+            layout = layout,
+            verbose = verbose
         )
            
     except SBGNNotParsedException as e:
@@ -44,7 +45,7 @@ def _render(folder, filename, format, scale, bg, max_width, max_height, quality,
             error_file.write("unknown error")
 
 class RenderingThread (threading.Thread):
-    def __init__(self, folder, filename, format, scale, bg, max_width, max_height, quality, layout):
+    def __init__(self, folder, filename, format, scale, bg, max_width, max_height, quality, layout, verbose=False):
         threading.Thread.__init__(self)
         self.request = request
         self.filename = filename
@@ -56,9 +57,10 @@ class RenderingThread (threading.Thread):
         self.quality = quality
         self.layout = layout
         self.folder = folder
+        self.verbose = verbose
 
     def run(self):
-        _render(self.folder, self.filename, self.format, self.scale, self.bg, self.max_width, self.max_height, self.quality, self.layout)
+        _render(self.folder, self.filename, self.format, self.scale, self.bg, self.max_width, self.max_height, self.quality, self.layout, self.verbose)
         return os.path.basename(self.folder)
     
 @api.route('/status/<path>')
