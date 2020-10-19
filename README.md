@@ -10,8 +10,8 @@ It is based on [Newt](https://github.com/iVis-at-Bilkent/newt), which is execute
 ## Run with docker and docker-compose
 
 ```
-git clone https://github.com/vincent-noel/newt.git
-cd newt
+git clone https://github.com/vincent-noel/SBGNRenderAPI.git
+cd SBGNRenderAPI
 sudo docker-compose up -d
 ```
 

@@ -1,6 +1,7 @@
-import requests, json, time
+import requests, json, time, os
 from PIL import Image
 import xml.etree.ElementTree as ET
+from unittest import TestCase
 
 def read_image_size(format, file):
     if format != "svg":
@@ -12,10 +13,6 @@ def read_image_size(format, file):
         root = tree.getroot()
         return int(float(root.attrib['width'])), int(float(root.attrib['height']))
 
-
-from unittest import TestCase
-
-
 class TestSize(TestCase):
     
     def test_size(self):
@@ -25,13 +22,14 @@ class TestSize(TestCase):
         result_scale_3 = 5256, 3504
         result_maxwidth_2000 = 2000, 1333
         result_maxwidth_4000 = 4000, 2666
+        sbgn_filename = os.path.join(os.path.basename(os.path.dirname(__file__)), "Reaction_Species.xml")
 
         formats = ["png", "jpg", "svg"]
     
         for format in formats:
             # Default
 
-            with open('Reaction_Species.xml','rb') as sbgn_file:
+            with open(sbgn_filename,'rb') as sbgn_file:
                 files = {'file': sbgn_file}
                 values = {'format': format}
                 r = requests.post("http://localhost:8082/render", files=files, data=values)
@@ -45,7 +43,7 @@ class TestSize(TestCase):
                 self.assertEqual(result_scale_1, read_image_size(format, 'network_default.' + format))
                 
             # With scale
-            with open('Reaction_Species.xml','rb') as sbgn_file:
+            with open(sbgn_filename,'rb') as sbgn_file:
                 files = {'file': sbgn_file}
                 values = {
                     'scale': 1, 'format': format
@@ -57,7 +55,7 @@ class TestSize(TestCase):
 
             self.assertEqual(result_scale_1, read_image_size(format, 'network_scale_1.' + format))
 
-            with open('Reaction_Species.xml','rb') as sbgn_file:
+            with open(sbgn_filename,'rb') as sbgn_file:
                 files = {'file': sbgn_file}
                 values = {
                     'scale': 2, 'format': format
@@ -70,7 +68,7 @@ class TestSize(TestCase):
             self.assertEqual(result_scale_2, read_image_size(format, 'network_scale_2.' + format))
 
             # With maxWidth
-            with open('Reaction_Species.xml','rb') as sbgn_file:
+            with open(sbgn_filename,'rb') as sbgn_file:
                 files = {'file': sbgn_file}
                 values = {
                     'max_width': 2000, 'max_height': 2000, 'format': format
@@ -83,7 +81,7 @@ class TestSize(TestCase):
             self.assertEqual(result_maxwidth_2000, read_image_size(format, 'network_maxwidth_2000.' + format))
 
 
-            with open('Reaction_Species.xml','rb') as sbgn_file:
+            with open(sbgn_filename,'rb') as sbgn_file:
                 files = {'file': sbgn_file}
                 values = {
                     'max_width': 4000, 'max_height': 4000, 'format': format
@@ -96,7 +94,7 @@ class TestSize(TestCase):
             self.assertEqual(result_maxwidth_4000, read_image_size(format, 'network_maxwidth_4000.' + format))
 
             # With both
-            with open('Reaction_Species.xml','rb') as sbgn_file:
+            with open(sbgn_filename,'rb') as sbgn_file:
                 files = {'file': sbgn_file}
                 values = {
                     'max_width': 2000, 'max_height': 2000, 'scale': 3,'format': format
@@ -108,7 +106,7 @@ class TestSize(TestCase):
 
             self.assertEqual(result_maxwidth_2000, read_image_size(format, 'network_maxwidth_2000_scale_3.' + format))
 
-            with open('Reaction_Species.xml','rb') as sbgn_file:
+            with open(sbgn_filename,'rb') as sbgn_file:
                 files = {'file': sbgn_file}
                 values = {
                     'max_width': 4000, 'max_height': 4000, 'scale': 3,'format': format

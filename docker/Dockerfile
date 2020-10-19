@@ -13,11 +13,9 @@ RUN pip3 install flask flask-cors selenium setuptools wheel
 
 WORKDIR /var/
 RUN mkdir /var/sbgn-rest-renderer
-# COPY app /var/sbgn-rest-renderer/app
 COPY api /var/sbgn-rest-renderer/api
 COPY sbgnrender /var/sbgn-rest-renderer/sbgnrender
-# COPY node_modules /var/sbgn-rest-renderer/node_nodules
-COPY LICENSE.md templatelibsbgn.xslt scripts/apache_config.sh setup.py /var/sbgn-rest-renderer/
+COPY LICENSE.md scripts/apache_config.sh setup.py /var/sbgn-rest-renderer/
 
 WORKDIR /var/sbgn-rest-renderer
 RUN cd sbgnrender \

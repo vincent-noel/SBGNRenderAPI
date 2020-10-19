@@ -13,18 +13,4 @@ services:
         
     ports: 
       - "8082:80"
-      - "9091:8081"
       
-  # newt-converter-dev:
-  #   build:
-  #     context: ./
-  #     dockerfile: docker/Dockerfile
-
-  #   image: newt-converter
-  #   container_name: newt-converter
-  #   restart: always
-        
-  #   ports: 
-  #     - "8081:80"
-    # volumes:
-    #   - .:/var/sbgn-rest-renderer

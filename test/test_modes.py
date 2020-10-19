@@ -1,12 +1,14 @@
-import requests, json, time
+import requests, json, time, os
 from unittest import TestCase
 
 class TestModes(TestCase):
     
+    
     def test_synchronous(self):
 
+        sbgn_filename = os.path.join(os.path.basename(os.path.dirname(__file__)), "Reaction_Species.xml")
         # Synchronous request
-        with open('Reaction_Species.xml','rb') as sbgn_file:
+        with open(sbgn_filename,'rb') as sbgn_file:
             files = {'file': sbgn_file}
             values = {}
 
@@ -16,9 +18,11 @@ class TestModes(TestCase):
 
     def test_asynchronous(self):
         
+        sbgn_filename = os.path.join(os.path.basename(os.path.dirname(__file__)), "Reaction_Species.xml")
+
         # Asynchronous request
         # Launching the rendering as asynchronous, and getting the id to check its status/requesting the renderer image
-        with open('Reaction_Species.xml','rb') as sbgn_file:
+        with open(sbgn_filename,'rb') as sbgn_file:
             files = {'file': sbgn_file}
             values = {'async': True}
 
