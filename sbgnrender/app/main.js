@@ -81,7 +81,7 @@ function registerRenderingEvents() {
       var quality = (urlParams.quality === undefined ? undefined : parseFloat(urlParams.quality));      
       
       if (format == "svg") {
-        chiseInstance.saveAsSvg("network.svg", scale=scale, bg=bg);
+        chiseInstance.saveAsSvg("network.svg", scale=scale, bg=bg, maxWidth=maxWidth, maxHeight=maxHeight);
         
       } else if (format == "jpg") {
         chiseInstance.saveAsJpg("network.jpg", scale=scale, bg=bg, maxWidth=maxWidth, maxHeight=maxHeight, quality=quality);
